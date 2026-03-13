@@ -1,0 +1,389 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://api-evangelist.com/schemas/amazon/vpc/vpc.json",
+  "title": "Amazon VPC",
+  "description": "Represents an Amazon Virtual Private Cloud (VPC) with its associated configuration, networking, and metadata.",
+  "type": "object",
+  "required": ["vpcId", "cidrBlock", "state"],
+  "properties": {
+    "vpcId": {
+      "type": "string",
+      "description": "The unique identifier for the VPC",
+      "pattern": "^vpc-[a-f0-9]{8,17}$"
+    },
+    "cidrBlock": {
+      "type": "string",
+      "description": "The primary IPv4 CIDR block for the VPC",
+      "pattern": "^([0-9]{1,3}\\.){3}[0-9]{1,3}/[0-9]{1,2}$"
+    },
+    "state": {
+      "type": "string",
+      "description": "The current state of the VPC",
+      "enum": ["pending", "available"]
+    },
+    "dhcpOptionsId": {
+      "type": "string",
+      "description": "The ID of the set of DHCP options associated with the VPC",
+      "pattern": "^dopt-[a-f0-9]{8,17}$"
+    },
+    "instanceTenancy": {
+      "type": "string",
+      "description": "The allowed tenancy of instances launched into the VPC",
+      "enum": ["default", "dedicated", "host"]
+    },
+    "isDefault": {
+      "type": "boolean",
+      "description": "Indicates whether the VPC is the default VPC"
+    },
+    "ownerId": {
+      "type": "string",
+      "description": "The ID of the AWS account that owns the VPC"
+    },
+    "cidrBlockAssociationSet": {
+      "type": "array",
+      "description": "Information about the IPv4 CIDR blocks associated with the VPC",
+      "items": {
+        "$ref": "#/$defs/CidrBlockAssociation"
+      }
+    },
+    "ipv6CidrBlockAssociationSet": {
+      "type": "array",
+      "description": "Information about the IPv6 CIDR blocks associated with the VPC",
+      "items": {
+        "$ref": "#/$defs/Ipv6CidrBlockAssociation"
+      }
+    },
+    "subnets": {
+      "type": "array",
+      "description": "The subnets within the VPC",
+      "items": {
+        "$ref": "#/$defs/Subnet"
+      }
+    },
+    "internetGateways": {
+      "type": "array",
+      "description": "Internet gateways attached to the VPC",
+      "items": {
+        "$ref": "#/$defs/InternetGateway"
+      }
+    },
+    "natGateways": {
+      "type": "array",
+      "description": "NAT gateways in the VPC",
+      "items": {
+        "$ref": "#/$defs/NatGateway"
+      }
+    },
+    "routeTables": {
+      "type": "array",
+      "description": "Route tables associated with the VPC",
+      "items": {
+        "$ref": "#/$defs/RouteTable"
+      }
+    },
+    "networkAcls": {
+      "type": "array",
+      "description": "Network ACLs associated with the VPC",
+      "items": {
+        "$ref": "#/$defs/NetworkAcl"
+      }
+    },
+    "tags": {
+      "type": "array",
+      "description": "Tags assigned to the VPC",
+      "items": {
+        "$ref": "#/$defs/Tag"
+      }
+    }
+  },
+  "$defs": {
+    "CidrBlockAssociation": {
+      "type": "object",
+      "description": "Describes an IPv4 CIDR block associated with a VPC",
+      "properties": {
+        "associationId": {
+          "type": "string",
+          "description": "The association ID for the IPv4 CIDR block"
+        },
+        "cidrBlock": {
+          "type": "string",
+          "description": "The IPv4 CIDR block"
+        },
+        "cidrBlockState": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "enum": ["associating", "associated", "disassociating", "disassociated", "failing", "failed"]
+            }
+          }
+        }
+      }
+    },
+    "Ipv6CidrBlockAssociation": {
+      "type": "object",
+      "description": "Describes an IPv6 CIDR block associated with a VPC",
+      "properties": {
+        "associationId": {
+          "type": "string",
+          "description": "The association ID for the IPv6 CIDR block"
+        },
+        "ipv6CidrBlock": {
+          "type": "string",
+          "description": "The IPv6 CIDR block"
+        },
+        "ipv6CidrBlockState": {
+          "type": "object",
+          "properties": {
+            "state": {
+              "type": "string",
+              "enum": ["associating", "associated", "disassociating", "disassociated", "failing", "failed"]
+            }
+          }
+        }
+      }
+    },
+    "Subnet": {
+      "type": "object",
+      "description": "Describes a subnet within a VPC",
+      "properties": {
+        "subnetId": {
+          "type": "string",
+          "description": "The ID of the subnet",
+          "pattern": "^subnet-[a-f0-9]{8,17}$"
+        },
+        "subnetArn": {
+          "type": "string",
+          "description": "The Amazon Resource Name (ARN) of the subnet"
+        },
+        "vpcId": {
+          "type": "string",
+          "description": "The ID of the VPC the subnet is in"
+        },
+        "cidrBlock": {
+          "type": "string",
+          "description": "The IPv4 CIDR block assigned to the subnet"
+        },
+        "availabilityZone": {
+          "type": "string",
+          "description": "The Availability Zone of the subnet"
+        },
+        "availabilityZoneId": {
+          "type": "string",
+          "description": "The AZ ID of the subnet"
+        },
+        "state": {
+          "type": "string",
+          "description": "The current state of the subnet",
+          "enum": ["pending", "available"]
+        },
+        "availableIpAddressCount": {
+          "type": "integer",
+          "description": "The number of unused private IPv4 addresses in the subnet"
+        },
+        "defaultForAz": {
+          "type": "boolean",
+          "description": "Indicates whether this is the default subnet for the AZ"
+        },
+        "mapPublicIpOnLaunch": {
+          "type": "boolean",
+          "description": "Indicates whether instances get a public IPv4 address on launch"
+        }
+      },
+      "required": ["subnetId", "vpcId", "cidrBlock"]
+    },
+    "InternetGateway": {
+      "type": "object",
+      "description": "Describes an internet gateway",
+      "properties": {
+        "internetGatewayId": {
+          "type": "string",
+          "description": "The ID of the internet gateway",
+          "pattern": "^igw-[a-f0-9]{8,17}$"
+        },
+        "attachments": {
+          "type": "array",
+          "description": "Any VPCs attached to the internet gateway",
+          "items": {
+            "type": "object",
+            "properties": {
+              "state": {
+                "type": "string",
+                "enum": ["attaching", "attached", "detaching", "detached"]
+              },
+              "vpcId": {
+                "type": "string"
+              }
+            }
+          }
+        },
+        "ownerId": {
+          "type": "string",
+          "description": "The ID of the AWS account that owns the internet gateway"
+        }
+      },
+      "required": ["internetGatewayId"]
+    },
+    "NatGateway": {
+      "type": "object",
+      "description": "Describes a NAT gateway",
+      "properties": {
+        "natGatewayId": {
+          "type": "string",
+          "description": "The ID of the NAT gateway",
+          "pattern": "^nat-[a-f0-9]{8,17}$"
+        },
+        "subnetId": {
+          "type": "string",
+          "description": "The ID of the subnet in which the NAT gateway is located"
+        },
+        "vpcId": {
+          "type": "string",
+          "description": "The ID of the VPC in which the NAT gateway is located"
+        },
+        "state": {
+          "type": "string",
+          "description": "The state of the NAT gateway",
+          "enum": ["pending", "failed", "available", "deleting", "deleted"]
+        },
+        "connectivityType": {
+          "type": "string",
+          "description": "Indicates whether the NAT gateway supports public or private connectivity",
+          "enum": ["public", "private"]
+        },
+        "createTime": {
+          "type": "string",
+          "format": "date-time",
+          "description": "The date and time the NAT gateway was created"
+        }
+      },
+      "required": ["natGatewayId", "subnetId"]
+    },
+    "RouteTable": {
+      "type": "object",
+      "description": "Describes a route table",
+      "properties": {
+        "routeTableId": {
+          "type": "string",
+          "description": "The ID of the route table",
+          "pattern": "^rtb-[a-f0-9]{8,17}$"
+        },
+        "vpcId": {
+          "type": "string",
+          "description": "The ID of the VPC"
+        },
+        "routes": {
+          "type": "array",
+          "description": "The routes in the route table",
+          "items": {
+            "type": "object",
+            "properties": {
+              "destinationCidrBlock": {
+                "type": "string"
+              },
+              "gatewayId": {
+                "type": "string"
+              },
+              "natGatewayId": {
+                "type": "string"
+              },
+              "state": {
+                "type": "string",
+                "enum": ["active", "blackhole"]
+              },
+              "origin": {
+                "type": "string",
+                "enum": ["CreateRouteTable", "CreateRoute", "EnableVgwRoutePropagation"]
+              }
+            }
+          }
+        },
+        "associations": {
+          "type": "array",
+          "description": "The associations between the route table and subnets",
+          "items": {
+            "type": "object",
+            "properties": {
+              "routeTableAssociationId": {
+                "type": "string"
+              },
+              "subnetId": {
+                "type": "string"
+              },
+              "main": {
+                "type": "boolean"
+              }
+            }
+          }
+        }
+      },
+      "required": ["routeTableId", "vpcId"]
+    },
+    "NetworkAcl": {
+      "type": "object",
+      "description": "Describes a network ACL",
+      "properties": {
+        "networkAclId": {
+          "type": "string",
+          "description": "The ID of the network ACL",
+          "pattern": "^acl-[a-f0-9]{8,17}$"
+        },
+        "vpcId": {
+          "type": "string",
+          "description": "The ID of the VPC for the network ACL"
+        },
+        "isDefault": {
+          "type": "boolean",
+          "description": "Indicates whether this is the default network ACL for the VPC"
+        },
+        "entries": {
+          "type": "array",
+          "description": "The entries (rules) in the network ACL",
+          "items": {
+            "type": "object",
+            "properties": {
+              "ruleNumber": {
+                "type": "integer",
+                "description": "The rule number for the entry"
+              },
+              "protocol": {
+                "type": "string",
+                "description": "The protocol number (-1 means all)"
+              },
+              "ruleAction": {
+                "type": "string",
+                "enum": ["allow", "deny"]
+              },
+              "egress": {
+                "type": "boolean",
+                "description": "Indicates whether this is an egress rule"
+              },
+              "cidrBlock": {
+                "type": "string",
+                "description": "The IPv4 CIDR range"
+              }
+            }
+          }
+        }
+      },
+      "required": ["networkAclId", "vpcId"]
+    },
+    "Tag": {
+      "type": "object",
+      "description": "Describes a resource tag",
+      "properties": {
+        "key": {
+          "type": "string",
+          "description": "The key of the tag",
+          "maxLength": 128
+        },
+        "value": {
+          "type": "string",
+          "description": "The value of the tag",
+          "maxLength": 256
+        }
+      },
+      "required": ["key"]
+    }
+  }
+}

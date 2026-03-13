@@ -1,0 +1,127 @@
+{
+  "@context": {
+    "@version": 1.1,
+    "vpc": "https://docs.aws.amazon.com/AWSEC2/latest/APIReference/",
+    "schema": "https://schema.org/",
+    "xsd": "http://www.w3.org/2001/XMLSchema#",
+    "dcterms": "http://purl.org/dc/terms/",
+
+    "Vpc": {
+      "@id": "vpc:Vpc",
+      "@context": {
+        "vpcId": "vpc:vpcId",
+        "cidrBlock": "vpc:cidrBlock",
+        "state": "vpc:state",
+        "dhcpOptionsId": "vpc:dhcpOptionsId",
+        "instanceTenancy": "vpc:instanceTenancy",
+        "isDefault": "vpc:isDefault",
+        "ownerId": "vpc:ownerId",
+        "tags": {
+          "@id": "vpc:tags",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "Subnet": {
+      "@id": "vpc:Subnet",
+      "@context": {
+        "subnetId": "vpc:subnetId",
+        "subnetArn": "vpc:subnetArn",
+        "vpcId": "vpc:vpcId",
+        "cidrBlock": "vpc:cidrBlock",
+        "availabilityZone": "vpc:availabilityZone",
+        "availabilityZoneId": "vpc:availabilityZoneId",
+        "state": "vpc:state",
+        "availableIpAddressCount": "vpc:availableIpAddressCount",
+        "defaultForAz": "vpc:defaultForAz",
+        "mapPublicIpOnLaunch": "vpc:mapPublicIpOnLaunch",
+        "tags": {
+          "@id": "vpc:tags",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "InternetGateway": {
+      "@id": "vpc:InternetGateway",
+      "@context": {
+        "internetGatewayId": "vpc:internetGatewayId",
+        "attachments": {
+          "@id": "vpc:attachments",
+          "@container": "@set"
+        },
+        "ownerId": "vpc:ownerId",
+        "tags": {
+          "@id": "vpc:tags",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "NatGateway": {
+      "@id": "vpc:NatGateway",
+      "@context": {
+        "natGatewayId": "vpc:natGatewayId",
+        "subnetId": "vpc:subnetId",
+        "vpcId": "vpc:vpcId",
+        "state": "vpc:state",
+        "connectivityType": "vpc:connectivityType",
+        "createTime": {
+          "@id": "dcterms:created",
+          "@type": "xsd:dateTime"
+        },
+        "natGatewayAddresses": {
+          "@id": "vpc:natGatewayAddresses",
+          "@container": "@set"
+        },
+        "tags": {
+          "@id": "vpc:tags",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "RouteTable": {
+      "@id": "vpc:RouteTable",
+      "@context": {
+        "routeTableId": "vpc:routeTableId",
+        "vpcId": "vpc:vpcId",
+        "routes": {
+          "@id": "vpc:routes",
+          "@container": "@set"
+        },
+        "associations": {
+          "@id": "vpc:associations",
+          "@container": "@set"
+        },
+        "ownerId": "vpc:ownerId",
+        "tags": {
+          "@id": "vpc:tags",
+          "@container": "@set"
+        }
+      }
+    },
+
+    "NetworkAcl": {
+      "@id": "vpc:NetworkAcl",
+      "@context": {
+        "networkAclId": "vpc:networkAclId",
+        "vpcId": "vpc:vpcId",
+        "isDefault": "vpc:isDefault",
+        "entries": {
+          "@id": "vpc:entries",
+          "@container": "@set"
+        },
+        "associations": {
+          "@id": "vpc:associations",
+          "@container": "@set"
+        },
+        "tags": {
+          "@id": "vpc:tags",
+          "@container": "@set"
+        }
+      }
+    }
+  }
+}
