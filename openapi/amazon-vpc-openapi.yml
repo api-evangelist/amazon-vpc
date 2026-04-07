@@ -40,7 +40,7 @@ paths:
   /?Action=CreateVpc:
     get:
       operationId: createVpc
-      summary: Create a VPC
+      summary: Amazon VPC Create a VPC
       description: >-
         Creates a VPC with the specified IPv4 CIDR block. The smallest VPC
         you can create uses a /28 netmask (16 IPv4 addresses), and the largest
@@ -85,7 +85,7 @@ paths:
   /?Action=DescribeVpcs:
     get:
       operationId: describeVpcs
-      summary: Describe VPCs
+      summary: Amazon VPC Describe VPCs
       description: >-
         Describes one or more of your VPCs. Returns information about the
         VPC including the CIDR block, DHCP options set, state, and tags.
@@ -132,7 +132,7 @@ paths:
   /?Action=DeleteVpc:
     get:
       operationId: deleteVpc
-      summary: Delete a VPC
+      summary: Amazon VPC Delete a VPC
       description: >-
         Deletes the specified VPC. You must detach or delete all gateways and
         resources that are associated with the VPC before you can delete it.
@@ -156,7 +156,7 @@ paths:
   /?Action=ModifyVpcAttribute:
     get:
       operationId: modifyVpcAttribute
-      summary: Modify a VPC attribute
+      summary: Amazon VPC Modify a VPC attribute
       description: >-
         Modifies the specified attribute of the specified VPC. You can modify
         the DNS resolution and DNS hostname attributes.
@@ -189,7 +189,7 @@ paths:
   /?Action=CreateSubnet:
     get:
       operationId: createSubnet
-      summary: Create a subnet
+      summary: Amazon VPC Create a subnet
       description: >-
         Creates a subnet in the specified VPC. The new subnet must have a CIDR
         block that is within the VPC CIDR block. You can optionally specify an
@@ -233,7 +233,7 @@ paths:
   /?Action=DescribeSubnets:
     get:
       operationId: describeSubnets
-      summary: Describe subnets
+      summary: Amazon VPC Describe subnets
       description: >-
         Describes one or more of your subnets. Returns information about the
         subnet including the CIDR block, Availability Zone, VPC, and state.
@@ -280,7 +280,7 @@ paths:
   /?Action=DeleteSubnet:
     get:
       operationId: deleteSubnet
-      summary: Delete a subnet
+      summary: Amazon VPC Delete a subnet
       description: >-
         Deletes the specified subnet. You must terminate all running instances
         in the subnet before you can delete the subnet.
@@ -303,7 +303,7 @@ paths:
   /?Action=CreateInternetGateway:
     get:
       operationId: createInternetGateway
-      summary: Create an internet gateway
+      summary: Amazon VPC Create an internet gateway
       description: >-
         Creates an internet gateway for use with a VPC. After creating the
         internet gateway, you attach it to a VPC using AttachInternetGateway.
@@ -324,7 +324,7 @@ paths:
   /?Action=AttachInternetGateway:
     get:
       operationId: attachInternetGateway
-      summary: Attach an internet gateway to a VPC
+      summary: Amazon VPC Attach an internet gateway to a VPC
       description: >-
         Attaches an internet gateway or a virtual private gateway to a VPC,
         enabling connectivity between the internet and the VPC.
@@ -353,7 +353,7 @@ paths:
   /?Action=CreateNatGateway:
     get:
       operationId: createNatGateway
-      summary: Create a NAT gateway
+      summary: Amazon VPC Create a NAT gateway
       description: >-
         Creates a NAT gateway in the specified subnet. A NAT gateway enables
         instances in a private subnet to connect to the internet or other
@@ -395,7 +395,7 @@ paths:
   /?Action=DescribeNatGateways:
     get:
       operationId: describeNatGateways
-      summary: Describe NAT gateways
+      summary: Amazon VPC Describe NAT gateways
       description: >-
         Describes one or more of your NAT gateways. Returns information about
         the NAT gateway including its state, subnet, and associated Elastic
@@ -439,7 +439,7 @@ paths:
   /?Action=CreateRouteTable:
     get:
       operationId: createRouteTable
-      summary: Create a route table
+      summary: Amazon VPC Create a route table
       description: >-
         Creates a route table for the specified VPC. After you create a route
         table, you can add routes and associate the table with a subnet.
@@ -466,7 +466,7 @@ paths:
   /?Action=DescribeRouteTables:
     get:
       operationId: describeRouteTables
-      summary: Describe route tables
+      summary: Amazon VPC Describe route tables
       description: >-
         Describes one or more of your route tables. Each subnet in your VPC
         must be associated with a route table, which controls the routing
@@ -510,7 +510,7 @@ paths:
   /?Action=CreateRoute:
     get:
       operationId: createRoute
-      summary: Create a route in a route table
+      summary: Amazon VPC Create a route in a route table
       description: >-
         Creates a route in a route table within a VPC. You must specify either
         a destination CIDR block or a prefix list ID. You must also specify
@@ -554,7 +554,7 @@ paths:
   /?Action=AssociateRouteTable:
     get:
       operationId: associateRouteTable
-      summary: Associate a route table with a subnet
+      summary: Amazon VPC Associate a route table with a subnet
       description: >-
         Associates a subnet or gateway with a route table. The subnet and
         route table must be in the same VPC. This association causes traffic
@@ -588,7 +588,7 @@ paths:
   /?Action=CreateNetworkAcl:
     get:
       operationId: createNetworkAcl
-      summary: Create a network ACL
+      summary: Amazon VPC Create a network ACL
       description: >-
         Creates a network ACL in a VPC. Network ACLs provide an optional
         layer of security for your VPC that acts as a firewall for controlling
@@ -612,7 +612,7 @@ paths:
   /?Action=DescribeNetworkAcls:
     get:
       operationId: describeNetworkAcls
-      summary: Describe network ACLs
+      summary: Amazon VPC Describe network ACLs
       description: >-
         Describes one or more of your network ACLs. A network ACL is an
         optional layer of security for your VPC that acts as a firewall
