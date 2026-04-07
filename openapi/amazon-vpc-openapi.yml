@@ -22,18 +22,18 @@ servers:
         default: us-east-1
         description: AWS Region
 tags:
-  - name: VPCs
-    description: Operations for creating and managing Virtual Private Clouds
-  - name: Subnets
-    description: Operations for creating and managing subnets within a VPC
   - name: Internet Gateways
     description: Operations for managing internet gateways that connect VPCs to the internet
   - name: NAT Gateways
     description: Operations for managing NAT gateways for outbound internet access from private subnets
-  - name: Route Tables
-    description: Operations for managing route tables and routes within a VPC
   - name: Network ACLs
     description: Operations for managing network access control lists for subnet-level traffic filtering
+  - name: Route Tables
+    description: Operations for managing route tables and routes within a VPC
+  - name: Subnets
+    description: Operations for creating and managing subnets within a VPC
+  - name: VPCs
+    description: Operations for creating and managing Virtual Private Clouds
 security:
   - sigv4Auth: []
 paths:
