@@ -15,27 +15,27 @@ externalDocs:
   description: Amazon VPC API Reference
   url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html
 servers:
-  - url: https://ec2.{region}.amazonaws.com
-    description: Amazon EC2 Regional Endpoint (VPC operations)
-    variables:
-      region:
-        default: us-east-1
-        description: AWS Region
+- url: https://ec2.{region}.amazonaws.com
+  description: Amazon EC2 Regional Endpoint (VPC operations)
+  variables:
+    region:
+      default: us-east-1
+      description: AWS Region
 tags:
-  - name: Internet Gateways
-    description: Operations for managing internet gateways that connect VPCs to the internet
-  - name: NAT Gateways
-    description: Operations for managing NAT gateways for outbound internet access from private subnets
-  - name: Network ACLs
-    description: Operations for managing network access control lists for subnet-level traffic filtering
-  - name: Route Tables
-    description: Operations for managing route tables and routes within a VPC
-  - name: Subnets
-    description: Operations for creating and managing subnets within a VPC
-  - name: VPCs
-    description: Operations for creating and managing Virtual Private Clouds
+- name: Internet Gateways
+  description: Operations for managing internet gateways that connect VPCs to the internet
+- name: NAT Gateways
+  description: Operations for managing NAT gateways for outbound internet access from private subnets
+- name: Network ACLs
+  description: Operations for managing network access control lists for subnet-level traffic filtering
+- name: Route Tables
+  description: Operations for managing route tables and routes within a VPC
+- name: Subnets
+  description: Operations for creating and managing subnets within a VPC
+- name: VPCs
+  description: Operations for creating and managing Virtual Private Clouds
 security:
-  - sigv4Auth: []
+- sigv4Auth: []
 paths:
   /?Action=CreateVpc:
     get:
@@ -47,28 +47,31 @@ paths:
         uses a /16 netmask (65,536 IPv4 addresses). After creating the VPC,
         you can add one or more subnets.
       tags:
-        - VPCs
+      - VPCs
       parameters:
-        - name: CidrBlock
-          in: query
-          required: true
-          description: The IPv4 network range for the VPC in CIDR notation (e.g., 10.0.0.0/16)
-          schema:
-            type: string
-        - name: AmazonProvidedIpv6CidrBlock
-          in: query
-          description: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length
-          schema:
-            type: boolean
-        - name: InstanceTenancy
-          in: query
-          description: The tenancy options for instances launched into the VPC
-          schema:
-            type: string
-            enum:
-              - default
-              - dedicated
-              - host
+      - name: CidrBlock
+        in: query
+        required: true
+        description: The IPv4 network range for the VPC in CIDR notation (e.g., 10.0.0.0/16)
+        schema:
+          type: string
+        example: example-id
+      - name: AmazonProvidedIpv6CidrBlock
+        in: query
+        description: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length
+        schema:
+          type: boolean
+        example: true
+      - name: InstanceTenancy
+        in: query
+        description: The tenancy options for instances launched into the VPC
+        schema:
+          type: string
+          enum:
+          - default
+          - dedicated
+          - host
+        example: default
       responses:
         '200':
           description: Successfully created VPC
@@ -82,6 +85,9 @@ paths:
           description: Authentication failure
         '403':
           description: Authorization failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=DescribeVpcs:
     get:
       operationId: describeVpcs
@@ -90,34 +96,38 @@ paths:
         Describes one or more of your VPCs. Returns information about the
         VPC including the CIDR block, DHCP options set, state, and tags.
       tags:
-        - VPCs
+      - VPCs
       parameters:
-        - name: VpcId
-          in: query
-          description: The IDs of the VPCs to describe
-          schema:
-            type: array
-            items:
-              type: string
-        - name: Filter
-          in: query
-          description: Filters to apply to the results
-          schema:
-            type: array
-            items:
-              type: string
-        - name: MaxResults
-          in: query
-          description: Maximum number of results to return
-          schema:
-            type: integer
-            minimum: 5
-            maximum: 1000
-        - name: NextToken
-          in: query
-          description: Token for the next page of results
-          schema:
+      - name: VpcId
+        in: query
+        description: The IDs of the VPCs to describe
+        schema:
+          type: array
+          items:
             type: string
+        example: example-id
+      - name: Filter
+        in: query
+        description: Filters to apply to the results
+        schema:
+          type: array
+          items:
+            type: string
+        example: example
+      - name: MaxResults
+        in: query
+        description: Maximum number of results to return
+        schema:
+          type: integer
+          minimum: 5
+          maximum: 1000
+        example: 1
+      - name: NextToken
+        in: query
+        description: Token for the next page of results
+        schema:
+          type: string
+        example: example
       responses:
         '200':
           description: Successfully described VPCs
@@ -129,6 +139,9 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=DeleteVpc:
     get:
       operationId: deleteVpc
@@ -138,14 +151,15 @@ paths:
         resources that are associated with the VPC before you can delete it.
         You must also delete all subnets associated with the VPC.
       tags:
-        - VPCs
+      - VPCs
       parameters:
-        - name: VpcId
-          in: query
-          required: true
-          description: The ID of the VPC to delete
-          schema:
-            type: string
+      - name: VpcId
+        in: query
+        required: true
+        description: The ID of the VPC to delete
+        schema:
+          type: string
+        example: example-id
       responses:
         '200':
           description: Successfully deleted VPC
@@ -153,32 +167,38 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=ModifyVpcAttribute:
     get:
       operationId: modifyVpcAttribute
-      summary: Amazon VPC Modify a VPC attribute
+      summary: Amazon VPC Modify a VPC Attribute
       description: >-
         Modifies the specified attribute of the specified VPC. You can modify
         the DNS resolution and DNS hostname attributes.
       tags:
-        - VPCs
+      - VPCs
       parameters:
-        - name: VpcId
-          in: query
-          required: true
-          description: The ID of the VPC
-          schema:
-            type: string
-        - name: EnableDnsSupport.Value
-          in: query
-          description: Indicates whether DNS resolution is supported for the VPC
-          schema:
-            type: boolean
-        - name: EnableDnsHostnames.Value
-          in: query
-          description: Indicates whether instances launched in the VPC get DNS hostnames
-          schema:
-            type: boolean
+      - name: VpcId
+        in: query
+        required: true
+        description: The ID of the VPC
+        schema:
+          type: string
+        example: example-id
+      - name: EnableDnsSupport.Value
+        in: query
+        description: Indicates whether DNS resolution is supported for the VPC
+        schema:
+          type: boolean
+        example: true
+      - name: EnableDnsHostnames.Value
+        in: query
+        description: Indicates whether instances launched in the VPC get DNS hostnames
+        schema:
+          type: boolean
+        example: true
       responses:
         '200':
           description: Successfully modified VPC attribute
@@ -186,39 +206,46 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=CreateSubnet:
     get:
       operationId: createSubnet
-      summary: Amazon VPC Create a subnet
+      summary: Amazon VPC Create a Subnet
       description: >-
         Creates a subnet in the specified VPC. The new subnet must have a CIDR
         block that is within the VPC CIDR block. You can optionally specify an
         Availability Zone in which to create the subnet.
       tags:
-        - Subnets
+      - Subnets
       parameters:
-        - name: VpcId
-          in: query
-          required: true
-          description: The ID of the VPC
-          schema:
-            type: string
-        - name: CidrBlock
-          in: query
-          required: true
-          description: The IPv4 network range for the subnet in CIDR notation
-          schema:
-            type: string
-        - name: AvailabilityZone
-          in: query
-          description: The Availability Zone or Local Zone for the subnet
-          schema:
-            type: string
-        - name: Ipv6CidrBlock
-          in: query
-          description: The IPv6 network range for the subnet in CIDR notation
-          schema:
-            type: string
+      - name: VpcId
+        in: query
+        required: true
+        description: The ID of the VPC
+        schema:
+          type: string
+        example: example-id
+      - name: CidrBlock
+        in: query
+        required: true
+        description: The IPv4 network range for the subnet in CIDR notation
+        schema:
+          type: string
+        example: example-id
+      - name: AvailabilityZone
+        in: query
+        description: The Availability Zone or Local Zone for the subnet
+        schema:
+          type: string
+        example: example
+      - name: Ipv6CidrBlock
+        in: query
+        description: The IPv6 network range for the subnet in CIDR notation
+        schema:
+          type: string
+        example: example-id
       responses:
         '200':
           description: Successfully created subnet
@@ -230,42 +257,49 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=DescribeSubnets:
     get:
       operationId: describeSubnets
-      summary: Amazon VPC Describe subnets
+      summary: Amazon VPC Describe Subnets
       description: >-
         Describes one or more of your subnets. Returns information about the
         subnet including the CIDR block, Availability Zone, VPC, and state.
       tags:
-        - Subnets
+      - Subnets
       parameters:
-        - name: SubnetId
-          in: query
-          description: The IDs of the subnets to describe
-          schema:
-            type: array
-            items:
-              type: string
-        - name: Filter
-          in: query
-          description: Filters to apply to the results
-          schema:
-            type: array
-            items:
-              type: string
-        - name: MaxResults
-          in: query
-          description: Maximum number of results to return
-          schema:
-            type: integer
-            minimum: 5
-            maximum: 1000
-        - name: NextToken
-          in: query
-          description: Token for the next page of results
-          schema:
+      - name: SubnetId
+        in: query
+        description: The IDs of the subnets to describe
+        schema:
+          type: array
+          items:
             type: string
+        example: example-id
+      - name: Filter
+        in: query
+        description: Filters to apply to the results
+        schema:
+          type: array
+          items:
+            type: string
+        example: example
+      - name: MaxResults
+        in: query
+        description: Maximum number of results to return
+        schema:
+          type: integer
+          minimum: 5
+          maximum: 1000
+        example: 1
+      - name: NextToken
+        in: query
+        description: Token for the next page of results
+        schema:
+          type: string
+        example: example
       responses:
         '200':
           description: Successfully described subnets
@@ -277,22 +311,26 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=DeleteSubnet:
     get:
       operationId: deleteSubnet
-      summary: Amazon VPC Delete a subnet
+      summary: Amazon VPC Delete a Subnet
       description: >-
         Deletes the specified subnet. You must terminate all running instances
         in the subnet before you can delete the subnet.
       tags:
-        - Subnets
+      - Subnets
       parameters:
-        - name: SubnetId
-          in: query
-          required: true
-          description: The ID of the subnet to delete
-          schema:
-            type: string
+      - name: SubnetId
+        in: query
+        required: true
+        description: The ID of the subnet to delete
+        schema:
+          type: string
+        example: example-id
       responses:
         '200':
           description: Successfully deleted subnet
@@ -300,15 +338,18 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=CreateInternetGateway:
     get:
       operationId: createInternetGateway
-      summary: Amazon VPC Create an internet gateway
+      summary: Amazon VPC Create an Internet Gateway
       description: >-
         Creates an internet gateway for use with a VPC. After creating the
         internet gateway, you attach it to a VPC using AttachInternetGateway.
       tags:
-        - Internet Gateways
+      - Internet Gateways
       parameters: []
       responses:
         '200':
@@ -321,28 +362,33 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=AttachInternetGateway:
     get:
       operationId: attachInternetGateway
-      summary: Amazon VPC Attach an internet gateway to a VPC
+      summary: Amazon VPC Attach an Internet Gateway to a VPC
       description: >-
         Attaches an internet gateway or a virtual private gateway to a VPC,
         enabling connectivity between the internet and the VPC.
       tags:
-        - Internet Gateways
+      - Internet Gateways
       parameters:
-        - name: InternetGatewayId
-          in: query
-          required: true
-          description: The ID of the internet gateway
-          schema:
-            type: string
-        - name: VpcId
-          in: query
-          required: true
-          description: The ID of the VPC
-          schema:
-            type: string
+      - name: InternetGatewayId
+        in: query
+        required: true
+        description: The ID of the internet gateway
+        schema:
+          type: string
+        example: example-id
+      - name: VpcId
+        in: query
+        required: true
+        description: The ID of the VPC
+        schema:
+          type: string
+        example: example-id
       responses:
         '200':
           description: Successfully attached internet gateway
@@ -350,37 +396,43 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=CreateNatGateway:
     get:
       operationId: createNatGateway
-      summary: Amazon VPC Create a NAT gateway
+      summary: Amazon VPC Create a NAT Gateway
       description: >-
         Creates a NAT gateway in the specified subnet. A NAT gateway enables
         instances in a private subnet to connect to the internet or other
         AWS services, but prevents the internet from initiating a connection
         with those instances.
       tags:
-        - NAT Gateways
+      - NAT Gateways
       parameters:
-        - name: SubnetId
-          in: query
-          required: true
-          description: The ID of the subnet in which to create the NAT gateway
-          schema:
-            type: string
-        - name: AllocationId
-          in: query
-          description: The allocation ID of an Elastic IP address to associate with the NAT gateway
-          schema:
-            type: string
-        - name: ConnectivityType
-          in: query
-          description: Indicates whether the NAT gateway supports public or private connectivity
-          schema:
-            type: string
-            enum:
-              - public
-              - private
+      - name: SubnetId
+        in: query
+        required: true
+        description: The ID of the subnet in which to create the NAT gateway
+        schema:
+          type: string
+        example: example-id
+      - name: AllocationId
+        in: query
+        description: The allocation ID of an Elastic IP address to associate with the NAT gateway
+        schema:
+          type: string
+        example: example-id
+      - name: ConnectivityType
+        in: query
+        description: Indicates whether the NAT gateway supports public or private connectivity
+        schema:
+          type: string
+          enum:
+          - public
+          - private
+        example: public
       responses:
         '200':
           description: Successfully created NAT gateway
@@ -392,43 +444,50 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=DescribeNatGateways:
     get:
       operationId: describeNatGateways
-      summary: Amazon VPC Describe NAT gateways
+      summary: Amazon VPC Describe NAT Gateways
       description: >-
         Describes one or more of your NAT gateways. Returns information about
         the NAT gateway including its state, subnet, and associated Elastic
         IP address.
       tags:
-        - NAT Gateways
+      - NAT Gateways
       parameters:
-        - name: NatGatewayId
-          in: query
-          description: The IDs of the NAT gateways to describe
-          schema:
-            type: array
-            items:
-              type: string
-        - name: Filter
-          in: query
-          description: Filters to apply to the results
-          schema:
-            type: array
-            items:
-              type: string
-        - name: MaxResults
-          in: query
-          description: Maximum number of results to return
-          schema:
-            type: integer
-            minimum: 5
-            maximum: 1000
-        - name: NextToken
-          in: query
-          description: Token for the next page of results
-          schema:
+      - name: NatGatewayId
+        in: query
+        description: The IDs of the NAT gateways to describe
+        schema:
+          type: array
+          items:
             type: string
+        example: example-id
+      - name: Filter
+        in: query
+        description: Filters to apply to the results
+        schema:
+          type: array
+          items:
+            type: string
+        example: example
+      - name: MaxResults
+        in: query
+        description: Maximum number of results to return
+        schema:
+          type: integer
+          minimum: 5
+          maximum: 1000
+        example: 1
+      - name: NextToken
+        in: query
+        description: Token for the next page of results
+        schema:
+          type: string
+        example: example
       responses:
         '200':
           description: Successfully described NAT gateways
@@ -436,22 +495,26 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=CreateRouteTable:
     get:
       operationId: createRouteTable
-      summary: Amazon VPC Create a route table
+      summary: Amazon VPC Create a Route Table
       description: >-
         Creates a route table for the specified VPC. After you create a route
         table, you can add routes and associate the table with a subnet.
       tags:
-        - Route Tables
+      - Route Tables
       parameters:
-        - name: VpcId
-          in: query
-          required: true
-          description: The ID of the VPC
-          schema:
-            type: string
+      - name: VpcId
+        in: query
+        required: true
+        description: The ID of the VPC
+        schema:
+          type: string
+        example: example-id
       responses:
         '200':
           description: Successfully created route table
@@ -463,43 +526,50 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=DescribeRouteTables:
     get:
       operationId: describeRouteTables
-      summary: Amazon VPC Describe route tables
+      summary: Amazon VPC Describe Route Tables
       description: >-
         Describes one or more of your route tables. Each subnet in your VPC
         must be associated with a route table, which controls the routing
         for the subnet.
       tags:
-        - Route Tables
+      - Route Tables
       parameters:
-        - name: RouteTableId
-          in: query
-          description: The IDs of the route tables to describe
-          schema:
-            type: array
-            items:
-              type: string
-        - name: Filter
-          in: query
-          description: Filters to apply to the results
-          schema:
-            type: array
-            items:
-              type: string
-        - name: MaxResults
-          in: query
-          description: Maximum number of results to return
-          schema:
-            type: integer
-            minimum: 5
-            maximum: 1000
-        - name: NextToken
-          in: query
-          description: Token for the next page of results
-          schema:
+      - name: RouteTableId
+        in: query
+        description: The IDs of the route tables to describe
+        schema:
+          type: array
+          items:
             type: string
+        example: example-id
+      - name: Filter
+        in: query
+        description: Filters to apply to the results
+        schema:
+          type: array
+          items:
+            type: string
+        example: example
+      - name: MaxResults
+        in: query
+        description: Maximum number of results to return
+        schema:
+          type: integer
+          minimum: 5
+          maximum: 1000
+        example: 1
+      - name: NextToken
+        in: query
+        description: Token for the next page of results
+        schema:
+          type: string
+        example: example
       responses:
         '200':
           description: Successfully described route tables
@@ -507,43 +577,51 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=CreateRoute:
     get:
       operationId: createRoute
-      summary: Amazon VPC Create a route in a route table
+      summary: Amazon VPC Create a Route in a Route Table
       description: >-
         Creates a route in a route table within a VPC. You must specify either
         a destination CIDR block or a prefix list ID. You must also specify
         exactly one of the targets.
       tags:
-        - Route Tables
+      - Route Tables
       parameters:
-        - name: RouteTableId
-          in: query
-          required: true
-          description: The ID of the route table for the route
-          schema:
-            type: string
-        - name: DestinationCidrBlock
-          in: query
-          description: The IPv4 CIDR address block used for the destination match
-          schema:
-            type: string
-        - name: GatewayId
-          in: query
-          description: The ID of an internet gateway or virtual private gateway
-          schema:
-            type: string
-        - name: NatGatewayId
-          in: query
-          description: The ID of a NAT gateway
-          schema:
-            type: string
-        - name: NetworkInterfaceId
-          in: query
-          description: The ID of a network interface
-          schema:
-            type: string
+      - name: RouteTableId
+        in: query
+        required: true
+        description: The ID of the route table for the route
+        schema:
+          type: string
+        example: example-id
+      - name: DestinationCidrBlock
+        in: query
+        description: The IPv4 CIDR address block used for the destination match
+        schema:
+          type: string
+        example: example-id
+      - name: GatewayId
+        in: query
+        description: The ID of an internet gateway or virtual private gateway
+        schema:
+          type: string
+        example: example-id
+      - name: NatGatewayId
+        in: query
+        description: The ID of a NAT gateway
+        schema:
+          type: string
+        example: example-id
+      - name: NetworkInterfaceId
+        in: query
+        description: The ID of a network interface
+        schema:
+          type: string
+        example: example-id
       responses:
         '200':
           description: Successfully created route
@@ -551,33 +629,39 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=AssociateRouteTable:
     get:
       operationId: associateRouteTable
-      summary: Amazon VPC Associate a route table with a subnet
+      summary: Amazon VPC Associate a Route Table with a Subnet
       description: >-
         Associates a subnet or gateway with a route table. The subnet and
         route table must be in the same VPC. This association causes traffic
         from the subnet to be routed according to the routes in the route table.
       tags:
-        - Route Tables
+      - Route Tables
       parameters:
-        - name: RouteTableId
-          in: query
-          required: true
-          description: The ID of the route table
-          schema:
-            type: string
-        - name: SubnetId
-          in: query
-          description: The ID of the subnet
-          schema:
-            type: string
-        - name: GatewayId
-          in: query
-          description: The ID of the internet gateway or virtual private gateway
-          schema:
-            type: string
+      - name: RouteTableId
+        in: query
+        required: true
+        description: The ID of the route table
+        schema:
+          type: string
+        example: example-id
+      - name: SubnetId
+        in: query
+        description: The ID of the subnet
+        schema:
+          type: string
+        example: example-id
+      - name: GatewayId
+        in: query
+        description: The ID of the internet gateway or virtual private gateway
+        schema:
+          type: string
+        example: example-id
       responses:
         '200':
           description: Successfully associated route table
@@ -585,23 +669,27 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=CreateNetworkAcl:
     get:
       operationId: createNetworkAcl
-      summary: Amazon VPC Create a network ACL
+      summary: Amazon VPC Create a Network ACL
       description: >-
         Creates a network ACL in a VPC. Network ACLs provide an optional
         layer of security for your VPC that acts as a firewall for controlling
         traffic in and out of one or more subnets.
       tags:
-        - Network ACLs
+      - Network ACLs
       parameters:
-        - name: VpcId
-          in: query
-          required: true
-          description: The ID of the VPC
-          schema:
-            type: string
+      - name: VpcId
+        in: query
+        required: true
+        description: The ID of the VPC
+        schema:
+          type: string
+        example: example-id
       responses:
         '200':
           description: Successfully created network ACL
@@ -609,43 +697,50 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
   /?Action=DescribeNetworkAcls:
     get:
       operationId: describeNetworkAcls
-      summary: Amazon VPC Describe network ACLs
+      summary: Amazon VPC Describe Network ACLs
       description: >-
         Describes one or more of your network ACLs. A network ACL is an
         optional layer of security for your VPC that acts as a firewall
         for controlling traffic in and out of one or more subnets.
       tags:
-        - Network ACLs
+      - Network ACLs
       parameters:
-        - name: NetworkAclId
-          in: query
-          description: The IDs of the network ACLs to describe
-          schema:
-            type: array
-            items:
-              type: string
-        - name: Filter
-          in: query
-          description: Filters to apply to the results
-          schema:
-            type: array
-            items:
-              type: string
-        - name: MaxResults
-          in: query
-          description: Maximum number of results to return
-          schema:
-            type: integer
-            minimum: 5
-            maximum: 1000
-        - name: NextToken
-          in: query
-          description: Token for the next page of results
-          schema:
+      - name: NetworkAclId
+        in: query
+        description: The IDs of the network ACLs to describe
+        schema:
+          type: array
+          items:
             type: string
+        example: example-id
+      - name: Filter
+        in: query
+        description: Filters to apply to the results
+        schema:
+          type: array
+          items:
+            type: string
+        example: example
+      - name: MaxResults
+        in: query
+        description: Maximum number of results to return
+        schema:
+          type: integer
+          minimum: 5
+          maximum: 1000
+        example: 1
+      - name: NextToken
+        in: query
+        description: Token for the next page of results
+        schema:
+          type: string
+        example: example
       responses:
         '200':
           description: Successfully described network ACLs
@@ -653,6 +748,9 @@ paths:
           description: Invalid request parameters
         '401':
           description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
 components:
   securitySchemes:
     sigv4Auth:
@@ -726,8 +824,8 @@ components:
           type: string
           description: The current state of the VPC
           enum:
-            - pending
-            - available
+          - pending
+          - available
         cidrBlock:
           type: string
           description: The primary IPv4 CIDR block for the VPC
@@ -768,9 +866,9 @@ components:
           type: string
           description: The allowed tenancy of instances launched into the VPC
           enum:
-            - default
-            - dedicated
-            - host
+          - default
+          - dedicated
+          - host
         isDefault:
           type: boolean
           description: Indicates whether the VPC is the default VPC
@@ -799,8 +897,8 @@ components:
           type: string
           description: The current state of the subnet
           enum:
-            - pending
-            - available
+          - pending
+          - available
         cidrBlock:
           type: string
           description: The IPv4 CIDR block assigned to the subnet
@@ -844,10 +942,10 @@ components:
                 type: string
                 description: The current state of the attachment
                 enum:
-                  - attaching
-                  - attached
-                  - detaching
-                  - detached
+                - attaching
+                - attached
+                - detaching
+                - detached
               vpcId:
                 type: string
                 description: The ID of the VPC
@@ -876,17 +974,17 @@ components:
           type: string
           description: The state of the NAT gateway
           enum:
-            - pending
-            - failed
-            - available
-            - deleting
-            - deleted
+          - pending
+          - failed
+          - available
+          - deleting
+          - deleted
         connectivityType:
           type: string
           description: Indicates whether the NAT gateway supports public or private connectivity
           enum:
-            - public
-            - private
+          - public
+          - private
         natGatewayAddresses:
           type: array
           description: Information about the IP addresses and network interface associated with the NAT gateway
@@ -945,15 +1043,15 @@ components:
                 type: string
                 description: The state of the route
                 enum:
-                  - active
-                  - blackhole
+                - active
+                - blackhole
               origin:
                 type: string
                 description: Describes how the route was created
                 enum:
-                  - CreateRouteTable
-                  - CreateRoute
-                  - EnableVgwRoutePropagation
+                - CreateRouteTable
+                - CreateRoute
+                - EnableVgwRoutePropagation
         associations:
           type: array
           description: The associations between the route table and subnets or gateways

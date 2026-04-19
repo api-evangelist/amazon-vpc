@@ -1,0 +1,19 @@
+{
+  "type": "object",
+  "description": "Response from the DescribeVpcs action",
+  "properties": {
+    "vpcSet": {
+      "type": "array",
+      "description": "Information about the VPCs",
+      "items": {
+        "$ref": "#/components/schemas/Vpc"
+      }
+    },
+    "nextToken": {
+      "type": "string",
+      "description": "Token for the next page of results"
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "DescribeVpcsResponse"
+}

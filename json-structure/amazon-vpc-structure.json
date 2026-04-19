@@ -1,0 +1,97 @@
+{
+  "name": "Amazon VPC",
+  "description": "Represents an Amazon Virtual Private Cloud (VPC) with its associated configuration, networking, and metadata.",
+  "type": "object",
+  "properties": [
+    {
+      "name": "vpcId",
+      "type": "string",
+      "description": "The unique identifier for the VPC",
+      "required": true
+    },
+    {
+      "name": "cidrBlock",
+      "type": "string",
+      "description": "The primary IPv4 CIDR block for the VPC",
+      "required": true
+    },
+    {
+      "name": "state",
+      "type": "string",
+      "description": "The current state of the VPC",
+      "required": true
+    },
+    {
+      "name": "dhcpOptionsId",
+      "type": "string",
+      "description": "The ID of the set of DHCP options associated with the VPC",
+      "required": false
+    },
+    {
+      "name": "instanceTenancy",
+      "type": "string",
+      "description": "The allowed tenancy of instances launched into the VPC",
+      "required": false
+    },
+    {
+      "name": "isDefault",
+      "type": "boolean",
+      "description": "Indicates whether the VPC is the default VPC",
+      "required": false
+    },
+    {
+      "name": "ownerId",
+      "type": "string",
+      "description": "The ID of the AWS account that owns the VPC",
+      "required": false
+    },
+    {
+      "name": "cidrBlockAssociationSet",
+      "type": "array",
+      "description": "Information about the IPv4 CIDR blocks associated with the VPC",
+      "required": false
+    },
+    {
+      "name": "ipv6CidrBlockAssociationSet",
+      "type": "array",
+      "description": "Information about the IPv6 CIDR blocks associated with the VPC",
+      "required": false
+    },
+    {
+      "name": "subnets",
+      "type": "array",
+      "description": "The subnets within the VPC",
+      "required": false
+    },
+    {
+      "name": "internetGateways",
+      "type": "array",
+      "description": "Internet gateways attached to the VPC",
+      "required": false
+    },
+    {
+      "name": "natGateways",
+      "type": "array",
+      "description": "NAT gateways in the VPC",
+      "required": false
+    },
+    {
+      "name": "routeTables",
+      "type": "array",
+      "description": "Route tables associated with the VPC",
+      "required": false
+    },
+    {
+      "name": "networkAcls",
+      "type": "array",
+      "description": "Network ACLs associated with the VPC",
+      "required": false
+    },
+    {
+      "name": "tags",
+      "type": "array",
+      "description": "Tags assigned to the VPC",
+      "required": false
+    }
+  ]
+}

@@ -1,0 +1,73 @@
+id: amazon-vpc
+name: Amazon VPC
+description: Shared capability definition for Amazon VPC
+namespace: amazon-vpc
+operations:
+- operationId: createVpc
+  method: GET
+  path: /?Action=CreateVpc
+  summary: Amazon VPC Create a VPC
+- operationId: describeVpcs
+  method: GET
+  path: /?Action=DescribeVpcs
+  summary: Amazon VPC Describe VPCs
+- operationId: deleteVpc
+  method: GET
+  path: /?Action=DeleteVpc
+  summary: Amazon VPC Delete a VPC
+- operationId: modifyVpcAttribute
+  method: GET
+  path: /?Action=ModifyVpcAttribute
+  summary: Amazon VPC Modify a VPC Attribute
+- operationId: createSubnet
+  method: GET
+  path: /?Action=CreateSubnet
+  summary: Amazon VPC Create a Subnet
+- operationId: describeSubnets
+  method: GET
+  path: /?Action=DescribeSubnets
+  summary: Amazon VPC Describe Subnets
+- operationId: deleteSubnet
+  method: GET
+  path: /?Action=DeleteSubnet
+  summary: Amazon VPC Delete a Subnet
+- operationId: createInternetGateway
+  method: GET
+  path: /?Action=CreateInternetGateway
+  summary: Amazon VPC Create an Internet Gateway
+- operationId: attachInternetGateway
+  method: GET
+  path: /?Action=AttachInternetGateway
+  summary: Amazon VPC Attach an Internet Gateway to a VPC
+- operationId: createNatGateway
+  method: GET
+  path: /?Action=CreateNatGateway
+  summary: Amazon VPC Create a NAT Gateway
+- operationId: describeNatGateways
+  method: GET
+  path: /?Action=DescribeNatGateways
+  summary: Amazon VPC Describe NAT Gateways
+- operationId: createRouteTable
+  method: GET
+  path: /?Action=CreateRouteTable
+  summary: Amazon VPC Create a Route Table
+- operationId: describeRouteTables
+  method: GET
+  path: /?Action=DescribeRouteTables
+  summary: Amazon VPC Describe Route Tables
+- operationId: createRoute
+  method: GET
+  path: /?Action=CreateRoute
+  summary: Amazon VPC Create a Route in a Route Table
+- operationId: associateRouteTable
+  method: GET
+  path: /?Action=AssociateRouteTable
+  summary: Amazon VPC Associate a Route Table with a Subnet
+- operationId: createNetworkAcl
+  method: GET
+  path: /?Action=CreateNetworkAcl
+  summary: Amazon VPC Create a Network ACL
+- operationId: describeNetworkAcls
+  method: GET
+  path: /?Action=DescribeNetworkAcls
+  summary: Amazon VPC Describe Network ACLs

@@ -1,0 +1,13 @@
+{
+  "name": "CreateVpcResponse",
+  "description": "Response from the CreateVpc action",
+  "type": "object",
+  "properties": [
+    {
+      "name": "vpc",
+      "type": "string",
+      "description": "",
+      "required": false
+    }
+  ]
+}

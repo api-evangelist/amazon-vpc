@@ -1,0 +1,19 @@
+{
+  "name": "Tag",
+  "description": "Describes a tag",
+  "type": "object",
+  "properties": [
+    {
+      "name": "key",
+      "type": "string",
+      "description": "The key of the tag",
+      "required": false
+    },
+    {
+      "name": "value",
+      "type": "string",
+      "description": "The value of the tag",
+      "required": false
+    }
+  ]
+}

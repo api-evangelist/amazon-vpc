@@ -1,0 +1,13 @@
+{
+  "name": "CreateSubnetResponse",
+  "description": "Response from the CreateSubnet action",
+  "type": "object",
+  "properties": [
+    {
+      "name": "subnet",
+      "type": "string",
+      "description": "",
+      "required": false
+    }
+  ]
+}

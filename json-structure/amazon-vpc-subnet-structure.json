@@ -1,0 +1,79 @@
+{
+  "name": "Subnet",
+  "description": "Describes a subnet",
+  "type": "object",
+  "properties": [
+    {
+      "name": "subnetId",
+      "type": "string",
+      "description": "The ID of the subnet",
+      "required": false
+    },
+    {
+      "name": "subnetArn",
+      "type": "string",
+      "description": "The Amazon Resource Name (ARN) of the subnet",
+      "required": false
+    },
+    {
+      "name": "vpcId",
+      "type": "string",
+      "description": "The ID of the VPC the subnet is in",
+      "required": false
+    },
+    {
+      "name": "state",
+      "type": "string",
+      "description": "The current state of the subnet",
+      "required": false
+    },
+    {
+      "name": "cidrBlock",
+      "type": "string",
+      "description": "The IPv4 CIDR block assigned to the subnet",
+      "required": false
+    },
+    {
+      "name": "availabilityZone",
+      "type": "string",
+      "description": "The Availability Zone of the subnet",
+      "required": false
+    },
+    {
+      "name": "availabilityZoneId",
+      "type": "string",
+      "description": "The AZ ID of the subnet",
+      "required": false
+    },
+    {
+      "name": "availableIpAddressCount",
+      "type": "integer",
+      "description": "The number of unused private IPv4 addresses in the subnet",
+      "required": false
+    },
+    {
+      "name": "defaultForAz",
+      "type": "boolean",
+      "description": "Indicates whether this is the default subnet for the Availability Zone",
+      "required": false
+    },
+    {
+      "name": "mapPublicIpOnLaunch",
+      "type": "boolean",
+      "description": "Indicates whether instances launched in this subnet receive a public IPv4 address",
+      "required": false
+    },
+    {
+      "name": "ownerId",
+      "type": "string",
+      "description": "The ID of the AWS account that owns the subnet",
+      "required": false
+    },
+    {
+      "name": "tags",
+      "type": "array",
+      "description": "Any tags assigned to the subnet",
+      "required": false
+    }
+  ]
+}

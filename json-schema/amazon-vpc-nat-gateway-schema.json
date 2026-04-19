@@ -1,0 +1,72 @@
+{
+  "type": "object",
+  "description": "Describes a NAT gateway",
+  "properties": {
+    "natGatewayId": {
+      "type": "string",
+      "description": "The ID of the NAT gateway"
+    },
+    "subnetId": {
+      "type": "string",
+      "description": "The ID of the subnet in which the NAT gateway is located"
+    },
+    "vpcId": {
+      "type": "string",
+      "description": "The ID of the VPC in which the NAT gateway is located"
+    },
+    "state": {
+      "type": "string",
+      "description": "The state of the NAT gateway",
+      "enum": [
+        "pending",
+        "failed",
+        "available",
+        "deleting",
+        "deleted"
+      ]
+    },
+    "connectivityType": {
+      "type": "string",
+      "description": "Indicates whether the NAT gateway supports public or private connectivity",
+      "enum": [
+        "public",
+        "private"
+      ]
+    },
+    "natGatewayAddresses": {
+      "type": "array",
+      "description": "Information about the IP addresses and network interface associated with the NAT gateway",
+      "items": {
+        "type": "object",
+        "properties": {
+          "allocationId": {
+            "type": "string"
+          },
+          "networkInterfaceId": {
+            "type": "string"
+          },
+          "privateIp": {
+            "type": "string"
+          },
+          "publicIp": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "createTime": {
+      "type": "string",
+      "format": "date-time",
+      "description": "The date and time the NAT gateway was created"
+    },
+    "tags": {
+      "type": "array",
+      "description": "Any tags assigned to the NAT gateway",
+      "items": {
+        "$ref": "#/components/schemas/Tag"
+      }
+    }
+  },
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "NatGateway"
+}

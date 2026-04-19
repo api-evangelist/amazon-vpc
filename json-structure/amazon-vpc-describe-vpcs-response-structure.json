@@ -1,0 +1,19 @@
+{
+  "name": "DescribeVpcsResponse",
+  "description": "Response from the DescribeVpcs action",
+  "type": "object",
+  "properties": [
+    {
+      "name": "vpcSet",
+      "type": "array",
+      "description": "Information about the VPCs",
+      "required": false
+    },
+    {
+      "name": "nextToken",
+      "type": "string",
+      "description": "Token for the next page of results",
+      "required": false
+    }
+  ]
+}

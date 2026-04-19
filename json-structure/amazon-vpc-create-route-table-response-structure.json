@@ -1,0 +1,13 @@
+{
+  "name": "CreateRouteTableResponse",
+  "description": "Response from the CreateRouteTable action",
+  "type": "object",
+  "properties": [
+    {
+      "name": "routeTable",
+      "type": "string",
+      "description": "",
+      "required": false
+    }
+  ]
+}

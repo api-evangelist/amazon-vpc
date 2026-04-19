@@ -1,0 +1,55 @@
+{
+  "name": "NatGateway",
+  "description": "Describes a NAT gateway",
+  "type": "object",
+  "properties": [
+    {
+      "name": "natGatewayId",
+      "type": "string",
+      "description": "The ID of the NAT gateway",
+      "required": false
+    },
+    {
+      "name": "subnetId",
+      "type": "string",
+      "description": "The ID of the subnet in which the NAT gateway is located",
+      "required": false
+    },
+    {
+      "name": "vpcId",
+      "type": "string",
+      "description": "The ID of the VPC in which the NAT gateway is located",
+      "required": false
+    },
+    {
+      "name": "state",
+      "type": "string",
+      "description": "The state of the NAT gateway",
+      "required": false
+    },
+    {
+      "name": "connectivityType",
+      "type": "string",
+      "description": "Indicates whether the NAT gateway supports public or private connectivity",
+      "required": false
+    },
+    {
+      "name": "natGatewayAddresses",
+      "type": "array",
+      "description": "Information about the IP addresses and network interface associated with the NAT gateway",
+      "required": false
+    },
+    {
+      "name": "createTime",
+      "type": "string",
+      "description": "The date and time the NAT gateway was created",
+      "required": false
+    },
+    {
+      "name": "tags",
+      "type": "array",
+      "description": "Any tags assigned to the NAT gateway",
+      "required": false
+    }
+  ]
+}

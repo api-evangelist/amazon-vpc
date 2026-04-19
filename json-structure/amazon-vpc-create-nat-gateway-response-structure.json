@@ -1,0 +1,13 @@
+{
+  "name": "CreateNatGatewayResponse",
+  "description": "Response from the CreateNatGateway action",
+  "type": "object",
+  "properties": [
+    {
+      "name": "natGateway",
+      "type": "string",
+      "description": "",
+      "required": false
+    }
+  ]
+}

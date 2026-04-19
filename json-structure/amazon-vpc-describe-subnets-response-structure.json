@@ -1,0 +1,19 @@
+{
+  "name": "DescribeSubnetsResponse",
+  "description": "Response from the DescribeSubnets action",
+  "type": "object",
+  "properties": [
+    {
+      "name": "subnetSet",
+      "type": "array",
+      "description": "Information about the subnets",
+      "required": false
+    },
+    {
+      "name": "nextToken",
+      "type": "string",
+      "description": "Token for the next page of results",
+      "required": false
+    }
+  ]
+}

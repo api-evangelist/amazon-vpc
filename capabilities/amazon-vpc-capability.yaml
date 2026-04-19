@@ -1,0 +1,7 @@
+id: amazon-vpc-capability
+name: Amazon VPC Capability
+description: Workflow-oriented capability for Amazon VPC
+tags:
+- AWS
+consumes:
+- ref: capabilities/shared/amazon-vpc-shared.yaml

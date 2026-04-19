@@ -1,0 +1,13 @@
+{
+  "name": "CreateInternetGatewayResponse",
+  "description": "Response from the CreateInternetGateway action",
+  "type": "object",
+  "properties": [
+    {
+      "name": "internetGateway",
+      "type": "string",
+      "description": "",
+      "required": false
+    }
+  ]
+}
