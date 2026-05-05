@@ -1,0 +1,13 @@
+{
+  "repo": "amazon-vpc",
+  "feeds": [
+    {
+      "source": "https://aws.amazon.com/blogs/networking-and-content-delivery/",
+      "feed_url": "https://aws.amazon.com/blogs/networking-and-content-delivery/feed/",
+      "saved": 10,
+      "title": "Networking & Content Delivery"
+    }
+  ],
+  "post_count": 10,
+  "fetched": "2026-05-03T23:21:53Z"
+}
