@@ -38,7 +38,7 @@ apis:
     url: https://aws.amazon.com/vpc/faqs/
   - type: User Guide
     url: https://docs.aws.amazon.com/vpc/latest/userguide/
-  - type: API Reference
+  - type: APIReference
     url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
   - type: CLI Reference
     url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
@@ -73,7 +73,7 @@ common:
   url: https://repost.aws/knowledge-center
 - type: YouTube
   url: https://www.youtube.com/user/AmazonWebServices
-- type: Stack Overflow
+- type: StackOverflow
   url: https://stackoverflow.com/questions/tagged/amazon-vpc
 - type: Contact
   url: https://aws.amazon.com/contact-us/
