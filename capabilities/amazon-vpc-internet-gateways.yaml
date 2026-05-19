@@ -1,0 +1,121 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon VPC API — Internet Gateways
+  description: 'Amazon VPC API — Internet Gateways. 2 operations. Lead operation: Amazon VPC Attach an Internet Gateway to
+    a VPC. Self-contained Naftiko capability covering one Amazon Vpc business surface.'
+  tags:
+  - Amazon Vpc
+  - Internet Gateways
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_VPC_API_KEY: AMAZON_VPC_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-vpc-internet-gateways
+    baseUri: https://ec2.{region}.amazonaws.com
+    description: Amazon VPC API — Internet Gateways business capability. Self-contained, no shared references.
+    resources:
+    - name: ?Action=AttachInternetGateway
+      path: /?Action=AttachInternetGateway
+      operations:
+      - name: attachinternetgateway
+        method: GET
+        description: Amazon VPC Attach an Internet Gateway to a VPC
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: InternetGatewayId
+          in: query
+          type: string
+          description: The ID of the internet gateway
+          required: true
+        - name: VpcId
+          in: query
+          type: string
+          description: The ID of the VPC
+          required: true
+    - name: ?Action=CreateInternetGateway
+      path: /?Action=CreateInternetGateway
+      operations:
+      - name: createinternetgateway
+        method: GET
+        description: Amazon VPC Create an Internet Gateway
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_VPC_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-vpc-internet-gateways-rest
+    port: 8080
+    description: REST adapter for Amazon VPC API — Internet Gateways. One Spectral-compliant resource per consumed operation,
+      prefixed with /v1.
+    resources:
+    - path: /v1/action-attachinternetgateway
+      name: action-attachinternetgateway
+      description: REST surface for ?Action=AttachInternetGateway.
+      operations:
+      - method: GET
+        name: attachinternetgateway
+        description: Amazon VPC Attach an Internet Gateway to a VPC
+        call: amazon-vpc-internet-gateways.attachinternetgateway
+        with:
+          InternetGatewayId: rest.InternetGatewayId
+          VpcId: rest.VpcId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-createinternetgateway
+      name: action-createinternetgateway
+      description: REST surface for ?Action=CreateInternetGateway.
+      operations:
+      - method: GET
+        name: createinternetgateway
+        description: Amazon VPC Create an Internet Gateway
+        call: amazon-vpc-internet-gateways.createinternetgateway
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-vpc-internet-gateways-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon VPC API — Internet Gateways. One tool per consumed operation, routed inline through
+      this capability's consumes block.
+    tools:
+    - name: amazon-vpc-attach-internet-gateway
+      description: Amazon VPC Attach an Internet Gateway to a VPC
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-vpc-internet-gateways.attachinternetgateway
+      with:
+        InternetGatewayId: tools.InternetGatewayId
+        VpcId: tools.VpcId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-vpc-create-internet-gateway
+      description: Amazon VPC Create an Internet Gateway
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-vpc-internet-gateways.createinternetgateway
+      outputParameters:
+      - type: object
+        mapping: $.

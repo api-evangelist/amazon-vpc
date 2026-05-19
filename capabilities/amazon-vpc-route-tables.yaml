@@ -1,0 +1,261 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon VPC API — Route Tables
+  description: 'Amazon VPC API — Route Tables. 4 operations. Lead operation: Amazon VPC Associate a Route Table with a Subnet.
+    Self-contained Naftiko capability covering one Amazon Vpc business surface.'
+  tags:
+  - Amazon Vpc
+  - Route Tables
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_VPC_API_KEY: AMAZON_VPC_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-vpc-route-tables
+    baseUri: https://ec2.{region}.amazonaws.com
+    description: Amazon VPC API — Route Tables business capability. Self-contained, no shared references.
+    resources:
+    - name: ?Action=AssociateRouteTable
+      path: /?Action=AssociateRouteTable
+      operations:
+      - name: associateroutetable
+        method: GET
+        description: Amazon VPC Associate a Route Table with a Subnet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: RouteTableId
+          in: query
+          type: string
+          description: The ID of the route table
+          required: true
+        - name: SubnetId
+          in: query
+          type: string
+          description: The ID of the subnet
+        - name: GatewayId
+          in: query
+          type: string
+          description: The ID of the internet gateway or virtual private gateway
+    - name: ?Action=CreateRoute
+      path: /?Action=CreateRoute
+      operations:
+      - name: createroute
+        method: GET
+        description: Amazon VPC Create a Route in a Route Table
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: RouteTableId
+          in: query
+          type: string
+          description: The ID of the route table for the route
+          required: true
+        - name: DestinationCidrBlock
+          in: query
+          type: string
+          description: The IPv4 CIDR address block used for the destination match
+        - name: GatewayId
+          in: query
+          type: string
+          description: The ID of an internet gateway or virtual private gateway
+        - name: NatGatewayId
+          in: query
+          type: string
+          description: The ID of a NAT gateway
+        - name: NetworkInterfaceId
+          in: query
+          type: string
+          description: The ID of a network interface
+    - name: ?Action=CreateRouteTable
+      path: /?Action=CreateRouteTable
+      operations:
+      - name: createroutetable
+        method: GET
+        description: Amazon VPC Create a Route Table
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: VpcId
+          in: query
+          type: string
+          description: The ID of the VPC
+          required: true
+    - name: ?Action=DescribeRouteTables
+      path: /?Action=DescribeRouteTables
+      operations:
+      - name: describeroutetables
+        method: GET
+        description: Amazon VPC Describe Route Tables
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: RouteTableId
+          in: query
+          type: array
+          description: The IDs of the route tables to describe
+        - name: Filter
+          in: query
+          type: array
+          description: Filters to apply to the results
+        - name: MaxResults
+          in: query
+          type: integer
+          description: Maximum number of results to return
+        - name: NextToken
+          in: query
+          type: string
+          description: Token for the next page of results
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_VPC_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-vpc-route-tables-rest
+    port: 8080
+    description: REST adapter for Amazon VPC API — Route Tables. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/action-associateroutetable
+      name: action-associateroutetable
+      description: REST surface for ?Action=AssociateRouteTable.
+      operations:
+      - method: GET
+        name: associateroutetable
+        description: Amazon VPC Associate a Route Table with a Subnet
+        call: amazon-vpc-route-tables.associateroutetable
+        with:
+          RouteTableId: rest.RouteTableId
+          SubnetId: rest.SubnetId
+          GatewayId: rest.GatewayId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-createroute
+      name: action-createroute
+      description: REST surface for ?Action=CreateRoute.
+      operations:
+      - method: GET
+        name: createroute
+        description: Amazon VPC Create a Route in a Route Table
+        call: amazon-vpc-route-tables.createroute
+        with:
+          RouteTableId: rest.RouteTableId
+          DestinationCidrBlock: rest.DestinationCidrBlock
+          GatewayId: rest.GatewayId
+          NatGatewayId: rest.NatGatewayId
+          NetworkInterfaceId: rest.NetworkInterfaceId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-createroutetable
+      name: action-createroutetable
+      description: REST surface for ?Action=CreateRouteTable.
+      operations:
+      - method: GET
+        name: createroutetable
+        description: Amazon VPC Create a Route Table
+        call: amazon-vpc-route-tables.createroutetable
+        with:
+          VpcId: rest.VpcId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-describeroutetables
+      name: action-describeroutetables
+      description: REST surface for ?Action=DescribeRouteTables.
+      operations:
+      - method: GET
+        name: describeroutetables
+        description: Amazon VPC Describe Route Tables
+        call: amazon-vpc-route-tables.describeroutetables
+        with:
+          RouteTableId: rest.RouteTableId
+          Filter: rest.Filter
+          MaxResults: rest.MaxResults
+          NextToken: rest.NextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-vpc-route-tables-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon VPC API — Route Tables. One tool per consumed operation, routed inline through this
+      capability's consumes block.
+    tools:
+    - name: amazon-vpc-associate-route-table
+      description: Amazon VPC Associate a Route Table with a Subnet
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-vpc-route-tables.associateroutetable
+      with:
+        RouteTableId: tools.RouteTableId
+        SubnetId: tools.SubnetId
+        GatewayId: tools.GatewayId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-vpc-create-route-route
+      description: Amazon VPC Create a Route in a Route Table
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-vpc-route-tables.createroute
+      with:
+        RouteTableId: tools.RouteTableId
+        DestinationCidrBlock: tools.DestinationCidrBlock
+        GatewayId: tools.GatewayId
+        NatGatewayId: tools.NatGatewayId
+        NetworkInterfaceId: tools.NetworkInterfaceId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-vpc-create-route-table
+      description: Amazon VPC Create a Route Table
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-vpc-route-tables.createroutetable
+      with:
+        VpcId: tools.VpcId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-vpc-describe-route-tables
+      description: Amazon VPC Describe Route Tables
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-vpc-route-tables.describeroutetables
+      with:
+        RouteTableId: tools.RouteTableId
+        Filter: tools.Filter
+        MaxResults: tools.MaxResults
+        NextToken: tools.NextToken
+      outputParameters:
+      - type: object
+        mapping: $.

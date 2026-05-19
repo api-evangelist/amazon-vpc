@@ -1,0 +1,249 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon VPC API — VPCs
+  description: 'Amazon VPC API — VPCs. 4 operations. Lead operation: Amazon VPC Create a VPC. Self-contained Naftiko capability
+    covering one Amazon Vpc business surface.'
+  tags:
+  - Amazon Vpc
+  - VPCs
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_VPC_API_KEY: AMAZON_VPC_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-vpc-vpcs
+    baseUri: https://ec2.{region}.amazonaws.com
+    description: Amazon VPC API — VPCs business capability. Self-contained, no shared references.
+    resources:
+    - name: ?Action=CreateVpc
+      path: /?Action=CreateVpc
+      operations:
+      - name: createvpc
+        method: GET
+        description: Amazon VPC Create a VPC
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: CidrBlock
+          in: query
+          type: string
+          description: The IPv4 network range for the VPC in CIDR notation (e.g., 10.0.0.0/16)
+          required: true
+        - name: AmazonProvidedIpv6CidrBlock
+          in: query
+          type: boolean
+          description: Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length
+        - name: InstanceTenancy
+          in: query
+          type: string
+          description: The tenancy options for instances launched into the VPC
+    - name: ?Action=DeleteVpc
+      path: /?Action=DeleteVpc
+      operations:
+      - name: deletevpc
+        method: GET
+        description: Amazon VPC Delete a VPC
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: VpcId
+          in: query
+          type: string
+          description: The ID of the VPC to delete
+          required: true
+    - name: ?Action=DescribeVpcs
+      path: /?Action=DescribeVpcs
+      operations:
+      - name: describevpcs
+        method: GET
+        description: Amazon VPC Describe VPCs
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: VpcId
+          in: query
+          type: array
+          description: The IDs of the VPCs to describe
+        - name: Filter
+          in: query
+          type: array
+          description: Filters to apply to the results
+        - name: MaxResults
+          in: query
+          type: integer
+          description: Maximum number of results to return
+        - name: NextToken
+          in: query
+          type: string
+          description: Token for the next page of results
+    - name: ?Action=ModifyVpcAttribute
+      path: /?Action=ModifyVpcAttribute
+      operations:
+      - name: modifyvpcattribute
+        method: GET
+        description: Amazon VPC Modify a VPC Attribute
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: VpcId
+          in: query
+          type: string
+          description: The ID of the VPC
+          required: true
+        - name: EnableDnsSupport.Value
+          in: query
+          type: boolean
+          description: Indicates whether DNS resolution is supported for the VPC
+        - name: EnableDnsHostnames.Value
+          in: query
+          type: boolean
+          description: Indicates whether instances launched in the VPC get DNS hostnames
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_VPC_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-vpc-vpcs-rest
+    port: 8080
+    description: REST adapter for Amazon VPC API — VPCs. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/action-createvpc
+      name: action-createvpc
+      description: REST surface for ?Action=CreateVpc.
+      operations:
+      - method: GET
+        name: createvpc
+        description: Amazon VPC Create a VPC
+        call: amazon-vpc-vpcs.createvpc
+        with:
+          CidrBlock: rest.CidrBlock
+          AmazonProvidedIpv6CidrBlock: rest.AmazonProvidedIpv6CidrBlock
+          InstanceTenancy: rest.InstanceTenancy
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-deletevpc
+      name: action-deletevpc
+      description: REST surface for ?Action=DeleteVpc.
+      operations:
+      - method: GET
+        name: deletevpc
+        description: Amazon VPC Delete a VPC
+        call: amazon-vpc-vpcs.deletevpc
+        with:
+          VpcId: rest.VpcId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-describevpcs
+      name: action-describevpcs
+      description: REST surface for ?Action=DescribeVpcs.
+      operations:
+      - method: GET
+        name: describevpcs
+        description: Amazon VPC Describe VPCs
+        call: amazon-vpc-vpcs.describevpcs
+        with:
+          VpcId: rest.VpcId
+          Filter: rest.Filter
+          MaxResults: rest.MaxResults
+          NextToken: rest.NextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-modifyvpcattribute
+      name: action-modifyvpcattribute
+      description: REST surface for ?Action=ModifyVpcAttribute.
+      operations:
+      - method: GET
+        name: modifyvpcattribute
+        description: Amazon VPC Modify a VPC Attribute
+        call: amazon-vpc-vpcs.modifyvpcattribute
+        with:
+          VpcId: rest.VpcId
+          EnableDnsSupport.Value: rest.EnableDnsSupport.Value
+          EnableDnsHostnames.Value: rest.EnableDnsHostnames.Value
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-vpc-vpcs-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon VPC API — VPCs. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: amazon-vpc-create-vpc
+      description: Amazon VPC Create a VPC
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-vpc-vpcs.createvpc
+      with:
+        CidrBlock: tools.CidrBlock
+        AmazonProvidedIpv6CidrBlock: tools.AmazonProvidedIpv6CidrBlock
+        InstanceTenancy: tools.InstanceTenancy
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-vpc-delete-vpc
+      description: Amazon VPC Delete a VPC
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-vpc-vpcs.deletevpc
+      with:
+        VpcId: tools.VpcId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-vpc-describe-vpcs
+      description: Amazon VPC Describe VPCs
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-vpc-vpcs.describevpcs
+      with:
+        VpcId: tools.VpcId
+        Filter: tools.Filter
+        MaxResults: tools.MaxResults
+        NextToken: tools.NextToken
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-vpc-modify-vpc-attribute
+      description: Amazon VPC Modify a VPC Attribute
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-vpc-vpcs.modifyvpcattribute
+      with:
+        VpcId: tools.VpcId
+        EnableDnsSupport.Value: tools.EnableDnsSupport.Value
+        EnableDnsHostnames.Value: tools.EnableDnsHostnames.Value
+      outputParameters:
+      - type: object
+        mapping: $.

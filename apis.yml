@@ -1,16 +1,15 @@
 name: Amazon VPC
-description: Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define, with complete 
-  control over IP addressing, subnets, routing, and network gateways.
+description: Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you
+  can launch AWS resources in a virtual network that you define, with complete control over IP addressing, subnets, routing,
+  and network gateways.
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/vpc/
 created: '2024-01-15'
-modified: '2026-04-19'
+modified: '2026-05-19'
 apis:
 - name: Amazon VPC API
-  description: >-
-    Core API for managing Amazon Virtual Private Cloud resources including VPCs,
-    subnets, internet gateways, NAT gateways, route tables, and network ACLs.
-    VPC operations are part of the Amazon EC2 API.
+  description: Core API for managing Amazon Virtual Private Cloud resources including VPCs, subnets, internet gateways, NAT
+    gateways, route tables, and network ACLs. VPC operations are part of the Amazon EC2 API.
   image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
   humanURL: https://aws.amazon.com/vpc/
   baseURL: https://ec2.amazonaws.com
@@ -44,6 +43,18 @@ apis:
     url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
   - type: Security
     url: https://docs.aws.amazon.com/vpc/latest/userguide/security.html
+  - type: NaftikoCapability
+    url: capabilities/amazon-vpc-internet-gateways.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-vpc-nat-gateways.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-vpc-network-acls.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-vpc-route-tables.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-vpc-subnets.yaml
+  - type: NaftikoCapability
+    url: capabilities/amazon-vpc-vpcs.yaml
 common:
 - type: Portal
   url: https://aws.amazon.com/
@@ -85,8 +96,6 @@ common:
   url: https://raw.githubusercontent.com/api-evangelist/amazon-vpc/refs/heads/main/rules/amazon-vpc-spectral-rules.yml
 - type: Vocabulary
   url: https://raw.githubusercontent.com/api-evangelist/amazon-vpc/refs/heads/main/vocabulary/amazon-vpc-vocabulary.yaml
-- type: NaftikoCapability
-  url: https://raw.githubusercontent.com/api-evangelist/amazon-vpc/refs/heads/main/capabilities/amazon-vpc-capability.yaml
 - type: Features
   data:
   - name: Automation
@@ -100,15 +109,15 @@ common:
 - type: Integrations
   url: https://aws.amazon.com/marketplace
 integrations:
-  - name: Sign in
-  - name: Agent Mode
-  - name: 'Why AWS Marketplace?'
-  - name: Get started in AWS Marketplace
-  - name: Industry
-  - name: Resources
-  - name: Become a Channel Partner
-  - name: Sell in AWS Marketplace
-  - name: Manage Your Account
+- name: Sign in
+- name: Agent Mode
+- name: Why AWS Marketplace?
+- name: Get started in AWS Marketplace
+- name: Industry
+- name: Resources
+- name: Become a Channel Partner
+- name: Sell in AWS Marketplace
+- name: Manage Your Account
 maintainers:
 - FN: Kin Lane
   email: kin@apievangelist.com

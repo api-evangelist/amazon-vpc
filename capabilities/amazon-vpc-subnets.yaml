@@ -1,0 +1,202 @@
+naftiko: 1.0.0-alpha2
+info:
+  label: Amazon VPC API — Subnets
+  description: 'Amazon VPC API — Subnets. 3 operations. Lead operation: Amazon VPC Create a Subnet. Self-contained Naftiko
+    capability covering one Amazon Vpc business surface.'
+  tags:
+  - Amazon Vpc
+  - Subnets
+  created: '2026-05-19'
+  modified: '2026-05-19'
+binds:
+- namespace: env
+  keys:
+    AMAZON_VPC_API_KEY: AMAZON_VPC_API_KEY
+capability:
+  consumes:
+  - type: http
+    namespace: amazon-vpc-subnets
+    baseUri: https://ec2.{region}.amazonaws.com
+    description: Amazon VPC API — Subnets business capability. Self-contained, no shared references.
+    resources:
+    - name: ?Action=CreateSubnet
+      path: /?Action=CreateSubnet
+      operations:
+      - name: createsubnet
+        method: GET
+        description: Amazon VPC Create a Subnet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: VpcId
+          in: query
+          type: string
+          description: The ID of the VPC
+          required: true
+        - name: CidrBlock
+          in: query
+          type: string
+          description: The IPv4 network range for the subnet in CIDR notation
+          required: true
+        - name: AvailabilityZone
+          in: query
+          type: string
+          description: The Availability Zone or Local Zone for the subnet
+        - name: Ipv6CidrBlock
+          in: query
+          type: string
+          description: The IPv6 network range for the subnet in CIDR notation
+    - name: ?Action=DeleteSubnet
+      path: /?Action=DeleteSubnet
+      operations:
+      - name: deletesubnet
+        method: GET
+        description: Amazon VPC Delete a Subnet
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: SubnetId
+          in: query
+          type: string
+          description: The ID of the subnet to delete
+          required: true
+    - name: ?Action=DescribeSubnets
+      path: /?Action=DescribeSubnets
+      operations:
+      - name: describesubnets
+        method: GET
+        description: Amazon VPC Describe Subnets
+        outputRawFormat: json
+        outputParameters:
+        - name: result
+          type: object
+          value: $.
+        inputParameters:
+        - name: SubnetId
+          in: query
+          type: array
+          description: The IDs of the subnets to describe
+        - name: Filter
+          in: query
+          type: array
+          description: Filters to apply to the results
+        - name: MaxResults
+          in: query
+          type: integer
+          description: Maximum number of results to return
+        - name: NextToken
+          in: query
+          type: string
+          description: Token for the next page of results
+    authentication:
+      type: apikey
+      key: Authorization
+      value: '{{env.AMAZON_VPC_API_KEY}}'
+      placement: header
+  exposes:
+  - type: rest
+    namespace: amazon-vpc-subnets-rest
+    port: 8080
+    description: REST adapter for Amazon VPC API — Subnets. One Spectral-compliant resource per consumed operation, prefixed
+      with /v1.
+    resources:
+    - path: /v1/action-createsubnet
+      name: action-createsubnet
+      description: REST surface for ?Action=CreateSubnet.
+      operations:
+      - method: GET
+        name: createsubnet
+        description: Amazon VPC Create a Subnet
+        call: amazon-vpc-subnets.createsubnet
+        with:
+          VpcId: rest.VpcId
+          CidrBlock: rest.CidrBlock
+          AvailabilityZone: rest.AvailabilityZone
+          Ipv6CidrBlock: rest.Ipv6CidrBlock
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-deletesubnet
+      name: action-deletesubnet
+      description: REST surface for ?Action=DeleteSubnet.
+      operations:
+      - method: GET
+        name: deletesubnet
+        description: Amazon VPC Delete a Subnet
+        call: amazon-vpc-subnets.deletesubnet
+        with:
+          SubnetId: rest.SubnetId
+        outputParameters:
+        - type: object
+          mapping: $.
+    - path: /v1/action-describesubnets
+      name: action-describesubnets
+      description: REST surface for ?Action=DescribeSubnets.
+      operations:
+      - method: GET
+        name: describesubnets
+        description: Amazon VPC Describe Subnets
+        call: amazon-vpc-subnets.describesubnets
+        with:
+          SubnetId: rest.SubnetId
+          Filter: rest.Filter
+          MaxResults: rest.MaxResults
+          NextToken: rest.NextToken
+        outputParameters:
+        - type: object
+          mapping: $.
+  - type: mcp
+    namespace: amazon-vpc-subnets-mcp
+    port: 9090
+    transport: http
+    description: MCP adapter for Amazon VPC API — Subnets. One tool per consumed operation, routed inline through this capability's
+      consumes block.
+    tools:
+    - name: amazon-vpc-create-subnet
+      description: Amazon VPC Create a Subnet
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-vpc-subnets.createsubnet
+      with:
+        VpcId: tools.VpcId
+        CidrBlock: tools.CidrBlock
+        AvailabilityZone: tools.AvailabilityZone
+        Ipv6CidrBlock: tools.Ipv6CidrBlock
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-vpc-delete-subnet
+      description: Amazon VPC Delete a Subnet
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-vpc-subnets.deletesubnet
+      with:
+        SubnetId: tools.SubnetId
+      outputParameters:
+      - type: object
+        mapping: $.
+    - name: amazon-vpc-describe-subnets
+      description: Amazon VPC Describe Subnets
+      hints:
+        readOnly: true
+        destructive: false
+        idempotent: true
+      call: amazon-vpc-subnets.describesubnets
+      with:
+        SubnetId: tools.SubnetId
+        Filter: tools.Filter
+        MaxResults: tools.MaxResults
+        NextToken: tools.NextToken
+      outputParameters:
+      - type: object
+        mapping: $.
