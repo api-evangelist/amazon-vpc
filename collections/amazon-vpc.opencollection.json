@@ -1,0 +1,567 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon VPC API",
+    "version": "2016-11-15"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "VPCs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon VPC Create a VPC",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateVpc",
+            "params": [
+              {
+                "name": "CidrBlock",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IPv4 network range for the VPC in CIDR notation (e.g., 10.0.0.0/16)"
+              },
+              {
+                "name": "AmazonProvidedIpv6CidrBlock",
+                "value": "true",
+                "type": "query",
+                "description": "Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length"
+              },
+              {
+                "name": "InstanceTenancy",
+                "value": "default",
+                "type": "query",
+                "description": "The tenancy options for instances launched into the VPC"
+              }
+            ]
+          },
+          "docs": "Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses). After creating the VPC, you can add one or more subnets."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Describe VPCs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DescribeVpcs",
+            "params": [
+              {
+                "name": "VpcId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IDs of the VPCs to describe"
+              },
+              {
+                "name": "Filter",
+                "value": "example",
+                "type": "query",
+                "description": "Filters to apply to the results"
+              },
+              {
+                "name": "MaxResults",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "NextToken",
+                "value": "example",
+                "type": "query",
+                "description": "Token for the next page of results"
+              }
+            ]
+          },
+          "docs": "Describes one or more of your VPCs. Returns information about the VPC including the CIDR block, DHCP options set, state, and tags."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Delete a VPC",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DeleteVpc",
+            "params": [
+              {
+                "name": "VpcId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the VPC to delete"
+              }
+            ]
+          },
+          "docs": "Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. You must also delete all subnets associated with the VPC."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Modify a VPC Attribute",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=ModifyVpcAttribute",
+            "params": [
+              {
+                "name": "VpcId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the VPC"
+              },
+              {
+                "name": "EnableDnsSupport.Value",
+                "value": "true",
+                "type": "query",
+                "description": "Indicates whether DNS resolution is supported for the VPC"
+              },
+              {
+                "name": "EnableDnsHostnames.Value",
+                "value": "true",
+                "type": "query",
+                "description": "Indicates whether instances launched in the VPC get DNS hostnames"
+              }
+            ]
+          },
+          "docs": "Modifies the specified attribute of the specified VPC. You can modify the DNS resolution and DNS hostname attributes."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Subnets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon VPC Create a Subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateSubnet",
+            "params": [
+              {
+                "name": "VpcId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the VPC"
+              },
+              {
+                "name": "CidrBlock",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IPv4 network range for the subnet in CIDR notation"
+              },
+              {
+                "name": "AvailabilityZone",
+                "value": "example",
+                "type": "query",
+                "description": "The Availability Zone or Local Zone for the subnet"
+              },
+              {
+                "name": "Ipv6CidrBlock",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IPv6 network range for the subnet in CIDR notation"
+              }
+            ]
+          },
+          "docs": "Creates a subnet in the specified VPC. The new subnet must have a CIDR block that is within the VPC CIDR block. You can optionally specify an Availability Zone in which to create the subnet."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Describe Subnets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DescribeSubnets",
+            "params": [
+              {
+                "name": "SubnetId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IDs of the subnets to describe"
+              },
+              {
+                "name": "Filter",
+                "value": "example",
+                "type": "query",
+                "description": "Filters to apply to the results"
+              },
+              {
+                "name": "MaxResults",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "NextToken",
+                "value": "example",
+                "type": "query",
+                "description": "Token for the next page of results"
+              }
+            ]
+          },
+          "docs": "Describes one or more of your subnets. Returns information about the subnet including the CIDR block, Availability Zone, VPC, and state."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Delete a Subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DeleteSubnet",
+            "params": [
+              {
+                "name": "SubnetId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the subnet to delete"
+              }
+            ]
+          },
+          "docs": "Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Internet Gateways",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon VPC Create an Internet Gateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateInternetGateway"
+          },
+          "docs": "Creates an internet gateway for use with a VPC. After creating the internet gateway, you attach it to a VPC using AttachInternetGateway."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Attach an Internet Gateway to a VPC",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=AttachInternetGateway",
+            "params": [
+              {
+                "name": "InternetGatewayId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the internet gateway"
+              },
+              {
+                "name": "VpcId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the VPC"
+              }
+            ]
+          },
+          "docs": "Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and the VPC."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "NAT Gateways",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon VPC Create a NAT Gateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateNatGateway",
+            "params": [
+              {
+                "name": "SubnetId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the subnet in which to create the NAT gateway"
+              },
+              {
+                "name": "AllocationId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The allocation ID of an Elastic IP address to associate with the NAT gateway"
+              },
+              {
+                "name": "ConnectivityType",
+                "value": "public",
+                "type": "query",
+                "description": "Indicates whether the NAT gateway supports public or private connectivity"
+              }
+            ]
+          },
+          "docs": "Creates a NAT gateway in the specified subnet. A NAT gateway enables instances in a private subnet to connect to the internet or other AWS services, but prevents the internet from initiating a connection with those instances."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Describe NAT Gateways",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DescribeNatGateways",
+            "params": [
+              {
+                "name": "NatGatewayId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IDs of the NAT gateways to describe"
+              },
+              {
+                "name": "Filter",
+                "value": "example",
+                "type": "query",
+                "description": "Filters to apply to the results"
+              },
+              {
+                "name": "MaxResults",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "NextToken",
+                "value": "example",
+                "type": "query",
+                "description": "Token for the next page of results"
+              }
+            ]
+          },
+          "docs": "Describes one or more of your NAT gateways. Returns information about the NAT gateway including its state, subnet, and associated Elastic IP address."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Route Tables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon VPC Create a Route Table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateRouteTable",
+            "params": [
+              {
+                "name": "VpcId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the VPC"
+              }
+            ]
+          },
+          "docs": "Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Describe Route Tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DescribeRouteTables",
+            "params": [
+              {
+                "name": "RouteTableId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IDs of the route tables to describe"
+              },
+              {
+                "name": "Filter",
+                "value": "example",
+                "type": "query",
+                "description": "Filters to apply to the results"
+              },
+              {
+                "name": "MaxResults",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "NextToken",
+                "value": "example",
+                "type": "query",
+                "description": "Token for the next page of results"
+              }
+            ]
+          },
+          "docs": "Describes one or more of your route tables. Each subnet in your VPC must be associated with a route table, which controls the routing for the subnet."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Create a Route in a Route Table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateRoute",
+            "params": [
+              {
+                "name": "RouteTableId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the route table for the route"
+              },
+              {
+                "name": "DestinationCidrBlock",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IPv4 CIDR address block used for the destination match"
+              },
+              {
+                "name": "GatewayId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of an internet gateway or virtual private gateway"
+              },
+              {
+                "name": "NatGatewayId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of a NAT gateway"
+              },
+              {
+                "name": "NetworkInterfaceId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of a network interface"
+              }
+            ]
+          },
+          "docs": "Creates a route in a route table within a VPC. You must specify either a destination CIDR block or a prefix list ID. You must also specify exactly one of the targets."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Associate a Route Table with a Subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=AssociateRouteTable",
+            "params": [
+              {
+                "name": "RouteTableId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the route table"
+              },
+              {
+                "name": "SubnetId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the subnet"
+              },
+              {
+                "name": "GatewayId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the internet gateway or virtual private gateway"
+              }
+            ]
+          },
+          "docs": "Associates a subnet or gateway with a route table. The subnet and route table must be in the same VPC. This association causes traffic from the subnet to be routed according to the routes in the route table."
+        }
+      ]
+    },
+    {
+      "info": {
+        "name": "Network ACLs",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon VPC Create a Network ACL",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateNetworkAcl",
+            "params": [
+              {
+                "name": "VpcId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the VPC"
+              }
+            ]
+          },
+          "docs": "Creates a network ACL in a VPC. Network ACLs provide an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Describe Network ACLs",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DescribeNetworkAcls",
+            "params": [
+              {
+                "name": "NetworkAclId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IDs of the network ACLs to describe"
+              },
+              {
+                "name": "Filter",
+                "value": "example",
+                "type": "query",
+                "description": "Filters to apply to the results"
+              },
+              {
+                "name": "MaxResults",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "NextToken",
+                "value": "example",
+                "type": "query",
+                "description": "Token for the next page of results"
+              }
+            ]
+          },
+          "docs": "Describes one or more of your network ACLs. A network ACL is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
