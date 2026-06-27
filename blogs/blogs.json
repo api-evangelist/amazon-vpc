@@ -5,7 +5,7 @@
       "source": "https://aws.amazon.com/blogs/networking-and-content-delivery/feed/",
       "feed_url": "https://aws.amazon.com/blogs/networking-and-content-delivery/feed/",
       "title": "",
-      "saved": 7,
+      "saved": 2,
       "method": "feed"
     },
     {
@@ -16,6 +16,6 @@
       "method": "none"
     }
   ],
-  "post_count": 38,
-  "fetched": "2026-06-14T20:42:17Z"
+  "post_count": 40,
+  "fetched": "2026-06-27T12:03:07Z"
 }

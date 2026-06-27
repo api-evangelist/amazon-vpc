@@ -64,7 +64,7 @@ common:
     url: https://github.com/aws
   - type: Console
     url: https://console.aws.amazon.com/vpc/
-  - type: SignUp
+  - type: Signup
     url: https://signin.aws.amazon.com/signup?request_type=register
   - type: Login
     url: https://aws.amazon.com/console/
