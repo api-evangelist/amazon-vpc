@@ -46,6 +46,14 @@ apis:
       - type: Security
         url: https://docs.aws.amazon.com/vpc/latest/userguide/security.html
 common:
+  - type: TrustCenter
+    url: security/amazon-vpc-trust-center.yml
+  - type: VulnerabilityDisclosure
+    url: security/amazon-vpc-vulnerability-disclosure.yml
+  - type: DomainSecurity
+    url: security/amazon-vpc-domain-security.yml
+  - type: Authentication
+    url: authentication/amazon-vpc-authentication.yml
   - type: Portal
     url: https://aws.amazon.com/
   - type: Website
