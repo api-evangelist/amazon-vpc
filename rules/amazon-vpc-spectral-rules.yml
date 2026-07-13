@@ -1,59 +1,148 @@
-extends: spectral:oas
+# amazon-vpc — Spectral ruleset (strengthened)
+# Plain Spectral. Existing hand-authored rules preserved; measured rules added
+# from this provider's own OpenAPI conventions by strengthen_ruleset.py,
+# then self-validated against the spec.
+#
+# Provenance:
+#   - servers-https-only: 100% of servers already https (error)
+#   - servers-expected-domain: 1/1 servers on amazonaws.com
+#   - query-params-casing: pascal @ 96% (n=47)
+#   - operationid-casing: camel @ 100% (n=17)
+#   - schema-names-casing: pascal @ 100% (n=13)
+#   - schema-properties-casing: camel @ 71% (n=51)
+#   - security: global (root) — NOT emitting operation-security-required
+#   - operation-documents-400: 100% adherence
+#   - operation-documents-401: 100% adherence
+#   - merge: kept 8 existing, added 9 measured, upgraded 0
+#   - added: servers-https-only, servers-expected-domain, query-params-casing, operationid-casing, schema-names-casing, schema-properties-casing, operation-documents-400, operation-documents-401, no-empty-descriptions
+extends:
+  - spectral:oas
 rules:
   info-title-required:
     description: Info title must be present.
     severity: error
-    given: "$.info"
+    given: $.info
     then:
       field: title
       function: truthy
   info-description-required:
     description: Info description must be present.
     severity: warn
-    given: "$.info"
+    given: $.info
     then:
       field: description
       function: truthy
   operation-summary-required:
     description: Every operation must have a summary.
     severity: error
-    given: "$.paths[*][*]"
+    given: $.paths[*][*]
     then:
       field: summary
       function: truthy
   operation-summary-prefix:
     description: Operation summaries must start with 'Amazon VPC'.
     severity: warn
-    given: "$.paths[*][*].summary"
+    given: $.paths[*][*].summary
     then:
       function: pattern
       functionOptions:
-        match: "^Amazon VPC"
+        match: ^Amazon VPC
   operation-operationId-required:
     description: Every operation must have an operationId.
     severity: error
-    given: "$.paths[*][*]"
+    given: $.paths[*][*]
     then:
       field: operationId
       function: truthy
   operation-tags-required:
     description: Every operation must have at least one tag.
     severity: warn
-    given: "$.paths[*][*]"
+    given: $.paths[*][*]
     then:
       field: tags
       function: truthy
   parameter-description-required:
     description: Every parameter must have a description.
     severity: warn
-    given: "$.paths[*][*].parameters[*]"
+    given: $.paths[*][*].parameters[*]
     then:
       field: description
       function: truthy
   security-schemes-defined:
     description: Security schemes must be defined.
     severity: warn
-    given: "$.components"
+    given: $.components
     then:
       field: securitySchemes
+      function: truthy
+  servers-https-only:
+    description: Server URLs must use HTTPS.
+    severity: error
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: ^https://
+  servers-expected-domain:
+    description: Server URLs should be on the amazonaws.com domain.
+    severity: warn
+    given: $.servers[*].url
+    then:
+      function: pattern
+      functionOptions:
+        match: amazonaws\.com
+  query-params-casing:
+    description: Query parameters should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].parameters[?(@.in=='query')]
+    then:
+      field: name
+      function: casing
+      functionOptions:
+        type: pascal
+  operationid-casing:
+    description: Operation IDs should be camelCase (the dominant convention in this API).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].operationId
+    then:
+      function: casing
+      functionOptions:
+        type: camel
+  schema-names-casing:
+    description: Component schema names should be PascalCase (the dominant convention in this API).
+    severity: warn
+    given: $.components.schemas
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: pascal
+  schema-properties-casing:
+    description: Schema properties should be camelCase (the dominant convention in this API).
+    severity: info
+    given: $.components.schemas[*].properties
+    then:
+      field: '@key'
+      function: casing
+      functionOptions:
+        type: camel
+  operation-documents-400:
+    description: Operations should document a 400 response (documented on 100% of this API's operations).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '400'
+      function: truthy
+  operation-documents-401:
+    description: Operations should document a 401 response (documented on 100% of this API's operations).
+    severity: warn
+    given: $.paths[*][get,post,put,patch,delete].responses
+    then:
+      field: '401'
+      function: truthy
+  no-empty-descriptions:
+    description: Descriptions must not be empty strings.
+    severity: warn
+    given: $..description
+    then:
       function: truthy
