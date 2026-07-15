@@ -1,0 +1,184 @@
+generated: '2026-07-15'
+method: generated
+source: openapi/amazon-vpc-openapi.yml
+description: Recommended x-agentic-access execution contracts, classified heuristically from
+  the OpenAPI. A governance starting point for exposing this API to AI agents — review and bind
+  audience per deployment. See research/curity/agentic-governance/.
+summary:
+  operations: 17
+  by_action_class:
+    connected: 17
+  by_consequence:
+    read: 17
+  human_in_the_loop_required: 0
+operations:
+- path: /?Action=CreateVpc
+  method: get
+  operationId: createVpc
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DescribeVpcs
+  method: get
+  operationId: describeVpcs
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DeleteVpc
+  method: get
+  operationId: deleteVpc
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=ModifyVpcAttribute
+  method: get
+  operationId: modifyVpcAttribute
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=CreateSubnet
+  method: get
+  operationId: createSubnet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DescribeSubnets
+  method: get
+  operationId: describeSubnets
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DeleteSubnet
+  method: get
+  operationId: deleteSubnet
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=CreateInternetGateway
+  method: get
+  operationId: createInternetGateway
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=AttachInternetGateway
+  method: get
+  operationId: attachInternetGateway
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=CreateNatGateway
+  method: get
+  operationId: createNatGateway
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DescribeNatGateways
+  method: get
+  operationId: describeNatGateways
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=CreateRouteTable
+  method: get
+  operationId: createRouteTable
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DescribeRouteTables
+  method: get
+  operationId: describeRouteTables
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=CreateRoute
+  method: get
+  operationId: createRoute
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=AssociateRouteTable
+  method: get
+  operationId: associateRouteTable
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=CreateNetworkAcl
+  method: get
+  operationId: createNetworkAcl
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none
+- path: /?Action=DescribeNetworkAcls
+  method: get
+  operationId: describeNetworkAcls
+  x-agentic-access:
+    action-class: connected
+    consequence: read
+    subject: optional
+    token:
+      max-ttl: 3600
+    audit: none

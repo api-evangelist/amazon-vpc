@@ -46,6 +46,8 @@ apis:
       - type: Security
         url: https://docs.aws.amazon.com/vpc/latest/userguide/security.html
 common:
+  - type: AgenticAccess
+    url: agentic-access/amazon-vpc-agentic-access.yml
   - type: TrustCenter
     url: security/amazon-vpc-trust-center.yml
   - type: VulnerabilityDisclosure
