@@ -1,0 +1,192 @@
+openapi: 3.1.0
+info:
+  title: Amazon VPC Internet Gateways NAT Gateways API
+  description: Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. VPC operations are part of the Amazon EC2 API and use the EC2 query-based API pattern.
+  version: '2016-11-15'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+servers:
+- url: https://ec2.{region}.amazonaws.com
+  description: Amazon EC2 Regional Endpoint (VPC operations)
+  variables:
+    region:
+      default: us-east-1
+      description: AWS Region
+security:
+- sigv4Auth: []
+tags:
+- name: NAT Gateways
+  description: Operations for managing NAT gateways for outbound internet access from private subnets
+paths:
+  /?Action=CreateNatGateway:
+    get:
+      operationId: createNatGateway
+      summary: Amazon VPC Create a NAT Gateway
+      description: Creates a NAT gateway in the specified subnet. A NAT gateway enables instances in a private subnet to connect to the internet or other AWS services, but prevents the internet from initiating a connection with those instances.
+      tags:
+      - NAT Gateways
+      parameters:
+      - name: SubnetId
+        in: query
+        required: true
+        description: The ID of the subnet in which to create the NAT gateway
+        schema:
+          type: string
+        example: example-id
+      - name: AllocationId
+        in: query
+        description: The allocation ID of an Elastic IP address to associate with the NAT gateway
+        schema:
+          type: string
+        example: example-id
+      - name: ConnectivityType
+        in: query
+        description: Indicates whether the NAT gateway supports public or private connectivity
+        schema:
+          type: string
+          enum:
+          - public
+          - private
+        example: public
+      responses:
+        '200':
+          description: Successfully created NAT gateway
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateNatGatewayResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=DescribeNatGateways:
+    get:
+      operationId: describeNatGateways
+      summary: Amazon VPC Describe NAT Gateways
+      description: Describes one or more of your NAT gateways. Returns information about the NAT gateway including its state, subnet, and associated Elastic IP address.
+      tags:
+      - NAT Gateways
+      parameters:
+      - name: NatGatewayId
+        in: query
+        description: The IDs of the NAT gateways to describe
+        schema:
+          type: array
+          items:
+            type: string
+        example: example-id
+      - name: Filter
+        in: query
+        description: Filters to apply to the results
+        schema:
+          type: array
+          items:
+            type: string
+        example: example
+      - name: MaxResults
+        in: query
+        description: Maximum number of results to return
+        schema:
+          type: integer
+          minimum: 5
+          maximum: 1000
+        example: 1
+      - name: NextToken
+        in: query
+        description: Token for the next page of results
+        schema:
+          type: string
+        example: example
+      responses:
+        '200':
+          description: Successfully described NAT gateways
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    NatGateway:
+      type: object
+      description: Describes a NAT gateway
+      properties:
+        natGatewayId:
+          type: string
+          description: The ID of the NAT gateway
+        subnetId:
+          type: string
+          description: The ID of the subnet in which the NAT gateway is located
+        vpcId:
+          type: string
+          description: The ID of the VPC in which the NAT gateway is located
+        state:
+          type: string
+          description: The state of the NAT gateway
+          enum:
+          - pending
+          - failed
+          - available
+          - deleting
+          - deleted
+        connectivityType:
+          type: string
+          description: Indicates whether the NAT gateway supports public or private connectivity
+          enum:
+          - public
+          - private
+        natGatewayAddresses:
+          type: array
+          description: Information about the IP addresses and network interface associated with the NAT gateway
+          items:
+            type: object
+            properties:
+              allocationId:
+                type: string
+              networkInterfaceId:
+                type: string
+              privateIp:
+                type: string
+              publicIp:
+                type: string
+        createTime:
+          type: string
+          format: date-time
+          description: The date and time the NAT gateway was created
+        tags:
+          type: array
+          description: Any tags assigned to the NAT gateway
+          items:
+            $ref: '#/components/schemas/Tag'
+    CreateNatGatewayResponse:
+      type: object
+      description: Response from the CreateNatGateway action
+      properties:
+        natGateway:
+          $ref: '#/components/schemas/NatGateway'
+    Tag:
+      type: object
+      description: Describes a tag
+      properties:
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
+  securitySchemes:
+    sigv4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+externalDocs:
+  description: Amazon VPC API Reference
+  url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html

@@ -1,0 +1,105 @@
+openapi: 3.1.0
+info:
+  title: Amazon VPC Internet Gateways Network ACLs API
+  description: Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. VPC operations are part of the Amazon EC2 API and use the EC2 query-based API pattern.
+  version: '2016-11-15'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+servers:
+- url: https://ec2.{region}.amazonaws.com
+  description: Amazon EC2 Regional Endpoint (VPC operations)
+  variables:
+    region:
+      default: us-east-1
+      description: AWS Region
+security:
+- sigv4Auth: []
+tags:
+- name: Network ACLs
+  description: Operations for managing network access control lists for subnet-level traffic filtering
+paths:
+  /?Action=CreateNetworkAcl:
+    get:
+      operationId: createNetworkAcl
+      summary: Amazon VPC Create a Network ACL
+      description: Creates a network ACL in a VPC. Network ACLs provide an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets.
+      tags:
+      - Network ACLs
+      parameters:
+      - name: VpcId
+        in: query
+        required: true
+        description: The ID of the VPC
+        schema:
+          type: string
+        example: example-id
+      responses:
+        '200':
+          description: Successfully created network ACL
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=DescribeNetworkAcls:
+    get:
+      operationId: describeNetworkAcls
+      summary: Amazon VPC Describe Network ACLs
+      description: Describes one or more of your network ACLs. A network ACL is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets.
+      tags:
+      - Network ACLs
+      parameters:
+      - name: NetworkAclId
+        in: query
+        description: The IDs of the network ACLs to describe
+        schema:
+          type: array
+          items:
+            type: string
+        example: example-id
+      - name: Filter
+        in: query
+        description: Filters to apply to the results
+        schema:
+          type: array
+          items:
+            type: string
+        example: example
+      - name: MaxResults
+        in: query
+        description: Maximum number of results to return
+        schema:
+          type: integer
+          minimum: 5
+          maximum: 1000
+        example: 1
+      - name: NextToken
+        in: query
+        description: Token for the next page of results
+        schema:
+          type: string
+        example: example
+      responses:
+        '200':
+          description: Successfully described network ACLs
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  securitySchemes:
+    sigv4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+externalDocs:
+  description: Amazon VPC API Reference
+  url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html

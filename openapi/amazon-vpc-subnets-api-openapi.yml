@@ -1,0 +1,231 @@
+openapi: 3.1.0
+info:
+  title: Amazon VPC Internet Gateways Subnets API
+  description: Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. VPC operations are part of the Amazon EC2 API and use the EC2 query-based API pattern.
+  version: '2016-11-15'
+  contact:
+    name: Amazon Web Services
+    url: https://aws.amazon.com/contact-us/
+  termsOfService: https://aws.amazon.com/service-terms/
+servers:
+- url: https://ec2.{region}.amazonaws.com
+  description: Amazon EC2 Regional Endpoint (VPC operations)
+  variables:
+    region:
+      default: us-east-1
+      description: AWS Region
+security:
+- sigv4Auth: []
+tags:
+- name: Subnets
+  description: Operations for creating and managing subnets within a VPC
+paths:
+  /?Action=CreateSubnet:
+    get:
+      operationId: createSubnet
+      summary: Amazon VPC Create a Subnet
+      description: Creates a subnet in the specified VPC. The new subnet must have a CIDR block that is within the VPC CIDR block. You can optionally specify an Availability Zone in which to create the subnet.
+      tags:
+      - Subnets
+      parameters:
+      - name: VpcId
+        in: query
+        required: true
+        description: The ID of the VPC
+        schema:
+          type: string
+        example: example-id
+      - name: CidrBlock
+        in: query
+        required: true
+        description: The IPv4 network range for the subnet in CIDR notation
+        schema:
+          type: string
+        example: example-id
+      - name: AvailabilityZone
+        in: query
+        description: The Availability Zone or Local Zone for the subnet
+        schema:
+          type: string
+        example: example
+      - name: Ipv6CidrBlock
+        in: query
+        description: The IPv6 network range for the subnet in CIDR notation
+        schema:
+          type: string
+        example: example-id
+      responses:
+        '200':
+          description: Successfully created subnet
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/CreateSubnetResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=DescribeSubnets:
+    get:
+      operationId: describeSubnets
+      summary: Amazon VPC Describe Subnets
+      description: Describes one or more of your subnets. Returns information about the subnet including the CIDR block, Availability Zone, VPC, and state.
+      tags:
+      - Subnets
+      parameters:
+      - name: SubnetId
+        in: query
+        description: The IDs of the subnets to describe
+        schema:
+          type: array
+          items:
+            type: string
+        example: example-id
+      - name: Filter
+        in: query
+        description: Filters to apply to the results
+        schema:
+          type: array
+          items:
+            type: string
+        example: example
+      - name: MaxResults
+        in: query
+        description: Maximum number of results to return
+        schema:
+          type: integer
+          minimum: 5
+          maximum: 1000
+        example: 1
+      - name: NextToken
+        in: query
+        description: Token for the next page of results
+        schema:
+          type: string
+        example: example
+      responses:
+        '200':
+          description: Successfully described subnets
+          content:
+            application/xml:
+              schema:
+                $ref: '#/components/schemas/DescribeSubnetsResponse'
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+  /?Action=DeleteSubnet:
+    get:
+      operationId: deleteSubnet
+      summary: Amazon VPC Delete a Subnet
+      description: Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet.
+      tags:
+      - Subnets
+      parameters:
+      - name: SubnetId
+        in: query
+        required: true
+        description: The ID of the subnet to delete
+        schema:
+          type: string
+        example: example-id
+      responses:
+        '200':
+          description: Successfully deleted subnet
+        '400':
+          description: Invalid request parameters
+        '401':
+          description: Authentication failure
+      x-microcks-operation:
+        delay: 0
+        dispatcher: FALLBACK
+components:
+  schemas:
+    CreateSubnetResponse:
+      type: object
+      description: Response from the CreateSubnet action
+      properties:
+        subnet:
+          $ref: '#/components/schemas/Subnet'
+    DescribeSubnetsResponse:
+      type: object
+      description: Response from the DescribeSubnets action
+      properties:
+        subnetSet:
+          type: array
+          description: Information about the subnets
+          items:
+            $ref: '#/components/schemas/Subnet'
+        nextToken:
+          type: string
+          description: Token for the next page of results
+    Tag:
+      type: object
+      description: Describes a tag
+      properties:
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
+    Subnet:
+      type: object
+      description: Describes a subnet
+      properties:
+        subnetId:
+          type: string
+          description: The ID of the subnet
+        subnetArn:
+          type: string
+          description: The Amazon Resource Name (ARN) of the subnet
+        vpcId:
+          type: string
+          description: The ID of the VPC the subnet is in
+        state:
+          type: string
+          description: The current state of the subnet
+          enum:
+          - pending
+          - available
+        cidrBlock:
+          type: string
+          description: The IPv4 CIDR block assigned to the subnet
+        availabilityZone:
+          type: string
+          description: The Availability Zone of the subnet
+        availabilityZoneId:
+          type: string
+          description: The AZ ID of the subnet
+        availableIpAddressCount:
+          type: integer
+          description: The number of unused private IPv4 addresses in the subnet
+        defaultForAz:
+          type: boolean
+          description: Indicates whether this is the default subnet for the Availability Zone
+        mapPublicIpOnLaunch:
+          type: boolean
+          description: Indicates whether instances launched in this subnet receive a public IPv4 address
+        ownerId:
+          type: string
+          description: The ID of the AWS account that owns the subnet
+        tags:
+          type: array
+          description: Any tags assigned to the subnet
+          items:
+            $ref: '#/components/schemas/Tag'
+  securitySchemes:
+    sigv4Auth:
+      type: apiKey
+      name: Authorization
+      in: header
+      description: AWS Signature Version 4 authentication
+externalDocs:
+  description: Amazon VPC API Reference
+  url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html
