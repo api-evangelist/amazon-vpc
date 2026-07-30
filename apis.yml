@@ -3,49 +3,207 @@ description: >-
   Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can
   launch AWS resources in a virtual network that you define, with complete control over IP addressing, subnets, routing,
   and network gateways.
+accessModel:
+  pricing: freemium
+  onboarding: self-serve
+  trial: false
+  try_now: true
+  public: false
+  label: Freemium · Self-serve signup
+  confidence: high
+  source:
+  - plans
+  - authentication
+  generated: '2026-07-22'
+  method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/vpc/
 created: '2024-01-15'
 modified: '2026-05-19'
 apis:
-  - name: Amazon VPC API
-    description: >-
-      Core API for managing Amazon Virtual Private Cloud resources including VPCs, subnets, internet gateways, NAT
-      gateways, route tables, and network ACLs. VPC operations are part of the Amazon EC2 API.
-    image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
-    humanURL: https://aws.amazon.com/vpc/
-    baseURL: https://ec2.amazonaws.com
-    tags:
-      - AWS
-      - Networking
-      - Private Cloud
-      - Security
-      - Subnets
-      - VPC
-    properties:
-      - type: Documentation
-        url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html
-      - type: OpenAPI
-        url: https://raw.githubusercontent.com/api-evangelist/amazon-vpc/refs/heads/main/openapi/amazon-vpc-openapi.yml
-      - type: JSONSchema
-        url: json-schema/amazon-vpc-schema.json
-      - type: JSONLD
-        url: json-ld/amazon-vpc-context.jsonld
-      - type: Pricing
-        url: https://aws.amazon.com/vpc/pricing/
-      - type: GettingStarted
-        url: https://aws.amazon.com/vpc/getting-started/
-      - type: FAQ
-        url: https://aws.amazon.com/vpc/faqs/
-      - type: User Guide
-        url: https://docs.aws.amazon.com/vpc/latest/userguide/
-      - type: APIReference
-        url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
-      - type: CLI Reference
-        url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
-      - type: Security
-        url: https://docs.aws.amazon.com/vpc/latest/userguide/security.html
+- aid: amazon-vpc:amazon-vpc-internet-gateways-api
+  name: Amazon VPC Internet Gateways API
+  description: Operations for managing internet gateways that connect VPCs to the internet
+  humanURL: https://aws.amazon.com/vpc/
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - Internet Gateways
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-vpc-internet-gateways-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html
+  - type: JSONSchema
+    url: json-schema/amazon-vpc-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-vpc-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/vpc/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/vpc/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/vpc/faqs/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+  - type: CLI Reference
+    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+  - type: Security
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/security.html
+- aid: amazon-vpc:amazon-vpc-nat-gateways-api
+  name: Amazon VPC NAT Gateways API
+  description: Operations for managing NAT gateways for outbound internet access from private subnets
+  humanURL: https://aws.amazon.com/vpc/
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - NAT Gateways
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-vpc-nat-gateways-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html
+  - type: JSONSchema
+    url: json-schema/amazon-vpc-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-vpc-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/vpc/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/vpc/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/vpc/faqs/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+  - type: CLI Reference
+    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+  - type: Security
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/security.html
+- aid: amazon-vpc:amazon-vpc-network-acls-api
+  name: Amazon VPC Network ACLs API
+  description: Operations for managing network access control lists for subnet-level traffic filtering
+  humanURL: https://aws.amazon.com/vpc/
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - Network ACLs
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-vpc-network-acls-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html
+  - type: JSONSchema
+    url: json-schema/amazon-vpc-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-vpc-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/vpc/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/vpc/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/vpc/faqs/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+  - type: CLI Reference
+    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+  - type: Security
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/security.html
+- aid: amazon-vpc:amazon-vpc-route-tables-api
+  name: Amazon VPC Route Tables API
+  description: Operations for managing route tables and routes within a VPC
+  humanURL: https://aws.amazon.com/vpc/
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - Route Tables
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-vpc-route-tables-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html
+  - type: JSONSchema
+    url: json-schema/amazon-vpc-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-vpc-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/vpc/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/vpc/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/vpc/faqs/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+  - type: CLI Reference
+    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+  - type: Security
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/security.html
+- aid: amazon-vpc:amazon-vpc-subnets-api
+  name: Amazon VPC Subnets API
+  description: Operations for creating and managing subnets within a VPC
+  humanURL: https://aws.amazon.com/vpc/
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - Subnets
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-vpc-subnets-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html
+  - type: JSONSchema
+    url: json-schema/amazon-vpc-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-vpc-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/vpc/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/vpc/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/vpc/faqs/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+  - type: CLI Reference
+    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+  - type: Security
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/security.html
+- aid: amazon-vpc:amazon-vpc-vpcs-api
+  name: Amazon VPC VPCs API
+  description: Operations for creating and managing Virtual Private Clouds
+  humanURL: https://aws.amazon.com/vpc/
+  baseURL: https://ec2.amazonaws.com
+  tags:
+  - VPCs
+  properties:
+  - type: OpenAPI
+    url: openapi/amazon-vpc-vpcs-api-openapi.yml
+  - type: Documentation
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html
+  - type: JSONSchema
+    url: json-schema/amazon-vpc-schema.json
+  - type: JSONLD
+    url: json-ld/amazon-vpc-context.jsonld
+  - type: Pricing
+    url: https://aws.amazon.com/vpc/pricing/
+  - type: GettingStarted
+    url: https://aws.amazon.com/vpc/getting-started/
+  - type: FAQ
+    url: https://aws.amazon.com/vpc/faqs/
+  - type: User Guide
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/
+  - type: APIReference
+    url: https://docs.aws.amazon.com/AWSEC2/latest/APIReference/
+  - type: CLI Reference
+    url: https://docs.aws.amazon.com/cli/latest/reference/ec2/
+  - type: Security
+    url: https://docs.aws.amazon.com/vpc/latest/userguide/security.html
 common:
+  - type: PostmanWorkspace
+    url: https://www.postman.com/kinlaneapi/amazon-vpc/overview
   - type: AgenticAccess
     url: agentic-access/amazon-vpc-agentic-access.yml
   - type: TrustCenter
