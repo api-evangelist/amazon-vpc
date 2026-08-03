@@ -1,0 +1,700 @@
+{
+  "info": {
+    "_postman_id": "ce85ac20-0540-4da7-834a-664004dc70e2",
+    "name": "Amazon VPC Internet Gateways Subnets API",
+    "description": "Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. VPC operations are part of the Amazon EC2 API and use the EC2 query-based API pattern.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:57:17.000Z",
+    "updatedAt": "2026-07-28T00:57:17.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ce85ac20-0540-4da7-834a-664004dc70e2"
+  },
+  "item": [
+    {
+      "name": "?Action=CreateSubnet",
+      "item": [
+        {
+          "name": "Amazon VPC Create a Subnet",
+          "id": "1e03382d-642d-4662-8663-c2f44de1fc9b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateSubnet&VpcId=<string>&CidrBlock=<string>&AvailabilityZone=<string>&Ipv6CidrBlock=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateSubnet"
+                },
+                {
+                  "description": "(Required) The ID of the VPC",
+                  "key": "VpcId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "(Required) The IPv4 network range for the subnet in CIDR notation",
+                  "key": "CidrBlock",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The Availability Zone or Local Zone for the subnet",
+                  "key": "AvailabilityZone",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The IPv6 network range for the subnet in CIDR notation",
+                  "key": "Ipv6CidrBlock",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Creates a subnet in the specified VPC. The new subnet must have a CIDR block that is within the VPC CIDR block. You can optionally specify an Availability Zone in which to create the subnet."
+          },
+          "response": [
+            {
+              "id": "0addf0f4-d70c-4492-a849-c510975758a7",
+              "name": "Successfully created subnet",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>&CidrBlock=<string>&AvailabilityZone=<string>&Ipv6CidrBlock=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The IPv4 network range for the subnet in CIDR notation",
+                      "key": "CidrBlock",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The Availability Zone or Local Zone for the subnet",
+                      "key": "AvailabilityZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IPv6 network range for the subnet in CIDR notation",
+                      "key": "Ipv6CidrBlock",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <subnet>\n    <subnetId>(string)</subnetId>\n    <subnetArn>(string)</subnetArn>\n    <vpcId>(string)</vpcId>\n    <state>(string)</state>\n    <cidrBlock>(string)</cidrBlock>\n    <availabilityZone>(string)</availabilityZone>\n    <availabilityZoneId>(string)</availabilityZoneId>\n    <availableIpAddressCount>(integer)</availableIpAddressCount>\n    <defaultForAz>(boolean)</defaultForAz>\n    <mapPublicIpOnLaunch>(boolean)</mapPublicIpOnLaunch>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </subnet>\n</element>",
+              "createdAt": "2026-07-28T00:57:17.000Z",
+              "updatedAt": "2026-07-28T00:57:17.000Z",
+              "uid": "35240-0addf0f4-d70c-4492-a849-c510975758a7"
+            },
+            {
+              "id": "5485c74b-5211-4857-985f-e36c93eee55d",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>&CidrBlock=<string>&AvailabilityZone=<string>&Ipv6CidrBlock=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The IPv4 network range for the subnet in CIDR notation",
+                      "key": "CidrBlock",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The Availability Zone or Local Zone for the subnet",
+                      "key": "AvailabilityZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IPv6 network range for the subnet in CIDR notation",
+                      "key": "Ipv6CidrBlock",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:17.000Z",
+              "updatedAt": "2026-07-28T00:57:17.000Z",
+              "uid": "35240-5485c74b-5211-4857-985f-e36c93eee55d"
+            },
+            {
+              "id": "b8116f70-cb3f-487f-839f-9573f1e5ff27",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>&CidrBlock=<string>&AvailabilityZone=<string>&Ipv6CidrBlock=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "(Required) The IPv4 network range for the subnet in CIDR notation",
+                      "key": "CidrBlock",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The Availability Zone or Local Zone for the subnet",
+                      "key": "AvailabilityZone",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IPv6 network range for the subnet in CIDR notation",
+                      "key": "Ipv6CidrBlock",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:17.000Z",
+              "updatedAt": "2026-07-28T00:57:17.000Z",
+              "uid": "35240-b8116f70-cb3f-487f-839f-9573f1e5ff27"
+            }
+          ],
+          "createdAt": "2026-07-28T00:57:17.000Z",
+          "updatedAt": "2026-07-28T00:57:17.000Z",
+          "uid": "35240-1e03382d-642d-4662-8663-c2f44de1fc9b"
+        }
+      ],
+      "id": "22d6f02d-62e4-4b86-9ed4-145c9d665c3e",
+      "createdAt": "2026-07-28T00:57:17.000Z",
+      "updatedAt": "2026-07-28T00:57:17.000Z",
+      "uid": "35240-22d6f02d-62e4-4b86-9ed4-145c9d665c3e"
+    },
+    {
+      "name": "?Action=DescribeSubnets",
+      "item": [
+        {
+          "name": "Amazon VPC Describe Subnets",
+          "id": "f5535a5a-3176-47b8-bd46-93e0a42119b3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeSubnets&SubnetId=<string>&SubnetId=<string>&Filter=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeSubnets"
+                },
+                {
+                  "description": "The IDs of the subnets to describe",
+                  "key": "SubnetId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The IDs of the subnets to describe",
+                  "key": "SubnetId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters to apply to the results",
+                  "key": "Filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters to apply to the results",
+                  "key": "Filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of results to return",
+                  "key": "MaxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Token for the next page of results",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Describes one or more of your subnets. Returns information about the subnet including the CIDR block, Availability Zone, VPC, and state."
+          },
+          "response": [
+            {
+              "id": "9ccf52c9-8b53-4b9f-bbb5-31993484308b",
+              "name": "Successfully described subnets",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?SubnetId=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the subnets to describe",
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters to apply to the results",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <subnetSet>\n    <subnetId>(string)</subnetId>\n    <subnetArn>(string)</subnetArn>\n    <vpcId>(string)</vpcId>\n    <state>(string)</state>\n    <cidrBlock>(string)</cidrBlock>\n    <availabilityZone>(string)</availabilityZone>\n    <availabilityZoneId>(string)</availabilityZoneId>\n    <availableIpAddressCount>(integer)</availableIpAddressCount>\n    <defaultForAz>(boolean)</defaultForAz>\n    <mapPublicIpOnLaunch>(boolean)</mapPublicIpOnLaunch>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </subnetSet>\n  <subnetSet>\n    <subnetId>(string)</subnetId>\n    <subnetArn>(string)</subnetArn>\n    <vpcId>(string)</vpcId>\n    <state>(string)</state>\n    <cidrBlock>(string)</cidrBlock>\n    <availabilityZone>(string)</availabilityZone>\n    <availabilityZoneId>(string)</availabilityZoneId>\n    <availableIpAddressCount>(integer)</availableIpAddressCount>\n    <defaultForAz>(boolean)</defaultForAz>\n    <mapPublicIpOnLaunch>(boolean)</mapPublicIpOnLaunch>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </subnetSet>\n  <nextToken>(string)</nextToken>\n</element>",
+              "createdAt": "2026-07-28T00:57:17.000Z",
+              "updatedAt": "2026-07-28T00:57:17.000Z",
+              "uid": "35240-9ccf52c9-8b53-4b9f-bbb5-31993484308b"
+            },
+            {
+              "id": "c2f55675-5397-4375-9874-4ce884345803",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?SubnetId=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the subnets to describe",
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters to apply to the results",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:17.000Z",
+              "updatedAt": "2026-07-28T00:57:17.000Z",
+              "uid": "35240-c2f55675-5397-4375-9874-4ce884345803"
+            },
+            {
+              "id": "7ba18104-e8ae-4ec7-9b25-4bb09e53dcbc",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?SubnetId=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the subnets to describe",
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters to apply to the results",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:17.000Z",
+              "updatedAt": "2026-07-28T00:57:17.000Z",
+              "uid": "35240-7ba18104-e8ae-4ec7-9b25-4bb09e53dcbc"
+            }
+          ],
+          "createdAt": "2026-07-28T00:57:17.000Z",
+          "updatedAt": "2026-07-28T00:57:17.000Z",
+          "uid": "35240-f5535a5a-3176-47b8-bd46-93e0a42119b3"
+        }
+      ],
+      "id": "1263533c-bc8a-4ee0-b1f6-6c180cbcc3a1",
+      "createdAt": "2026-07-28T00:57:17.000Z",
+      "updatedAt": "2026-07-28T00:57:17.000Z",
+      "uid": "35240-1263533c-bc8a-4ee0-b1f6-6c180cbcc3a1"
+    },
+    {
+      "name": "?Action=DeleteSubnet",
+      "item": [
+        {
+          "name": "Amazon VPC Delete a Subnet",
+          "id": "46a2b951-cc31-492d-a9f9-a46dfeed2cbf",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DeleteSubnet&SubnetId=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteSubnet"
+                },
+                {
+                  "description": "(Required) The ID of the subnet to delete",
+                  "key": "SubnetId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet."
+          },
+          "response": [
+            {
+              "id": "f9979ad5-5c3c-48bd-abca-104f151b9543",
+              "name": "Successfully deleted subnet",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?SubnetId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the subnet to delete",
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:17.000Z",
+              "updatedAt": "2026-07-28T00:57:17.000Z",
+              "uid": "35240-f9979ad5-5c3c-48bd-abca-104f151b9543"
+            },
+            {
+              "id": "dfc8ddde-b054-482e-8e5b-a01d3fb67071",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?SubnetId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the subnet to delete",
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:17.000Z",
+              "updatedAt": "2026-07-28T00:57:17.000Z",
+              "uid": "35240-dfc8ddde-b054-482e-8e5b-a01d3fb67071"
+            },
+            {
+              "id": "23fe3229-52b6-4aa1-91ae-f5c55cf81c81",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?SubnetId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the subnet to delete",
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:17.000Z",
+              "updatedAt": "2026-07-28T00:57:17.000Z",
+              "uid": "35240-23fe3229-52b6-4aa1-91ae-f5c55cf81c81"
+            }
+          ],
+          "createdAt": "2026-07-28T00:57:17.000Z",
+          "updatedAt": "2026-07-28T00:57:17.000Z",
+          "uid": "35240-46a2b951-cc31-492d-a9f9-a46dfeed2cbf"
+        }
+      ],
+      "id": "c9346e56-d2ff-4839-9be5-c0457fe58e43",
+      "createdAt": "2026-07-28T00:57:17.000Z",
+      "updatedAt": "2026-07-28T00:57:17.000Z",
+      "uid": "35240-c9346e56-d2ff-4839-9be5-c0457fe58e43"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://ec2.{{region}}.amazonaws.com"
+    }
+  ]
+}

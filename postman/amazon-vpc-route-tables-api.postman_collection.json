@@ -1,0 +1,912 @@
+{
+  "info": {
+    "_postman_id": "789101ff-a14a-4e0b-b70a-4db10a3bf4e6",
+    "name": "Amazon VPC Internet Gateways Route Tables API",
+    "description": "Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. VPC operations are part of the Amazon EC2 API and use the EC2 query-based API pattern.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:56:56.000Z",
+    "updatedAt": "2026-07-28T00:56:56.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-789101ff-a14a-4e0b-b70a-4db10a3bf4e6"
+  },
+  "item": [
+    {
+      "name": "?Action=CreateRouteTable",
+      "item": [
+        {
+          "name": "Amazon VPC Create a Route Table",
+          "id": "38d8156e-67cf-4252-a48e-f18183a1cec3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateRouteTable&VpcId=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateRouteTable"
+                },
+                {
+                  "description": "(Required) The ID of the VPC",
+                  "key": "VpcId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet."
+          },
+          "response": [
+            {
+              "id": "7c9147a6-8438-4aed-b175-6be4460e5985",
+              "name": "Successfully created route table",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <routeTable>\n    <routeTableId>(string)</routeTableId>\n    <vpcId>(string)</vpcId>\n    <routes>\n      <destinationCidrBlock>(string)</destinationCidrBlock>\n      <destinationIpv6CidrBlock>(string)</destinationIpv6CidrBlock>\n      <gatewayId>(string)</gatewayId>\n      <natGatewayId>(string)</natGatewayId>\n      <networkInterfaceId>(string)</networkInterfaceId>\n      <state>(string)</state>\n      <origin>(string)</origin>\n    </routes>\n    <routes>\n      <destinationCidrBlock>(string)</destinationCidrBlock>\n      <destinationIpv6CidrBlock>(string)</destinationIpv6CidrBlock>\n      <gatewayId>(string)</gatewayId>\n      <natGatewayId>(string)</natGatewayId>\n      <networkInterfaceId>(string)</networkInterfaceId>\n      <state>(string)</state>\n      <origin>(string)</origin>\n    </routes>\n    <associations>\n      <routeTableAssociationId>(string)</routeTableAssociationId>\n      <routeTableId>(string)</routeTableId>\n      <subnetId>(string)</subnetId>\n      <gatewayId>(string)</gatewayId>\n      <main>(boolean)</main>\n    </associations>\n    <associations>\n      <routeTableAssociationId>(string)</routeTableAssociationId>\n      <routeTableId>(string)</routeTableId>\n      <subnetId>(string)</subnetId>\n      <gatewayId>(string)</gatewayId>\n      <main>(boolean)</main>\n    </associations>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </routeTable>\n</element>",
+              "createdAt": "2026-07-28T00:56:56.000Z",
+              "updatedAt": "2026-07-28T00:56:56.000Z",
+              "uid": "35240-7c9147a6-8438-4aed-b175-6be4460e5985"
+            },
+            {
+              "id": "b2aa6992-9ff8-4c12-9d9a-0936d4d8e328",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:56.000Z",
+              "updatedAt": "2026-07-28T00:56:56.000Z",
+              "uid": "35240-b2aa6992-9ff8-4c12-9d9a-0936d4d8e328"
+            },
+            {
+              "id": "3915417d-faf1-49c4-9f99-4220e4cf38f7",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:56.000Z",
+              "updatedAt": "2026-07-28T00:56:56.000Z",
+              "uid": "35240-3915417d-faf1-49c4-9f99-4220e4cf38f7"
+            }
+          ],
+          "createdAt": "2026-07-28T00:56:56.000Z",
+          "updatedAt": "2026-07-28T00:56:56.000Z",
+          "uid": "35240-38d8156e-67cf-4252-a48e-f18183a1cec3"
+        }
+      ],
+      "id": "60c7b6a7-1453-46bc-96ca-3b0c74abbadf",
+      "createdAt": "2026-07-28T00:56:56.000Z",
+      "updatedAt": "2026-07-28T00:56:56.000Z",
+      "uid": "35240-60c7b6a7-1453-46bc-96ca-3b0c74abbadf"
+    },
+    {
+      "name": "?Action=DescribeRouteTables",
+      "item": [
+        {
+          "name": "Amazon VPC Describe Route Tables",
+          "id": "4accbd76-0cc2-4a19-8874-cee0f09727c2",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeRouteTables&RouteTableId=<string>&RouteTableId=<string>&Filter=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeRouteTables"
+                },
+                {
+                  "description": "The IDs of the route tables to describe",
+                  "key": "RouteTableId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The IDs of the route tables to describe",
+                  "key": "RouteTableId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters to apply to the results",
+                  "key": "Filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters to apply to the results",
+                  "key": "Filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of results to return",
+                  "key": "MaxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Token for the next page of results",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Describes one or more of your route tables. Each subnet in your VPC must be associated with a route table, which controls the routing for the subnet."
+          },
+          "response": [
+            {
+              "id": "f88bad11-60f1-4b0b-922f-c5ff5dd38065",
+              "name": "Successfully described route tables",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?RouteTableId=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the route tables to describe",
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters to apply to the results",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:56.000Z",
+              "updatedAt": "2026-07-28T00:56:56.000Z",
+              "uid": "35240-f88bad11-60f1-4b0b-922f-c5ff5dd38065"
+            },
+            {
+              "id": "b456b121-7e55-49e4-a7e0-c94a0c2b4421",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?RouteTableId=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the route tables to describe",
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters to apply to the results",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:56.000Z",
+              "updatedAt": "2026-07-28T00:56:56.000Z",
+              "uid": "35240-b456b121-7e55-49e4-a7e0-c94a0c2b4421"
+            },
+            {
+              "id": "e9fdfe3c-23ef-4d24-a26a-a148c8778124",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?RouteTableId=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the route tables to describe",
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters to apply to the results",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:56.000Z",
+              "updatedAt": "2026-07-28T00:56:56.000Z",
+              "uid": "35240-e9fdfe3c-23ef-4d24-a26a-a148c8778124"
+            }
+          ],
+          "createdAt": "2026-07-28T00:56:56.000Z",
+          "updatedAt": "2026-07-28T00:56:56.000Z",
+          "uid": "35240-4accbd76-0cc2-4a19-8874-cee0f09727c2"
+        }
+      ],
+      "id": "74486765-43e0-474a-9d14-19c892bfcc7a",
+      "createdAt": "2026-07-28T00:56:56.000Z",
+      "updatedAt": "2026-07-28T00:56:56.000Z",
+      "uid": "35240-74486765-43e0-474a-9d14-19c892bfcc7a"
+    },
+    {
+      "name": "?Action=CreateRoute",
+      "item": [
+        {
+          "name": "Amazon VPC Create a Route in a Route Table",
+          "id": "09841cc1-efcb-467f-bb49-9ae945cccba3",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateRoute&RouteTableId=<string>&DestinationCidrBlock=<string>&GatewayId=<string>&NatGatewayId=<string>&NetworkInterfaceId=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateRoute"
+                },
+                {
+                  "description": "(Required) The ID of the route table for the route",
+                  "key": "RouteTableId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The IPv4 CIDR address block used for the destination match",
+                  "key": "DestinationCidrBlock",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ID of an internet gateway or virtual private gateway",
+                  "key": "GatewayId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ID of a NAT gateway",
+                  "key": "NatGatewayId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ID of a network interface",
+                  "key": "NetworkInterfaceId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Creates a route in a route table within a VPC. You must specify either a destination CIDR block or a prefix list ID. You must also specify exactly one of the targets."
+          },
+          "response": [
+            {
+              "id": "a9e5d29c-d85b-4fdd-8317-0a7a6b71968f",
+              "name": "Successfully created route",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?RouteTableId=<string>&DestinationCidrBlock=<string>&GatewayId=<string>&NatGatewayId=<string>&NetworkInterfaceId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the route table for the route",
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IPv4 CIDR address block used for the destination match",
+                      "key": "DestinationCidrBlock",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of an internet gateway or virtual private gateway",
+                      "key": "GatewayId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of a NAT gateway",
+                      "key": "NatGatewayId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of a network interface",
+                      "key": "NetworkInterfaceId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:56.000Z",
+              "updatedAt": "2026-07-28T00:56:56.000Z",
+              "uid": "35240-a9e5d29c-d85b-4fdd-8317-0a7a6b71968f"
+            },
+            {
+              "id": "c84a513f-edf5-4d37-b6f1-9be22d33df7b",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?RouteTableId=<string>&DestinationCidrBlock=<string>&GatewayId=<string>&NatGatewayId=<string>&NetworkInterfaceId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the route table for the route",
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IPv4 CIDR address block used for the destination match",
+                      "key": "DestinationCidrBlock",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of an internet gateway or virtual private gateway",
+                      "key": "GatewayId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of a NAT gateway",
+                      "key": "NatGatewayId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of a network interface",
+                      "key": "NetworkInterfaceId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:56.000Z",
+              "updatedAt": "2026-07-28T00:56:56.000Z",
+              "uid": "35240-c84a513f-edf5-4d37-b6f1-9be22d33df7b"
+            },
+            {
+              "id": "66f1cfa2-7dc6-4117-b568-e50f4828f00f",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?RouteTableId=<string>&DestinationCidrBlock=<string>&GatewayId=<string>&NatGatewayId=<string>&NetworkInterfaceId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the route table for the route",
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The IPv4 CIDR address block used for the destination match",
+                      "key": "DestinationCidrBlock",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of an internet gateway or virtual private gateway",
+                      "key": "GatewayId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of a NAT gateway",
+                      "key": "NatGatewayId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of a network interface",
+                      "key": "NetworkInterfaceId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:56.000Z",
+              "updatedAt": "2026-07-28T00:56:56.000Z",
+              "uid": "35240-66f1cfa2-7dc6-4117-b568-e50f4828f00f"
+            }
+          ],
+          "createdAt": "2026-07-28T00:56:56.000Z",
+          "updatedAt": "2026-07-28T00:56:56.000Z",
+          "uid": "35240-09841cc1-efcb-467f-bb49-9ae945cccba3"
+        }
+      ],
+      "id": "989c2f0f-a01c-4838-872f-d43c791c3c9d",
+      "createdAt": "2026-07-28T00:56:56.000Z",
+      "updatedAt": "2026-07-28T00:56:56.000Z",
+      "uid": "35240-989c2f0f-a01c-4838-872f-d43c791c3c9d"
+    },
+    {
+      "name": "?Action=AssociateRouteTable",
+      "item": [
+        {
+          "name": "Amazon VPC Associate a Route Table with a Subnet",
+          "id": "0b6869f9-eab3-4413-90bf-6a724912f52b",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=AssociateRouteTable&RouteTableId=<string>&SubnetId=<string>&GatewayId=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "AssociateRouteTable"
+                },
+                {
+                  "description": "(Required) The ID of the route table",
+                  "key": "RouteTableId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ID of the subnet",
+                  "key": "SubnetId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The ID of the internet gateway or virtual private gateway",
+                  "key": "GatewayId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Associates a subnet or gateway with a route table. The subnet and route table must be in the same VPC. This association causes traffic from the subnet to be routed according to the routes in the route table."
+          },
+          "response": [
+            {
+              "id": "bedccc33-f924-4fc9-91da-adf9707d2977",
+              "name": "Successfully associated route table",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?RouteTableId=<string>&SubnetId=<string>&GatewayId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the route table",
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the subnet",
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the internet gateway or virtual private gateway",
+                      "key": "GatewayId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:56.000Z",
+              "updatedAt": "2026-07-28T00:56:56.000Z",
+              "uid": "35240-bedccc33-f924-4fc9-91da-adf9707d2977"
+            },
+            {
+              "id": "05309f02-14c6-4f08-b08b-32e6b9491103",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?RouteTableId=<string>&SubnetId=<string>&GatewayId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the route table",
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the subnet",
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the internet gateway or virtual private gateway",
+                      "key": "GatewayId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:56.000Z",
+              "updatedAt": "2026-07-28T00:56:56.000Z",
+              "uid": "35240-05309f02-14c6-4f08-b08b-32e6b9491103"
+            },
+            {
+              "id": "d64fca91-c462-4558-8af7-875adb83ab55",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?RouteTableId=<string>&SubnetId=<string>&GatewayId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the route table",
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the subnet",
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "The ID of the internet gateway or virtual private gateway",
+                      "key": "GatewayId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:56.000Z",
+              "updatedAt": "2026-07-28T00:56:56.000Z",
+              "uid": "35240-d64fca91-c462-4558-8af7-875adb83ab55"
+            }
+          ],
+          "createdAt": "2026-07-28T00:56:56.000Z",
+          "updatedAt": "2026-07-28T00:56:56.000Z",
+          "uid": "35240-0b6869f9-eab3-4413-90bf-6a724912f52b"
+        }
+      ],
+      "id": "b3cc8371-956f-44e8-b4f6-769ad823379c",
+      "createdAt": "2026-07-28T00:56:56.000Z",
+      "updatedAt": "2026-07-28T00:56:56.000Z",
+      "uid": "35240-b3cc8371-956f-44e8-b4f6-769ad823379c"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://ec2.{{region}}.amazonaws.com"
+    }
+  ]
+}

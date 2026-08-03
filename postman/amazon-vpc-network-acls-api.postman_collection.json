@@ -1,0 +1,446 @@
+{
+  "info": {
+    "_postman_id": "ccfe68a3-c371-4e49-a2d2-3253315ed925",
+    "name": "Amazon VPC Internet Gateways Network ACLs API",
+    "description": "Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. VPC operations are part of the Amazon EC2 API and use the EC2 query-based API pattern.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:56:55.000Z",
+    "updatedAt": "2026-07-28T00:56:55.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-ccfe68a3-c371-4e49-a2d2-3253315ed925"
+  },
+  "item": [
+    {
+      "name": "?Action=CreateNetworkAcl",
+      "item": [
+        {
+          "name": "Amazon VPC Create a Network ACL",
+          "id": "db4b4028-19f0-48de-8d4d-914862baaa53",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateNetworkAcl&VpcId=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateNetworkAcl"
+                },
+                {
+                  "description": "(Required) The ID of the VPC",
+                  "key": "VpcId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Creates a network ACL in a VPC. Network ACLs provide an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets."
+          },
+          "response": [
+            {
+              "id": "c7c89110-2266-43af-ba88-771428a81a03",
+              "name": "Successfully created network ACL",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:55.000Z",
+              "updatedAt": "2026-07-28T00:56:55.000Z",
+              "uid": "35240-c7c89110-2266-43af-ba88-771428a81a03"
+            },
+            {
+              "id": "4b1eba45-93eb-42cb-a818-83ae3229bda4",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:55.000Z",
+              "updatedAt": "2026-07-28T00:56:55.000Z",
+              "uid": "35240-4b1eba45-93eb-42cb-a818-83ae3229bda4"
+            },
+            {
+              "id": "206e6037-88ae-4161-9e80-f546ac70ed7b",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:55.000Z",
+              "updatedAt": "2026-07-28T00:56:55.000Z",
+              "uid": "35240-206e6037-88ae-4161-9e80-f546ac70ed7b"
+            }
+          ],
+          "createdAt": "2026-07-28T00:56:55.000Z",
+          "updatedAt": "2026-07-28T00:56:55.000Z",
+          "uid": "35240-db4b4028-19f0-48de-8d4d-914862baaa53"
+        }
+      ],
+      "id": "6c2ef2b6-ebda-4d97-ac59-3c8864c1fce3",
+      "createdAt": "2026-07-28T00:56:55.000Z",
+      "updatedAt": "2026-07-28T00:56:55.000Z",
+      "uid": "35240-6c2ef2b6-ebda-4d97-ac59-3c8864c1fce3"
+    },
+    {
+      "name": "?Action=DescribeNetworkAcls",
+      "item": [
+        {
+          "name": "Amazon VPC Describe Network ACLs",
+          "id": "15262690-1259-4112-bd72-d3e085e92cdd",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeNetworkAcls&NetworkAclId=<string>&NetworkAclId=<string>&Filter=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeNetworkAcls"
+                },
+                {
+                  "description": "The IDs of the network ACLs to describe",
+                  "key": "NetworkAclId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The IDs of the network ACLs to describe",
+                  "key": "NetworkAclId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters to apply to the results",
+                  "key": "Filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters to apply to the results",
+                  "key": "Filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of results to return",
+                  "key": "MaxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Token for the next page of results",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Describes one or more of your network ACLs. A network ACL is an optional layer of security for your VPC that acts as a firewall for controlling traffic in and out of one or more subnets."
+          },
+          "response": [
+            {
+              "id": "1c603d99-ac3f-495c-8b67-db27898d7307",
+              "name": "Successfully described network ACLs",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?NetworkAclId=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the network ACLs to describe",
+                      "key": "NetworkAclId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters to apply to the results",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:55.000Z",
+              "updatedAt": "2026-07-28T00:56:55.000Z",
+              "uid": "35240-1c603d99-ac3f-495c-8b67-db27898d7307"
+            },
+            {
+              "id": "4bfa20dc-f63f-4917-8e00-36cdc0c23e15",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?NetworkAclId=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the network ACLs to describe",
+                      "key": "NetworkAclId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters to apply to the results",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:55.000Z",
+              "updatedAt": "2026-07-28T00:56:55.000Z",
+              "uid": "35240-4bfa20dc-f63f-4917-8e00-36cdc0c23e15"
+            },
+            {
+              "id": "c65c0c87-819a-4437-ae5f-e1292ab34370",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?NetworkAclId=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the network ACLs to describe",
+                      "key": "NetworkAclId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters to apply to the results",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:56:55.000Z",
+              "updatedAt": "2026-07-28T00:56:55.000Z",
+              "uid": "35240-c65c0c87-819a-4437-ae5f-e1292ab34370"
+            }
+          ],
+          "createdAt": "2026-07-28T00:56:55.000Z",
+          "updatedAt": "2026-07-28T00:56:55.000Z",
+          "uid": "35240-15262690-1259-4112-bd72-d3e085e92cdd"
+        }
+      ],
+      "id": "9ff44e84-561b-4f84-8aa1-6956b4141f5d",
+      "createdAt": "2026-07-28T00:56:55.000Z",
+      "updatedAt": "2026-07-28T00:56:55.000Z",
+      "uid": "35240-9ff44e84-561b-4f84-8aa1-6956b4141f5d"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://ec2.{{region}}.amazonaws.com"
+    }
+  ]
+}

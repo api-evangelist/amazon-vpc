@@ -1,0 +1,936 @@
+{
+  "info": {
+    "_postman_id": "172d5606-8117-450d-bf5e-3dd2b1a1e472",
+    "name": "Amazon VPC Internet Gateways VPCs API",
+    "description": "Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. VPC operations are part of the Amazon EC2 API and use the EC2 query-based API pattern.\n\nContact Support:\n Name: Amazon Web Services",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "createdAt": "2026-07-28T00:57:18.000Z",
+    "updatedAt": "2026-07-28T00:57:18.000Z",
+    "lastUpdatedBy": "35240",
+    "uid": "35240-172d5606-8117-450d-bf5e-3dd2b1a1e472"
+  },
+  "item": [
+    {
+      "name": "?Action=CreateVpc",
+      "item": [
+        {
+          "name": "Amazon VPC Create a VPC",
+          "id": "f1bdb438-1300-4d39-a3a0-7d02b51ccd59",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=CreateVpc&CidrBlock=<string>&AmazonProvidedIpv6CidrBlock=<boolean>&InstanceTenancy=dedicated",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateVpc"
+                },
+                {
+                  "description": "(Required) The IPv4 network range for the VPC in CIDR notation (e.g., 10.0.0.0/16)",
+                  "key": "CidrBlock",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length",
+                  "key": "AmazonProvidedIpv6CidrBlock",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "The tenancy options for instances launched into the VPC",
+                  "key": "InstanceTenancy",
+                  "value": "dedicated"
+                }
+              ]
+            },
+            "description": "Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses). After creating the VPC, you can add one or more subnets."
+          },
+          "response": [
+            {
+              "id": "3f20e8a6-ca87-40ec-8d55-2cf90987c880",
+              "name": "Successfully created VPC",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?CidrBlock=<string>&AmazonProvidedIpv6CidrBlock=<boolean>&InstanceTenancy=dedicated",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The IPv4 network range for the VPC in CIDR notation (e.g., 10.0.0.0/16)",
+                      "key": "CidrBlock",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length",
+                      "key": "AmazonProvidedIpv6CidrBlock",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The tenancy options for instances launched into the VPC",
+                      "key": "InstanceTenancy",
+                      "value": "dedicated"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <vpc>\n    <vpcId>(string)</vpcId>\n    <state>(string)</state>\n    <cidrBlock>(string)</cidrBlock>\n    <cidrBlockAssociationSet>\n      <cidrBlock>(string)</cidrBlock>\n      <associationId>(string)</associationId>\n      <cidrBlockState>\n        <state>(string)</state>\n      </cidrBlockState>\n    </cidrBlockAssociationSet>\n    <cidrBlockAssociationSet>\n      <cidrBlock>(string)</cidrBlock>\n      <associationId>(string)</associationId>\n      <cidrBlockState>\n        <state>(string)</state>\n      </cidrBlockState>\n    </cidrBlockAssociationSet>\n    <ipv6CidrBlockAssociationSet>\n      <ipv6CidrBlock>(string)</ipv6CidrBlock>\n      <associationId>(string)</associationId>\n      <ipv6CidrBlockState>\n        <state>(string)</state>\n      </ipv6CidrBlockState>\n    </ipv6CidrBlockAssociationSet>\n    <ipv6CidrBlockAssociationSet>\n      <ipv6CidrBlock>(string)</ipv6CidrBlock>\n      <associationId>(string)</associationId>\n      <ipv6CidrBlockState>\n        <state>(string)</state>\n      </ipv6CidrBlockState>\n    </ipv6CidrBlockAssociationSet>\n    <dhcpOptionsId>(string)</dhcpOptionsId>\n    <instanceTenancy>(string)</instanceTenancy>\n    <isDefault>(boolean)</isDefault>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </vpc>\n</element>",
+              "createdAt": "2026-07-28T00:57:18.000Z",
+              "updatedAt": "2026-07-28T00:57:18.000Z",
+              "uid": "35240-3f20e8a6-ca87-40ec-8d55-2cf90987c880"
+            },
+            {
+              "id": "4eb4d0bd-6e33-464b-ad83-62f2c6c2d4eb",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?CidrBlock=<string>&AmazonProvidedIpv6CidrBlock=<boolean>&InstanceTenancy=dedicated",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The IPv4 network range for the VPC in CIDR notation (e.g., 10.0.0.0/16)",
+                      "key": "CidrBlock",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length",
+                      "key": "AmazonProvidedIpv6CidrBlock",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The tenancy options for instances launched into the VPC",
+                      "key": "InstanceTenancy",
+                      "value": "dedicated"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:18.000Z",
+              "updatedAt": "2026-07-28T00:57:18.000Z",
+              "uid": "35240-4eb4d0bd-6e33-464b-ad83-62f2c6c2d4eb"
+            },
+            {
+              "id": "c3775f57-2d5e-4bd9-9777-bf8434f3707f",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?CidrBlock=<string>&AmazonProvidedIpv6CidrBlock=<boolean>&InstanceTenancy=dedicated",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The IPv4 network range for the VPC in CIDR notation (e.g., 10.0.0.0/16)",
+                      "key": "CidrBlock",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length",
+                      "key": "AmazonProvidedIpv6CidrBlock",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The tenancy options for instances launched into the VPC",
+                      "key": "InstanceTenancy",
+                      "value": "dedicated"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:18.000Z",
+              "updatedAt": "2026-07-28T00:57:18.000Z",
+              "uid": "35240-c3775f57-2d5e-4bd9-9777-bf8434f3707f"
+            },
+            {
+              "id": "144da1b9-126d-4672-9a29-2007e0e95fdd",
+              "name": "Authorization failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?CidrBlock=<string>&AmazonProvidedIpv6CidrBlock=<boolean>&InstanceTenancy=dedicated",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The IPv4 network range for the VPC in CIDR notation (e.g., 10.0.0.0/16)",
+                      "key": "CidrBlock",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length",
+                      "key": "AmazonProvidedIpv6CidrBlock",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "The tenancy options for instances launched into the VPC",
+                      "key": "InstanceTenancy",
+                      "value": "dedicated"
+                    }
+                  ]
+                }
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:18.000Z",
+              "updatedAt": "2026-07-28T00:57:18.000Z",
+              "uid": "35240-144da1b9-126d-4672-9a29-2007e0e95fdd"
+            }
+          ],
+          "createdAt": "2026-07-28T00:57:18.000Z",
+          "updatedAt": "2026-07-28T00:57:18.000Z",
+          "uid": "35240-f1bdb438-1300-4d39-a3a0-7d02b51ccd59"
+        }
+      ],
+      "id": "0923bbb2-a424-4254-936e-4362f60119d8",
+      "createdAt": "2026-07-28T00:57:18.000Z",
+      "updatedAt": "2026-07-28T00:57:18.000Z",
+      "uid": "35240-0923bbb2-a424-4254-936e-4362f60119d8"
+    },
+    {
+      "name": "?Action=DescribeVpcs",
+      "item": [
+        {
+          "name": "Amazon VPC Describe VPCs",
+          "id": "41e505b2-d74a-4753-b9d3-4067a2138948",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DescribeVpcs&VpcId=<string>&VpcId=<string>&Filter=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeVpcs"
+                },
+                {
+                  "description": "The IDs of the VPCs to describe",
+                  "key": "VpcId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "The IDs of the VPCs to describe",
+                  "key": "VpcId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters to apply to the results",
+                  "key": "Filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Filters to apply to the results",
+                  "key": "Filter",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Maximum number of results to return",
+                  "key": "MaxResults",
+                  "value": "<integer>"
+                },
+                {
+                  "description": "Token for the next page of results",
+                  "key": "NextToken",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Describes one or more of your VPCs. Returns information about the VPC including the CIDR block, DHCP options set, state, and tags."
+          },
+          "response": [
+            {
+              "id": "35d0c208-1517-4203-a4b3-1d02ac83a3e8",
+              "name": "Successfully described VPCs",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  },
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the VPCs to describe",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters to apply to the results",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "xml",
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "cookie": [],
+              "responseTime": null,
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <vpcSet>\n    <vpcId>(string)</vpcId>\n    <state>(string)</state>\n    <cidrBlock>(string)</cidrBlock>\n    <cidrBlockAssociationSet>\n      <cidrBlock>(string)</cidrBlock>\n      <associationId>(string)</associationId>\n      <cidrBlockState>\n        <state>(string)</state>\n      </cidrBlockState>\n    </cidrBlockAssociationSet>\n    <cidrBlockAssociationSet>\n      <cidrBlock>(string)</cidrBlock>\n      <associationId>(string)</associationId>\n      <cidrBlockState>\n        <state>(string)</state>\n      </cidrBlockState>\n    </cidrBlockAssociationSet>\n    <ipv6CidrBlockAssociationSet>\n      <ipv6CidrBlock>(string)</ipv6CidrBlock>\n      <associationId>(string)</associationId>\n      <ipv6CidrBlockState>\n        <state>(string)</state>\n      </ipv6CidrBlockState>\n    </ipv6CidrBlockAssociationSet>\n    <ipv6CidrBlockAssociationSet>\n      <ipv6CidrBlock>(string)</ipv6CidrBlock>\n      <associationId>(string)</associationId>\n      <ipv6CidrBlockState>\n        <state>(string)</state>\n      </ipv6CidrBlockState>\n    </ipv6CidrBlockAssociationSet>\n    <dhcpOptionsId>(string)</dhcpOptionsId>\n    <instanceTenancy>(string)</instanceTenancy>\n    <isDefault>(boolean)</isDefault>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </vpcSet>\n  <vpcSet>\n    <vpcId>(string)</vpcId>\n    <state>(string)</state>\n    <cidrBlock>(string)</cidrBlock>\n    <cidrBlockAssociationSet>\n      <cidrBlock>(string)</cidrBlock>\n      <associationId>(string)</associationId>\n      <cidrBlockState>\n        <state>(string)</state>\n      </cidrBlockState>\n    </cidrBlockAssociationSet>\n    <cidrBlockAssociationSet>\n      <cidrBlock>(string)</cidrBlock>\n      <associationId>(string)</associationId>\n      <cidrBlockState>\n        <state>(string)</state>\n      </cidrBlockState>\n    </cidrBlockAssociationSet>\n    <ipv6CidrBlockAssociationSet>\n      <ipv6CidrBlock>(string)</ipv6CidrBlock>\n      <associationId>(string)</associationId>\n      <ipv6CidrBlockState>\n        <state>(string)</state>\n      </ipv6CidrBlockState>\n    </ipv6CidrBlockAssociationSet>\n    <ipv6CidrBlockAssociationSet>\n      <ipv6CidrBlock>(string)</ipv6CidrBlock>\n      <associationId>(string)</associationId>\n      <ipv6CidrBlockState>\n        <state>(string)</state>\n      </ipv6CidrBlockState>\n    </ipv6CidrBlockAssociationSet>\n    <dhcpOptionsId>(string)</dhcpOptionsId>\n    <instanceTenancy>(string)</instanceTenancy>\n    <isDefault>(boolean)</isDefault>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </vpcSet>\n  <nextToken>(string)</nextToken>\n</element>",
+              "createdAt": "2026-07-28T00:57:18.000Z",
+              "updatedAt": "2026-07-28T00:57:18.000Z",
+              "uid": "35240-35d0c208-1517-4203-a4b3-1d02ac83a3e8"
+            },
+            {
+              "id": "517a3be1-b7c0-4e22-872b-7175ca46d892",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the VPCs to describe",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters to apply to the results",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:18.000Z",
+              "updatedAt": "2026-07-28T00:57:18.000Z",
+              "uid": "35240-517a3be1-b7c0-4e22-872b-7175ca46d892"
+            },
+            {
+              "id": "bddbdf7a-af2a-442e-bb15-2e6e3ad257db",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>&Filter=<string>&MaxResults=<integer>&NextToken=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "The IDs of the VPCs to describe",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Filters to apply to the results",
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Maximum number of results to return",
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "description": "Token for the next page of results",
+                      "key": "NextToken",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:18.000Z",
+              "updatedAt": "2026-07-28T00:57:18.000Z",
+              "uid": "35240-bddbdf7a-af2a-442e-bb15-2e6e3ad257db"
+            }
+          ],
+          "createdAt": "2026-07-28T00:57:18.000Z",
+          "updatedAt": "2026-07-28T00:57:18.000Z",
+          "uid": "35240-41e505b2-d74a-4753-b9d3-4067a2138948"
+        }
+      ],
+      "id": "59eb9bba-eb08-4968-bfc3-d47604e4ccf8",
+      "createdAt": "2026-07-28T00:57:18.000Z",
+      "updatedAt": "2026-07-28T00:57:18.000Z",
+      "uid": "35240-59eb9bba-eb08-4968-bfc3-d47604e4ccf8"
+    },
+    {
+      "name": "?Action=DeleteVpc",
+      "item": [
+        {
+          "name": "Amazon VPC Delete a VPC",
+          "id": "269aa22c-1445-44c6-bd33-babf0bc2779f",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=DeleteVpc&VpcId=<string>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteVpc"
+                },
+                {
+                  "description": "(Required) The ID of the VPC to delete",
+                  "key": "VpcId",
+                  "value": "<string>"
+                }
+              ]
+            },
+            "description": "Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. You must also delete all subnets associated with the VPC."
+          },
+          "response": [
+            {
+              "id": "3fae91aa-acfe-49ad-88f8-4b7b6df045e5",
+              "name": "Successfully deleted VPC",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC to delete",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:18.000Z",
+              "updatedAt": "2026-07-28T00:57:18.000Z",
+              "uid": "35240-3fae91aa-acfe-49ad-88f8-4b7b6df045e5"
+            },
+            {
+              "id": "cd79cfb8-b7da-4740-8aee-7b28db7e13f4",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC to delete",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:18.000Z",
+              "updatedAt": "2026-07-28T00:57:18.000Z",
+              "uid": "35240-cd79cfb8-b7da-4740-8aee-7b28db7e13f4"
+            },
+            {
+              "id": "40154973-dcb8-4c87-94ee-9af4c91d1308",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC to delete",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:18.000Z",
+              "updatedAt": "2026-07-28T00:57:18.000Z",
+              "uid": "35240-40154973-dcb8-4c87-94ee-9af4c91d1308"
+            }
+          ],
+          "createdAt": "2026-07-28T00:57:18.000Z",
+          "updatedAt": "2026-07-28T00:57:18.000Z",
+          "uid": "35240-269aa22c-1445-44c6-bd33-babf0bc2779f"
+        }
+      ],
+      "id": "5ceaf2a5-8a3f-4b9c-acf5-574e7d361ae9",
+      "createdAt": "2026-07-28T00:57:18.000Z",
+      "updatedAt": "2026-07-28T00:57:18.000Z",
+      "uid": "35240-5ceaf2a5-8a3f-4b9c-acf5-574e7d361ae9"
+    },
+    {
+      "name": "?Action=ModifyVpcAttribute",
+      "item": [
+        {
+          "name": "Amazon VPC Modify a VPC Attribute",
+          "id": "68139523-c0d9-4768-8108-d0bd88883d21",
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          },
+          "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+              "raw": "{{baseUrl}}/?Action=ModifyVpcAttribute&VpcId=<string>&EnableDnsSupport.Value=<boolean>&EnableDnsHostnames.Value=<boolean>",
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "path": [
+                ""
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ModifyVpcAttribute"
+                },
+                {
+                  "description": "(Required) The ID of the VPC",
+                  "key": "VpcId",
+                  "value": "<string>"
+                },
+                {
+                  "description": "Indicates whether DNS resolution is supported for the VPC",
+                  "key": "EnableDnsSupport.Value",
+                  "value": "<boolean>"
+                },
+                {
+                  "description": "Indicates whether instances launched in the VPC get DNS hostnames",
+                  "key": "EnableDnsHostnames.Value",
+                  "value": "<boolean>"
+                }
+              ]
+            },
+            "description": "Modifies the specified attribute of the specified VPC. You can modify the DNS resolution and DNS hostname attributes."
+          },
+          "response": [
+            {
+              "id": "08597364-b1f6-4182-b68a-8a4c9182f885",
+              "name": "Successfully modified VPC attribute",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>&EnableDnsSupport.Value=<boolean>&EnableDnsHostnames.Value=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether DNS resolution is supported for the VPC",
+                      "key": "EnableDnsSupport.Value",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Indicates whether instances launched in the VPC get DNS hostnames",
+                      "key": "EnableDnsHostnames.Value",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "OK",
+              "code": 200,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:18.000Z",
+              "updatedAt": "2026-07-28T00:57:18.000Z",
+              "uid": "35240-08597364-b1f6-4182-b68a-8a4c9182f885"
+            },
+            {
+              "id": "eab31a07-a7b7-48d4-a783-c327b3e52a9a",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>&EnableDnsSupport.Value=<boolean>&EnableDnsHostnames.Value=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether DNS resolution is supported for the VPC",
+                      "key": "EnableDnsSupport.Value",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Indicates whether instances launched in the VPC get DNS hostnames",
+                      "key": "EnableDnsHostnames.Value",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:18.000Z",
+              "updatedAt": "2026-07-28T00:57:18.000Z",
+              "uid": "35240-eab31a07-a7b7-48d4-a783-c327b3e52a9a"
+            },
+            {
+              "id": "5ff137ac-e550-4669-85f6-c16f9b518a33",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "method": "GET",
+                "header": [
+                  {
+                    "description": "Added as a part of security scheme: apikey",
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "url": {
+                  "raw": "{{baseUrl}}/?VpcId=<string>&EnableDnsSupport.Value=<boolean>&EnableDnsHostnames.Value=<boolean>",
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "path": [
+                    ""
+                  ],
+                  "query": [
+                    {
+                      "description": "(Required) The ID of the VPC",
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "description": "Indicates whether DNS resolution is supported for the VPC",
+                      "key": "EnableDnsSupport.Value",
+                      "value": "<boolean>"
+                    },
+                    {
+                      "description": "Indicates whether instances launched in the VPC get DNS hostnames",
+                      "key": "EnableDnsHostnames.Value",
+                      "value": "<boolean>"
+                    }
+                  ]
+                }
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "_postman_previewlanguage": "text",
+              "header": [],
+              "cookie": [],
+              "responseTime": null,
+              "body": null,
+              "createdAt": "2026-07-28T00:57:18.000Z",
+              "updatedAt": "2026-07-28T00:57:18.000Z",
+              "uid": "35240-5ff137ac-e550-4669-85f6-c16f9b518a33"
+            }
+          ],
+          "createdAt": "2026-07-28T00:57:18.000Z",
+          "updatedAt": "2026-07-28T00:57:18.000Z",
+          "uid": "35240-68139523-c0d9-4768-8108-d0bd88883d21"
+        }
+      ],
+      "id": "84c30b46-7f80-4275-8b9c-9581b511dcc3",
+      "createdAt": "2026-07-28T00:57:18.000Z",
+      "updatedAt": "2026-07-28T00:57:18.000Z",
+      "uid": "35240-84c30b46-7f80-4275-8b9c-9581b511dcc3"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization",
+        "type": "string"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}",
+        "type": "string"
+      },
+      {
+        "key": "in",
+        "value": "header",
+        "type": "string"
+      }
+    ]
+  },
+  "variable": [
+    {
+      "key": "region",
+      "value": "us-east-1"
+    },
+    {
+      "key": "baseUrl",
+      "value": "https://ec2.{{region}}.amazonaws.com"
+    }
+  ]
+}

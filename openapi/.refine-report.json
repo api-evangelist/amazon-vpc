@@ -1,0 +1,24 @@
+{
+  "provider": "amazon-vpc",
+  "sources": [
+    "amazon-vpc-internet-gateways-api-openapi.yml",
+    "amazon-vpc-nat-gateways-api-openapi.yml",
+    "amazon-vpc-network-acls-api-openapi.yml",
+    "amazon-vpc-route-tables-api-openapi.yml",
+    "amazon-vpc-subnets-api-openapi.yml",
+    "amazon-vpc-vpcs-api-openapi.yml"
+  ],
+  "outputs": [
+    "amazon-vpc-internet-gateways-api-openapi.yml",
+    "amazon-vpc-nat-gateways-api-openapi.yml",
+    "amazon-vpc-network-acls-api-openapi.yml",
+    "amazon-vpc-route-tables-api-openapi.yml",
+    "amazon-vpc-subnets-api-openapi.yml",
+    "amazon-vpc-vpcs-api-openapi.yml"
+  ],
+  "archived": [],
+  "errors": [],
+  "warnings": [],
+  "notes": [],
+  "skipped": []
+}
