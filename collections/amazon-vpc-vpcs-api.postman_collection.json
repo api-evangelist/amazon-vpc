@@ -1,0 +1,1099 @@
+{
+  "item": [
+    {
+      "id": "7c7aea5f-278b-4a1e-a01e-9f9f305170ec",
+      "name": "VPCs",
+      "description": {
+        "content": "Operations for creating and managing Virtual Private Clouds",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "c7bbad76-bbde-479d-b444-eec25bc2446b",
+          "name": "Amazon VPC Create a VPC",
+          "request": {
+            "name": "Amazon VPC Create a VPC",
+            "description": {
+              "content": "Creates a VPC with the specified IPv4 CIDR block. The smallest VPC you can create uses a /28 netmask (16 IPv4 addresses), and the largest uses a /16 netmask (65,536 IPv4 addresses). After creating the VPC, you can add one or more subnets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateVpc"
+                },
+                {
+                  "disabled": false,
+                  "key": "CidrBlock",
+                  "value": "<string>",
+                  "description": "(Required) The IPv4 network range for the VPC in CIDR notation (e.g., 10.0.0.0/16)"
+                },
+                {
+                  "disabled": false,
+                  "key": "AmazonProvidedIpv6CidrBlock",
+                  "value": "<boolean>",
+                  "description": "Requests an Amazon-provided IPv6 CIDR block with a /56 prefix length"
+                },
+                {
+                  "disabled": false,
+                  "key": "InstanceTenancy",
+                  "value": "<string>",
+                  "description": "The tenancy options for instances launched into the VPC"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e56069c4-7cc4-4728-8fd0-3ee5ebd610a2",
+              "name": "Successfully created VPC",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CidrBlock",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "AmazonProvidedIpv6CidrBlock",
+                      "value": "true"
+                    },
+                    {
+                      "key": "InstanceTenancy",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <vpc>\n    <vpcId>(string)</vpcId>\n    <state>(string)</state>\n    <cidrBlock>(string)</cidrBlock>\n    <cidrBlockAssociationSet>\n      <cidrBlock>(string)</cidrBlock>\n      <associationId>(string)</associationId>\n      <cidrBlockState>\n        <state>(string)</state>\n      </cidrBlockState>\n    </cidrBlockAssociationSet>\n    <cidrBlockAssociationSet>\n      <cidrBlock>(string)</cidrBlock>\n      <associationId>(string)</associationId>\n      <cidrBlockState>\n        <state>(string)</state>\n      </cidrBlockState>\n    </cidrBlockAssociationSet>\n    <ipv6CidrBlockAssociationSet>\n      <ipv6CidrBlock>(string)</ipv6CidrBlock>\n      <associationId>(string)</associationId>\n      <ipv6CidrBlockState>\n        <state>(string)</state>\n      </ipv6CidrBlockState>\n    </ipv6CidrBlockAssociationSet>\n    <ipv6CidrBlockAssociationSet>\n      <ipv6CidrBlock>(string)</ipv6CidrBlock>\n      <associationId>(string)</associationId>\n      <ipv6CidrBlockState>\n        <state>(string)</state>\n      </ipv6CidrBlockState>\n    </ipv6CidrBlockAssociationSet>\n    <dhcpOptionsId>(string)</dhcpOptionsId>\n    <instanceTenancy>(string)</instanceTenancy>\n    <isDefault>(boolean)</isDefault>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </vpc>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "d4c153a7-7f8c-4285-8e7e-35e053337726",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CidrBlock",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "AmazonProvidedIpv6CidrBlock",
+                      "value": "true"
+                    },
+                    {
+                      "key": "InstanceTenancy",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "d7830e41-9d7f-4dee-8a96-5a9bb1fad0dd",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CidrBlock",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "AmazonProvidedIpv6CidrBlock",
+                      "value": "true"
+                    },
+                    {
+                      "key": "InstanceTenancy",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "02c65252-5f40-42f6-8e45-d7f7be4dc7ea",
+              "name": "Authorization failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "CidrBlock",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "AmazonProvidedIpv6CidrBlock",
+                      "value": "true"
+                    },
+                    {
+                      "key": "InstanceTenancy",
+                      "value": "default"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Forbidden",
+              "code": 403,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "d4c3aba1-a09c-4c5e-956e-237709fac9c5",
+          "name": "Amazon VPC Describe VPCs",
+          "request": {
+            "name": "Amazon VPC Describe VPCs",
+            "description": {
+              "content": "Describes one or more of your VPCs. Returns information about the VPC including the CIDR block, DHCP options set, state, and tags.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeVpcs"
+                },
+                {
+                  "disabled": false,
+                  "key": "VpcId",
+                  "value": "<string>",
+                  "description": "The IDs of the VPCs to describe"
+                },
+                {
+                  "disabled": false,
+                  "key": "VpcId",
+                  "value": "<string>",
+                  "description": "The IDs of the VPCs to describe"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filter",
+                  "value": "<string>",
+                  "description": "Filters to apply to the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filter",
+                  "value": "<string>",
+                  "description": "Filters to apply to the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxResults",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "NextToken",
+                  "value": "<string>",
+                  "description": "Token for the next page of results"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "220e8314-8e99-433c-a2e0-14cc549c5c5d",
+              "name": "Successfully described VPCs",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "example"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <vpcSet>\n    <vpcId>(string)</vpcId>\n    <state>(string)</state>\n    <cidrBlock>(string)</cidrBlock>\n    <cidrBlockAssociationSet>\n      <cidrBlock>(string)</cidrBlock>\n      <associationId>(string)</associationId>\n      <cidrBlockState>\n        <state>(string)</state>\n      </cidrBlockState>\n    </cidrBlockAssociationSet>\n    <cidrBlockAssociationSet>\n      <cidrBlock>(string)</cidrBlock>\n      <associationId>(string)</associationId>\n      <cidrBlockState>\n        <state>(string)</state>\n      </cidrBlockState>\n    </cidrBlockAssociationSet>\n    <ipv6CidrBlockAssociationSet>\n      <ipv6CidrBlock>(string)</ipv6CidrBlock>\n      <associationId>(string)</associationId>\n      <ipv6CidrBlockState>\n        <state>(string)</state>\n      </ipv6CidrBlockState>\n    </ipv6CidrBlockAssociationSet>\n    <ipv6CidrBlockAssociationSet>\n      <ipv6CidrBlock>(string)</ipv6CidrBlock>\n      <associationId>(string)</associationId>\n      <ipv6CidrBlockState>\n        <state>(string)</state>\n      </ipv6CidrBlockState>\n    </ipv6CidrBlockAssociationSet>\n    <dhcpOptionsId>(string)</dhcpOptionsId>\n    <instanceTenancy>(string)</instanceTenancy>\n    <isDefault>(boolean)</isDefault>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </vpcSet>\n  <vpcSet>\n    <vpcId>(string)</vpcId>\n    <state>(string)</state>\n    <cidrBlock>(string)</cidrBlock>\n    <cidrBlockAssociationSet>\n      <cidrBlock>(string)</cidrBlock>\n      <associationId>(string)</associationId>\n      <cidrBlockState>\n        <state>(string)</state>\n      </cidrBlockState>\n    </cidrBlockAssociationSet>\n    <cidrBlockAssociationSet>\n      <cidrBlock>(string)</cidrBlock>\n      <associationId>(string)</associationId>\n      <cidrBlockState>\n        <state>(string)</state>\n      </cidrBlockState>\n    </cidrBlockAssociationSet>\n    <ipv6CidrBlockAssociationSet>\n      <ipv6CidrBlock>(string)</ipv6CidrBlock>\n      <associationId>(string)</associationId>\n      <ipv6CidrBlockState>\n        <state>(string)</state>\n      </ipv6CidrBlockState>\n    </ipv6CidrBlockAssociationSet>\n    <ipv6CidrBlockAssociationSet>\n      <ipv6CidrBlock>(string)</ipv6CidrBlock>\n      <associationId>(string)</associationId>\n      <ipv6CidrBlockState>\n        <state>(string)</state>\n      </ipv6CidrBlockState>\n    </ipv6CidrBlockAssociationSet>\n    <dhcpOptionsId>(string)</dhcpOptionsId>\n    <instanceTenancy>(string)</instanceTenancy>\n    <isDefault>(boolean)</isDefault>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </vpcSet>\n  <nextToken>(string)</nextToken>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "777c1b28-1773-48ee-a52f-7ebe2602e6b5",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "example"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "51552070-5a31-44be-90a0-63e86c969eb0",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "VpcId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "example"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "1e3f1eec-f468-4757-9d87-ef6d4fcefd53",
+          "name": "Amazon VPC Delete a VPC",
+          "request": {
+            "name": "Amazon VPC Delete a VPC",
+            "description": {
+              "content": "Deletes the specified VPC. You must detach or delete all gateways and resources that are associated with the VPC before you can delete it. You must also delete all subnets associated with the VPC.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteVpc"
+                },
+                {
+                  "disabled": false,
+                  "key": "VpcId",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the VPC to delete"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b03df053-4b54-43d3-bd5a-99a72e0abf2f",
+              "name": "Successfully deleted VPC",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7e3c7372-6baf-49f4-8607-0607a06c4f5b",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a1ad8660-f36d-4ddd-93e4-900ace9d8d2b",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "4f47c6dd-c47e-45e0-812c-295652cb6f31",
+          "name": "Amazon VPC Modify a VPC Attribute",
+          "request": {
+            "name": "Amazon VPC Modify a VPC Attribute",
+            "description": {
+              "content": "Modifies the specified attribute of the specified VPC. You can modify the DNS resolution and DNS hostname attributes.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "ModifyVpcAttribute"
+                },
+                {
+                  "disabled": false,
+                  "key": "VpcId",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the VPC"
+                },
+                {
+                  "disabled": false,
+                  "key": "EnableDnsSupport.Value",
+                  "value": "<boolean>",
+                  "description": "Indicates whether DNS resolution is supported for the VPC"
+                },
+                {
+                  "disabled": false,
+                  "key": "EnableDnsHostnames.Value",
+                  "value": "<boolean>",
+                  "description": "Indicates whether instances launched in the VPC get DNS hostnames"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "0c7c0752-44d7-409b-bfb5-47d74c077b7d",
+              "name": "Successfully modified VPC attribute",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "EnableDnsSupport.Value",
+                      "value": "true"
+                    },
+                    {
+                      "key": "EnableDnsHostnames.Value",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "f641b31d-5a64-4819-90c3-1e01ce6979f7",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "EnableDnsSupport.Value",
+                      "value": "true"
+                    },
+                    {
+                      "key": "EnableDnsHostnames.Value",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a7dacf07-a69d-43e8-9f81-162d84ab2e62",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "EnableDnsSupport.Value",
+                      "value": "true"
+                    },
+                    {
+                      "key": "EnableDnsHostnames.Value",
+                      "value": "true"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS Region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://ec2.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "3e455d5a-f907-42ea-b2d3-df7ad8bf1104",
+    "name": "Amazon VPC Internet Gateways VPCs API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. VPC operations are part of the Amazon EC2 API and use the EC2 query-based API pattern.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}

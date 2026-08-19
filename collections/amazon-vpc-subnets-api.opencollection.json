@@ -1,0 +1,119 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon VPC Internet Gateways Subnets API",
+    "version": "2016-11-15"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Subnets",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon VPC Create a Subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateSubnet",
+            "params": [
+              {
+                "name": "VpcId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the VPC"
+              },
+              {
+                "name": "CidrBlock",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IPv4 network range for the subnet in CIDR notation"
+              },
+              {
+                "name": "AvailabilityZone",
+                "value": "example",
+                "type": "query",
+                "description": "The Availability Zone or Local Zone for the subnet"
+              },
+              {
+                "name": "Ipv6CidrBlock",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IPv6 network range for the subnet in CIDR notation"
+              }
+            ]
+          },
+          "docs": "Creates a subnet in the specified VPC. The new subnet must have a CIDR block that is within the VPC CIDR block. You can optionally specify an Availability Zone in which to create the subnet."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Describe Subnets",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DescribeSubnets",
+            "params": [
+              {
+                "name": "SubnetId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IDs of the subnets to describe"
+              },
+              {
+                "name": "Filter",
+                "value": "example",
+                "type": "query",
+                "description": "Filters to apply to the results"
+              },
+              {
+                "name": "MaxResults",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "NextToken",
+                "value": "example",
+                "type": "query",
+                "description": "Token for the next page of results"
+              }
+            ]
+          },
+          "docs": "Describes one or more of your subnets. Returns information about the subnet including the CIDR block, Availability Zone, VPC, and state."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Delete a Subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DeleteSubnet",
+            "params": [
+              {
+                "name": "SubnetId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the subnet to delete"
+              }
+            ]
+          },
+          "docs": "Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

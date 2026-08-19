@@ -1,0 +1,156 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon VPC Internet Gateways Route Tables API",
+    "version": "2016-11-15"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Route Tables",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon VPC Create a Route Table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateRouteTable",
+            "params": [
+              {
+                "name": "VpcId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the VPC"
+              }
+            ]
+          },
+          "docs": "Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Describe Route Tables",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DescribeRouteTables",
+            "params": [
+              {
+                "name": "RouteTableId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IDs of the route tables to describe"
+              },
+              {
+                "name": "Filter",
+                "value": "example",
+                "type": "query",
+                "description": "Filters to apply to the results"
+              },
+              {
+                "name": "MaxResults",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "NextToken",
+                "value": "example",
+                "type": "query",
+                "description": "Token for the next page of results"
+              }
+            ]
+          },
+          "docs": "Describes one or more of your route tables. Each subnet in your VPC must be associated with a route table, which controls the routing for the subnet."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Create a Route in a Route Table",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateRoute",
+            "params": [
+              {
+                "name": "RouteTableId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the route table for the route"
+              },
+              {
+                "name": "DestinationCidrBlock",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IPv4 CIDR address block used for the destination match"
+              },
+              {
+                "name": "GatewayId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of an internet gateway or virtual private gateway"
+              },
+              {
+                "name": "NatGatewayId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of a NAT gateway"
+              },
+              {
+                "name": "NetworkInterfaceId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of a network interface"
+              }
+            ]
+          },
+          "docs": "Creates a route in a route table within a VPC. You must specify either a destination CIDR block or a prefix list ID. You must also specify exactly one of the targets."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Associate a Route Table with a Subnet",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=AssociateRouteTable",
+            "params": [
+              {
+                "name": "RouteTableId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the route table"
+              },
+              {
+                "name": "SubnetId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the subnet"
+              },
+              {
+                "name": "GatewayId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the internet gateway or virtual private gateway"
+              }
+            ]
+          },
+          "docs": "Associates a subnet or gateway with a route table. The subnet and route table must be in the same VPC. This association causes traffic from the subnet to be routed according to the routes in the route table."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

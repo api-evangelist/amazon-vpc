@@ -1,0 +1,822 @@
+{
+  "item": [
+    {
+      "id": "4d79f291-de7a-4b30-9be6-2f85aedb1f10",
+      "name": "Subnets",
+      "description": {
+        "content": "Operations for creating and managing subnets within a VPC",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "adc9f73a-df74-4059-972b-c2c3d30268ec",
+          "name": "Amazon VPC Create a Subnet",
+          "request": {
+            "name": "Amazon VPC Create a Subnet",
+            "description": {
+              "content": "Creates a subnet in the specified VPC. The new subnet must have a CIDR block that is within the VPC CIDR block. You can optionally specify an Availability Zone in which to create the subnet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateSubnet"
+                },
+                {
+                  "disabled": false,
+                  "key": "VpcId",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the VPC"
+                },
+                {
+                  "disabled": false,
+                  "key": "CidrBlock",
+                  "value": "<string>",
+                  "description": "(Required) The IPv4 network range for the subnet in CIDR notation"
+                },
+                {
+                  "disabled": false,
+                  "key": "AvailabilityZone",
+                  "value": "<string>",
+                  "description": "The Availability Zone or Local Zone for the subnet"
+                },
+                {
+                  "disabled": false,
+                  "key": "Ipv6CidrBlock",
+                  "value": "<string>",
+                  "description": "The IPv6 network range for the subnet in CIDR notation"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "43e54234-0450-442d-a40e-0e04d9ce83c3",
+              "name": "Successfully created subnet",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "CidrBlock",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "AvailabilityZone",
+                      "value": "example"
+                    },
+                    {
+                      "key": "Ipv6CidrBlock",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <subnet>\n    <subnetId>(string)</subnetId>\n    <subnetArn>(string)</subnetArn>\n    <vpcId>(string)</vpcId>\n    <state>(string)</state>\n    <cidrBlock>(string)</cidrBlock>\n    <availabilityZone>(string)</availabilityZone>\n    <availabilityZoneId>(string)</availabilityZoneId>\n    <availableIpAddressCount>(integer)</availableIpAddressCount>\n    <defaultForAz>(boolean)</defaultForAz>\n    <mapPublicIpOnLaunch>(boolean)</mapPublicIpOnLaunch>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </subnet>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "64224d57-b588-4a94-b3c9-bce2e2d419d5",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "CidrBlock",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "AvailabilityZone",
+                      "value": "example"
+                    },
+                    {
+                      "key": "Ipv6CidrBlock",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "46d2fa5e-b54e-43b6-b0ff-fc46d352a6ae",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "CidrBlock",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "AvailabilityZone",
+                      "value": "example"
+                    },
+                    {
+                      "key": "Ipv6CidrBlock",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "25663740-3865-42db-bb30-a3fd941b550f",
+          "name": "Amazon VPC Describe Subnets",
+          "request": {
+            "name": "Amazon VPC Describe Subnets",
+            "description": {
+              "content": "Describes one or more of your subnets. Returns information about the subnet including the CIDR block, Availability Zone, VPC, and state.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeSubnets"
+                },
+                {
+                  "disabled": false,
+                  "key": "SubnetId",
+                  "value": "<string>",
+                  "description": "The IDs of the subnets to describe"
+                },
+                {
+                  "disabled": false,
+                  "key": "SubnetId",
+                  "value": "<string>",
+                  "description": "The IDs of the subnets to describe"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filter",
+                  "value": "<string>",
+                  "description": "Filters to apply to the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filter",
+                  "value": "<string>",
+                  "description": "Filters to apply to the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxResults",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "NextToken",
+                  "value": "<string>",
+                  "description": "Token for the next page of results"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "c7ca14a4-ed5d-4361-84d2-a5974b2f4b6c",
+              "name": "Successfully described subnets",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "example"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <subnetSet>\n    <subnetId>(string)</subnetId>\n    <subnetArn>(string)</subnetArn>\n    <vpcId>(string)</vpcId>\n    <state>(string)</state>\n    <cidrBlock>(string)</cidrBlock>\n    <availabilityZone>(string)</availabilityZone>\n    <availabilityZoneId>(string)</availabilityZoneId>\n    <availableIpAddressCount>(integer)</availableIpAddressCount>\n    <defaultForAz>(boolean)</defaultForAz>\n    <mapPublicIpOnLaunch>(boolean)</mapPublicIpOnLaunch>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </subnetSet>\n  <subnetSet>\n    <subnetId>(string)</subnetId>\n    <subnetArn>(string)</subnetArn>\n    <vpcId>(string)</vpcId>\n    <state>(string)</state>\n    <cidrBlock>(string)</cidrBlock>\n    <availabilityZone>(string)</availabilityZone>\n    <availabilityZoneId>(string)</availabilityZoneId>\n    <availableIpAddressCount>(integer)</availableIpAddressCount>\n    <defaultForAz>(boolean)</defaultForAz>\n    <mapPublicIpOnLaunch>(boolean)</mapPublicIpOnLaunch>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </subnetSet>\n  <nextToken>(string)</nextToken>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "f8798380-3af8-46e5-9d43-577a1663c178",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "example"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "eec805da-4084-4b17-a04c-1fba3f30be18",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "SubnetId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "example"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "2cd53b2a-6767-47b2-b7a1-fcf757717a43",
+          "name": "Amazon VPC Delete a Subnet",
+          "request": {
+            "name": "Amazon VPC Delete a Subnet",
+            "description": {
+              "content": "Deletes the specified subnet. You must terminate all running instances in the subnet before you can delete the subnet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DeleteSubnet"
+                },
+                {
+                  "disabled": false,
+                  "key": "SubnetId",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the subnet to delete"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "759ee344-6c30-4365-824c-96e67a2db543",
+              "name": "Successfully deleted subnet",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "SubnetId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "a0084fbb-a83b-4ee9-8229-956defb3df6f",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "SubnetId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "359c9b99-1488-45a7-84ad-56fffa016796",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "SubnetId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS Region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://ec2.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "04463c45-0207-4b93-85a2-e4bcd6a10665",
+    "name": "Amazon VPC Internet Gateways Subnets API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. VPC operations are part of the Amazon EC2 API and use the EC2 query-based API pattern.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}

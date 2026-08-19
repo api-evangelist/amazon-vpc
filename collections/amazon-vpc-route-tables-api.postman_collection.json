@@ -1,0 +1,1066 @@
+{
+  "item": [
+    {
+      "id": "a2461af2-648f-40af-9101-78d28bc05756",
+      "name": "Route Tables",
+      "description": {
+        "content": "Operations for managing route tables and routes within a VPC",
+        "type": "text/plain"
+      },
+      "item": [
+        {
+          "id": "975632a8-3470-4b8c-af11-edc0bbb45108",
+          "name": "Amazon VPC Create a Route Table",
+          "request": {
+            "name": "Amazon VPC Create a Route Table",
+            "description": {
+              "content": "Creates a route table for the specified VPC. After you create a route table, you can add routes and associate the table with a subnet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateRouteTable"
+                },
+                {
+                  "disabled": false,
+                  "key": "VpcId",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the VPC"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "header": [
+              {
+                "key": "Accept",
+                "value": "application/xml"
+              }
+            ],
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "9a5f8400-6bb7-4516-8cca-b27094324efc",
+              "name": "Successfully created route table",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  },
+                  {
+                    "key": "Accept",
+                    "value": "application/xml"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "application/xml"
+                }
+              ],
+              "body": "<?xml version=\"1.0\" encoding=\"UTF-8\"?>\n<element>\n  <routeTable>\n    <routeTableId>(string)</routeTableId>\n    <vpcId>(string)</vpcId>\n    <routes>\n      <destinationCidrBlock>(string)</destinationCidrBlock>\n      <destinationIpv6CidrBlock>(string)</destinationIpv6CidrBlock>\n      <gatewayId>(string)</gatewayId>\n      <natGatewayId>(string)</natGatewayId>\n      <networkInterfaceId>(string)</networkInterfaceId>\n      <state>(string)</state>\n      <origin>(string)</origin>\n    </routes>\n    <routes>\n      <destinationCidrBlock>(string)</destinationCidrBlock>\n      <destinationIpv6CidrBlock>(string)</destinationIpv6CidrBlock>\n      <gatewayId>(string)</gatewayId>\n      <natGatewayId>(string)</natGatewayId>\n      <networkInterfaceId>(string)</networkInterfaceId>\n      <state>(string)</state>\n      <origin>(string)</origin>\n    </routes>\n    <associations>\n      <routeTableAssociationId>(string)</routeTableAssociationId>\n      <routeTableId>(string)</routeTableId>\n      <subnetId>(string)</subnetId>\n      <gatewayId>(string)</gatewayId>\n      <main>(boolean)</main>\n    </associations>\n    <associations>\n      <routeTableAssociationId>(string)</routeTableAssociationId>\n      <routeTableId>(string)</routeTableId>\n      <subnetId>(string)</subnetId>\n      <gatewayId>(string)</gatewayId>\n      <main>(boolean)</main>\n    </associations>\n    <ownerId>(string)</ownerId>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n    <tags>\n      <key>(string)</key>\n      <value>(string)</value>\n    </tags>\n  </routeTable>\n</element>",
+              "cookie": [],
+              "_postman_previewlanguage": "xml"
+            },
+            {
+              "id": "5c1e9560-5c5f-43db-8f6a-fd1873546223",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "de5681b3-a7cf-4f24-af9c-cd57a82dd904",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "VpcId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "b4510985-a07a-4e38-a0fd-7d060ef02d6f",
+          "name": "Amazon VPC Describe Route Tables",
+          "request": {
+            "name": "Amazon VPC Describe Route Tables",
+            "description": {
+              "content": "Describes one or more of your route tables. Each subnet in your VPC must be associated with a route table, which controls the routing for the subnet.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "DescribeRouteTables"
+                },
+                {
+                  "disabled": false,
+                  "key": "RouteTableId",
+                  "value": "<string>",
+                  "description": "The IDs of the route tables to describe"
+                },
+                {
+                  "disabled": false,
+                  "key": "RouteTableId",
+                  "value": "<string>",
+                  "description": "The IDs of the route tables to describe"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filter",
+                  "value": "<string>",
+                  "description": "Filters to apply to the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "Filter",
+                  "value": "<string>",
+                  "description": "Filters to apply to the results"
+                },
+                {
+                  "disabled": false,
+                  "key": "MaxResults",
+                  "value": "<integer>",
+                  "description": "Maximum number of results to return"
+                },
+                {
+                  "disabled": false,
+                  "key": "NextToken",
+                  "value": "<string>",
+                  "description": "Token for the next page of results"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "680ed67e-6fad-4359-ac09-3ec339522204",
+              "name": "Successfully described route tables",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "example"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "82b77025-1537-4fdf-b697-0890803fa49f",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "example"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "ae3e0451-26ca-4611-a23d-ad400fa131b4",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "RouteTableId",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "Filter",
+                      "value": "<string>"
+                    },
+                    {
+                      "key": "MaxResults",
+                      "value": "<integer>"
+                    },
+                    {
+                      "key": "NextToken",
+                      "value": "example"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "dd9abd68-92cf-42e1-8007-666391bb4492",
+          "name": "Amazon VPC Create a Route in a Route Table",
+          "request": {
+            "name": "Amazon VPC Create a Route in a Route Table",
+            "description": {
+              "content": "Creates a route in a route table within a VPC. You must specify either a destination CIDR block or a prefix list ID. You must also specify exactly one of the targets.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "CreateRoute"
+                },
+                {
+                  "disabled": false,
+                  "key": "RouteTableId",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the route table for the route"
+                },
+                {
+                  "disabled": false,
+                  "key": "DestinationCidrBlock",
+                  "value": "<string>",
+                  "description": "The IPv4 CIDR address block used for the destination match"
+                },
+                {
+                  "disabled": false,
+                  "key": "GatewayId",
+                  "value": "<string>",
+                  "description": "The ID of an internet gateway or virtual private gateway"
+                },
+                {
+                  "disabled": false,
+                  "key": "NatGatewayId",
+                  "value": "<string>",
+                  "description": "The ID of a NAT gateway"
+                },
+                {
+                  "disabled": false,
+                  "key": "NetworkInterfaceId",
+                  "value": "<string>",
+                  "description": "The ID of a network interface"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "b5a1cbdc-950b-4fa2-929c-f689eaf9d94f",
+              "name": "Successfully created route",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "RouteTableId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "DestinationCidrBlock",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "GatewayId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "NatGatewayId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "NetworkInterfaceId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "7768a32e-4dce-40cb-9424-be2ab4510424",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "RouteTableId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "DestinationCidrBlock",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "GatewayId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "NatGatewayId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "NetworkInterfaceId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "bbbf9baf-2112-48b0-9dd1-fd7f27b6a30d",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "RouteTableId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "DestinationCidrBlock",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "GatewayId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "NatGatewayId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "NetworkInterfaceId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        },
+        {
+          "id": "c01deb17-14c5-47df-a745-42b69ba278fd",
+          "name": "Amazon VPC Associate a Route Table with a Subnet",
+          "request": {
+            "name": "Amazon VPC Associate a Route Table with a Subnet",
+            "description": {
+              "content": "Associates a subnet or gateway with a route table. The subnet and route table must be in the same VPC. This association causes traffic from the subnet to be routed according to the routes in the route table.",
+              "type": "text/plain"
+            },
+            "url": {
+              "path": [
+                ""
+              ],
+              "host": [
+                "{{baseUrl}}"
+              ],
+              "query": [
+                {
+                  "key": "Action",
+                  "value": "AssociateRouteTable"
+                },
+                {
+                  "disabled": false,
+                  "key": "RouteTableId",
+                  "value": "<string>",
+                  "description": "(Required) The ID of the route table"
+                },
+                {
+                  "disabled": false,
+                  "key": "SubnetId",
+                  "value": "<string>",
+                  "description": "The ID of the subnet"
+                },
+                {
+                  "disabled": false,
+                  "key": "GatewayId",
+                  "value": "<string>",
+                  "description": "The ID of the internet gateway or virtual private gateway"
+                }
+              ],
+              "variable": [
+                {
+                  "description": "AWS Region",
+                  "type": "any",
+                  "value": "{{region}}",
+                  "key": "region"
+                }
+              ]
+            },
+            "method": "GET",
+            "auth": null
+          },
+          "response": [
+            {
+              "id": "e879eb0a-002a-4e3c-b4a0-e24131afb7e7",
+              "name": "Successfully associated route table",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "RouteTableId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "SubnetId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "GatewayId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "OK",
+              "code": 200,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "2ffc7b69-5ad2-4cbf-864b-05a55defc9b2",
+              "name": "Invalid request parameters",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "RouteTableId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "SubnetId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "GatewayId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Bad Request",
+              "code": 400,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            },
+            {
+              "id": "4dfe7f6d-0126-4bee-9aff-86f05ecec21e",
+              "name": "Authentication failure",
+              "originalRequest": {
+                "url": {
+                  "path": [
+                    ""
+                  ],
+                  "host": [
+                    "{{baseUrl}}"
+                  ],
+                  "query": [
+                    {
+                      "key": "RouteTableId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "SubnetId",
+                      "value": "example-id"
+                    },
+                    {
+                      "key": "GatewayId",
+                      "value": "example-id"
+                    }
+                  ],
+                  "variable": [
+                    {
+                      "description": "AWS Region",
+                      "type": "any",
+                      "value": "{{region}}",
+                      "key": "region"
+                    }
+                  ]
+                },
+                "header": [
+                  {
+                    "description": {
+                      "content": "Added as a part of security scheme: apikey",
+                      "type": "text/plain"
+                    },
+                    "key": "Authorization",
+                    "value": "<API Key>"
+                  }
+                ],
+                "method": "GET",
+                "body": {}
+              },
+              "status": "Unauthorized",
+              "code": 401,
+              "header": [
+                {
+                  "key": "Content-Type",
+                  "value": "text/plain"
+                }
+              ],
+              "body": "",
+              "cookie": [],
+              "_postman_previewlanguage": "text"
+            }
+          ],
+          "event": [],
+          "protocolProfileBehavior": {
+            "disableBodyPruning": true
+          }
+        }
+      ],
+      "event": []
+    }
+  ],
+  "event": [],
+  "variable": [
+    {
+      "description": {
+        "content": "AWS Region",
+        "type": "text/plain"
+      },
+      "type": "any",
+      "value": "us-east-1",
+      "key": "region"
+    },
+    {
+      "type": "string",
+      "value": "https://ec2.{{region}}.amazonaws.com",
+      "key": "baseUrl"
+    }
+  ],
+  "auth": {
+    "type": "apikey",
+    "apikey": [
+      {
+        "key": "key",
+        "value": "Authorization"
+      },
+      {
+        "key": "value",
+        "value": "{{apiKey}}"
+      },
+      {
+        "key": "in",
+        "value": "header"
+      }
+    ]
+  },
+  "info": {
+    "_postman_id": "e76281d3-eac2-4ef2-96ba-51cac5c76d35",
+    "name": "Amazon VPC Internet Gateways Route Tables API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "description": {
+      "content": "Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. VPC operations are part of the Amazon EC2 API and use the EC2 query-based API pattern.\n\nContact Support:\n Name: Amazon Web Services",
+      "type": "text/plain"
+    }
+  }
+}

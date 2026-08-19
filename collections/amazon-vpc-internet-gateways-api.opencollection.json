@@ -1,0 +1,62 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon VPC Internet Gateways API",
+    "version": "2016-11-15"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "Internet Gateways",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon VPC Create an Internet Gateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateInternetGateway"
+          },
+          "docs": "Creates an internet gateway for use with a VPC. After creating the internet gateway, you attach it to a VPC using AttachInternetGateway."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Attach an Internet Gateway to a VPC",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=AttachInternetGateway",
+            "params": [
+              {
+                "name": "InternetGatewayId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the internet gateway"
+              },
+              {
+                "name": "VpcId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the VPC"
+              }
+            ]
+          },
+          "docs": "Attaches an internet gateway or a virtual private gateway to a VPC, enabling connectivity between the internet and the VPC."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}

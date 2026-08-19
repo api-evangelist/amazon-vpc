@@ -1,0 +1,94 @@
+{
+  "opencollection": "1.0.0",
+  "info": {
+    "name": "Amazon VPC Internet Gateways NAT Gateways API",
+    "version": "2016-11-15"
+  },
+  "request": {
+    "auth": {
+      "type": "apikey",
+      "key": "Authorization",
+      "value": "{{Authorization}}",
+      "placement": "header"
+    }
+  },
+  "items": [
+    {
+      "info": {
+        "name": "NAT Gateways",
+        "type": "folder"
+      },
+      "items": [
+        {
+          "info": {
+            "name": "Amazon VPC Create a NAT Gateway",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=CreateNatGateway",
+            "params": [
+              {
+                "name": "SubnetId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The ID of the subnet in which to create the NAT gateway"
+              },
+              {
+                "name": "AllocationId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The allocation ID of an Elastic IP address to associate with the NAT gateway"
+              },
+              {
+                "name": "ConnectivityType",
+                "value": "public",
+                "type": "query",
+                "description": "Indicates whether the NAT gateway supports public or private connectivity"
+              }
+            ]
+          },
+          "docs": "Creates a NAT gateway in the specified subnet. A NAT gateway enables instances in a private subnet to connect to the internet or other AWS services, but prevents the internet from initiating a connection with those instances."
+        },
+        {
+          "info": {
+            "name": "Amazon VPC Describe NAT Gateways",
+            "type": "http"
+          },
+          "http": {
+            "method": "GET",
+            "url": "https://ec2.{region}.amazonaws.com/?Action=DescribeNatGateways",
+            "params": [
+              {
+                "name": "NatGatewayId",
+                "value": "example-id",
+                "type": "query",
+                "description": "The IDs of the NAT gateways to describe"
+              },
+              {
+                "name": "Filter",
+                "value": "example",
+                "type": "query",
+                "description": "Filters to apply to the results"
+              },
+              {
+                "name": "MaxResults",
+                "value": "1",
+                "type": "query",
+                "description": "Maximum number of results to return"
+              },
+              {
+                "name": "NextToken",
+                "value": "example",
+                "type": "query",
+                "description": "Token for the next page of results"
+              }
+            ]
+          },
+          "docs": "Describes one or more of your NAT gateways. Returns information about the NAT gateway including its state, subnet, and associated Elastic IP address."
+        }
+      ]
+    }
+  ],
+  "bundled": true
+}
