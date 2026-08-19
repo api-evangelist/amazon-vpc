@@ -3,6 +3,7 @@ description: >-
   Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can
   launch AWS resources in a virtual network that you define, with complete control over IP addressing, subnets, routing,
   and network gateways.
+specificationVersion: '0.23'
 accessModel:
   pricing: freemium
   onboarding: self-serve
