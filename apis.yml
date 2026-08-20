@@ -178,6 +178,8 @@ apis:
   humanURL: https://aws.amazon.com/vpc/
   baseURL: https://ec2.amazonaws.com
   tags:
+  - VPC
+  tags_raw:
   - VPCs
   properties:
   - type: OpenAPI
