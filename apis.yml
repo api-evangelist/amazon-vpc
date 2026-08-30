@@ -190,7 +190,7 @@ apis:
   humanURL: https://aws.amazon.com/vpc/
   baseURL: https://ec2.amazonaws.com
   tags:
-  - VPC
+  - VPCs
   tags_raw:
   - VPCs
   properties:
