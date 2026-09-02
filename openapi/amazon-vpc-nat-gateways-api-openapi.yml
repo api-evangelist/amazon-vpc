@@ -1,4 +1,4 @@
-openapi: 3.1.0
+openapi: 3.2.0
 info:
   title: Amazon VPC Internet Gateways NAT Gateways API
   description: Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. VPC operations are part of the Amazon EC2 API and use the EC2 query-based API pattern.
@@ -165,12 +165,6 @@ components:
           description: Any tags assigned to the NAT gateway
           items:
             $ref: '#/components/schemas/Tag'
-    CreateNatGatewayResponse:
-      type: object
-      description: Response from the CreateNatGateway action
-      properties:
-        natGateway:
-          $ref: '#/components/schemas/NatGateway'
     Tag:
       type: object
       description: Describes a tag
@@ -181,6 +175,12 @@ components:
         value:
           type: string
           description: The value of the tag
+    CreateNatGatewayResponse:
+      type: object
+      description: Response from the CreateNatGateway action
+      properties:
+        natGateway:
+          $ref: '#/components/schemas/NatGateway'
   securitySchemes:
     sigv4Auth:
       type: apiKey
