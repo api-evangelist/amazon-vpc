@@ -186,13 +186,11 @@ apis:
   - type: Security
     url: https://docs.aws.amazon.com/vpc/latest/userguide/security.html
 - aid: amazon-vpc:amazon-vpc-vpcs-api
-  name: Amazon VPC VPCs API
+  name: Amazon VPC VP Cs API
   description: Operations for creating and managing Virtual Private Clouds
   humanURL: https://aws.amazon.com/vpc/
   baseURL: https://ec2.amazonaws.com
   tags:
-  - VPC
-  tags_raw:
   - VPCs
   properties:
   - type: OpenAPI
