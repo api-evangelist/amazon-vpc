@@ -10,6 +10,11 @@ provenance:
   grounding: every price_text was found verbatim in the fetched page text
 audience: developer-api
 pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-09-20'
+  managed_tier: IPAM Advanced Tier
 published: true
 note: AWS VPC pricing page; many rates are rendered dynamically by region selector tokens, so only prices
   visible in examples and static tables were captured. VPC Route Server price not shown numerically.
