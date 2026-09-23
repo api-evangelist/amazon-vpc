@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon VPC Internet Gateways Network ACLs API
+  title: Amazon VPC Network ACLs API
   description: Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. VPC operations are part of the Amazon EC2 API and use the EC2 query-based API pattern.
   version: '2016-11-15'
   contact:

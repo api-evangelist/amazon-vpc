@@ -1,6 +1,6 @@
 openapi: 3.2.0
 info:
-  title: Amazon VPC Internet Gateways Subnets API
+  title: Amazon VPC Subnets API
   description: Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define. VPC operations are part of the Amazon EC2 API and use the EC2 query-based API pattern.
   version: '2016-11-15'
   contact:
@@ -192,16 +192,6 @@ components:
           description: Any tags assigned to the subnet
           items:
             $ref: '#/components/schemas/Tag'
-    Tag:
-      type: object
-      description: Describes a tag
-      properties:
-        key:
-          type: string
-          description: The key of the tag
-        value:
-          type: string
-          description: The value of the tag
     CreateSubnetResponse:
       type: object
       description: Response from the CreateSubnet action
@@ -220,6 +210,16 @@ components:
         nextToken:
           type: string
           description: Token for the next page of results
+    Tag:
+      type: object
+      description: Describes a tag
+      properties:
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
   securitySchemes:
     sigv4Auth:
       type: apiKey

@@ -1,12 +1,7 @@
 {
   "provider": "amazon-vpc",
   "sources": [
-    "amazon-vpc-internet-gateways-api-openapi.yml",
-    "amazon-vpc-nat-gateways-api-openapi.yml",
-    "amazon-vpc-network-acls-api-openapi.yml",
-    "amazon-vpc-route-tables-api-openapi.yml",
-    "amazon-vpc-subnets-api-openapi.yml",
-    "amazon-vpc-vpcs-api-openapi.yml"
+    "_original/amazon-vpc-openapi.yml"
   ],
   "outputs": [
     "amazon-vpc-internet-gateways-api-openapi.yml",
@@ -16,17 +11,23 @@
     "amazon-vpc-subnets-api-openapi.yml",
     "amazon-vpc-vpcs-api-openapi.yml"
   ],
-  "archived": [],
+  "archived": [
+    "deleted 1 superseded output(s) from the previous generation"
+  ],
   "errors": [],
   "warnings": [],
   "notes": [
-    "amazon-vpc-internet-gateways-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "amazon-vpc-nat-gateways-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "amazon-vpc-network-acls-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "amazon-vpc-route-tables-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "amazon-vpc-subnets-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "amazon-vpc-vpcs-api-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
-    "apis.yml register: already-registered"
+    "sourced from openapi/_original/ (1 archived document(s)); previously refined output at the top level was skipped rather than re-split",
+    "amazon-vpc-openapi.yml: upgraded openapi 3.1.0 -> OpenAPI 3.2.0",
+    "superseded outputs removed: amazon-vpc-vp-cs-api-openapi.yml",
+    "apis.yml register: written (+1 apis, 6 total)"
   ],
-  "skipped": []
+  "skipped": [
+    "amazon-vpc-internet-gateways-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-vpc-nat-gateways-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-vpc-network-acls-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-vpc-route-tables-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-vpc-subnets-api-openapi.yml: previously refined output, superseded by openapi/_original/",
+    "amazon-vpc-vp-cs-api-openapi.yml: previously refined output, superseded by openapi/_original/"
+  ]
 }

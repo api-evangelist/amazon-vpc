@@ -76,16 +76,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Tag:
-      type: object
-      description: Describes a tag
-      properties:
-        key:
-          type: string
-          description: The key of the tag
-        value:
-          type: string
-          description: The value of the tag
     InternetGateway:
       type: object
       description: Describes an internet gateway
@@ -124,6 +114,16 @@ components:
       properties:
         internetGateway:
           $ref: '#/components/schemas/InternetGateway'
+    Tag:
+      type: object
+      description: Describes a tag
+      properties:
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
   securitySchemes:
     sigv4Auth:
       type: apiKey
