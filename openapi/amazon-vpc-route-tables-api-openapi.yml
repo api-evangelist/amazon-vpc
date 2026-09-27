@@ -185,16 +185,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Tag:
-      type: object
-      description: Describes a tag
-      properties:
-        key:
-          type: string
-          description: The key of the tag
-        value:
-          type: string
-          description: The value of the tag
     RouteTable:
       type: object
       description: Describes a route table
@@ -264,6 +254,16 @@ components:
           description: Any tags assigned to the route table
           items:
             $ref: '#/components/schemas/Tag'
+    Tag:
+      type: object
+      description: Describes a tag
+      properties:
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
     CreateRouteTableResponse:
       type: object
       description: Response from the CreateRouteTable action
