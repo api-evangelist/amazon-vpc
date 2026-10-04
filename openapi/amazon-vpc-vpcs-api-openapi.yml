@@ -183,6 +183,24 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
+    CreateVpcResponse:
+      type: object
+      description: Response from the CreateVpc action
+      properties:
+        vpc:
+          $ref: '#/components/schemas/Vpc'
+    DescribeVpcsResponse:
+      type: object
+      description: Response from the DescribeVpcs action
+      properties:
+        vpcSet:
+          type: array
+          description: Information about the VPCs
+          items:
+            $ref: '#/components/schemas/Vpc'
+        nextToken:
+          type: string
+          description: Token for the next page of results
     Vpc:
       type: object
       description: Describes a VPC
@@ -250,18 +268,6 @@ components:
           description: Any tags assigned to the VPC
           items:
             $ref: '#/components/schemas/Tag'
-    DescribeVpcsResponse:
-      type: object
-      description: Response from the DescribeVpcs action
-      properties:
-        vpcSet:
-          type: array
-          description: Information about the VPCs
-          items:
-            $ref: '#/components/schemas/Vpc'
-        nextToken:
-          type: string
-          description: Token for the next page of results
     Tag:
       type: object
       description: Describes a tag
@@ -272,12 +278,6 @@ components:
         value:
           type: string
           description: The value of the tag
-    CreateVpcResponse:
-      type: object
-      description: Response from the CreateVpc action
-      properties:
-        vpc:
-          $ref: '#/components/schemas/Vpc'
   securitySchemes:
     sigv4Auth:
       type: apiKey

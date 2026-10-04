@@ -114,16 +114,12 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    Tag:
+    CreateNatGatewayResponse:
       type: object
-      description: Describes a tag
+      description: Response from the CreateNatGateway action
       properties:
-        key:
-          type: string
-          description: The key of the tag
-        value:
-          type: string
-          description: The value of the tag
+        natGateway:
+          $ref: '#/components/schemas/NatGateway'
     NatGateway:
       type: object
       description: Describes a NAT gateway
@@ -175,12 +171,16 @@ components:
           description: Any tags assigned to the NAT gateway
           items:
             $ref: '#/components/schemas/Tag'
-    CreateNatGatewayResponse:
+    Tag:
       type: object
-      description: Response from the CreateNatGateway action
+      description: Describes a tag
       properties:
-        natGateway:
-          $ref: '#/components/schemas/NatGateway'
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
   securitySchemes:
     sigv4Auth:
       type: apiKey
