@@ -218,6 +218,8 @@ apis:
   - type: Security
     url: https://docs.aws.amazon.com/vpc/latest/userguide/security.html
 common:
+  - type: Pricing
+    url: https://aws.amazon.com/vpc/pricing/
   - type: Plans
     url: plans/amazon-vpc-plans-pricing.yml
   - type: CapabilityMap
