@@ -218,6 +218,10 @@ apis:
   - type: Security
     url: https://docs.aws.amazon.com/vpc/latest/userguide/security.html
 common:
+  - type: RateLimits
+    url: rate-limits/amazon-vpc-rate-limits.yml
+  - type: FinOps
+    url: finops/amazon-vpc-finops.yml
   - type: Pricing
     url: https://aws.amazon.com/vpc/pricing/
   - type: Plans
