@@ -147,22 +147,6 @@ paths:
         dispatcher: FALLBACK
 components:
   schemas:
-    CreateSubnetResponse:
-      type: object
-      description: Response from the CreateSubnet action
-      properties:
-        subnet:
-          $ref: '#/components/schemas/Subnet'
-    Tag:
-      type: object
-      description: Describes a tag
-      properties:
-        key:
-          type: string
-          description: The key of the tag
-        value:
-          type: string
-          description: The value of the tag
     DescribeSubnetsResponse:
       type: object
       description: Response from the DescribeSubnets action
@@ -220,6 +204,22 @@ components:
           description: Any tags assigned to the subnet
           items:
             $ref: '#/components/schemas/Tag'
+    Tag:
+      type: object
+      description: Describes a tag
+      properties:
+        key:
+          type: string
+          description: The key of the tag
+        value:
+          type: string
+          description: The value of the tag
+    CreateSubnetResponse:
+      type: object
+      description: Response from the CreateSubnet action
+      properties:
+        subnet:
+          $ref: '#/components/schemas/Subnet'
   securitySchemes:
     sigv4Auth:
       type: apiKey
