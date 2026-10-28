@@ -1,4 +1,4 @@
-# Amazon VPC (amazon-vpc)
+# Amazon VPC
 
 <!-- API-EVANGELIST-PROVENANCE:BEGIN -->
 > ### About this repository
@@ -66,84 +66,206 @@
 
 Amazon Virtual Private Cloud (VPC) lets you provision a logically isolated section of the AWS Cloud where you can launch AWS resources in a virtual network that you define, with complete control over IP addressing, subnets, routing, and network gateways.
 
-**APIs.json:** [https://aws.amazon.com/vpc/](https://aws.amazon.com/vpc/)
+**Areas:** AWS · Networking · Private Cloud · Security · Subnets · VPC
 
-## Tags
+## Amazon VPC on APIs.io
 
-- AWS
-- Networking
-- Private Cloud
-- Security
-- Subnets
-- VPC
+Everything profiled for Amazon VPC is published on APIs.io rather than in this repository. Start at the provider page — **[apis.io/providers/amazon-vpc/](https://apis.io/providers/amazon-vpc/)** — or go straight to one of the APIs or properties below.
 
-## Timestamps
+### APIs (6)
 
-- **Created:** 2024-01-15
-- **Modified:** 2026-05-19
+- [Amazon VPC Internet Gateways API](https://apis.io/apis/amazon-vpc/amazon-vpc-internet-gateways-api/) — Operations for managing internet gateways that connect VPCs to the internet
+- [Amazon VPC NAT Gateways API](https://apis.io/apis/amazon-vpc/amazon-vpc-nat-gateways-api/) — Operations for managing NAT gateways for outbound internet access from private subnets
+- [Amazon VPC Network ACLs API](https://apis.io/apis/amazon-vpc/amazon-vpc-network-acls-api/) — Operations for managing network access control lists for subnet-level traffic filtering
+- [Amazon VPC Route Tables API](https://apis.io/apis/amazon-vpc/amazon-vpc-route-tables-api/) — Operations for managing route tables and routes within a VPC
+- [Amazon VPC Subnets API](https://apis.io/apis/amazon-vpc/amazon-vpc-subnets-api/) — Operations for creating and managing subnets within a VPC
+- [Amazon VPC VP Cs API](https://apis.io/apis/amazon-vpc/amazon-vpc-vpcs-api/) — Operations for creating and managing Virtual Private Clouds
 
-## APIs
+### Published properties
 
-### Amazon VPC API
+Each property below is a page on APIs.io carrying the machine-readable artifact and what it says.
 
-Core API for managing Amazon Virtual Private Cloud resources including VPCs, subnets, internet gateways, NAT gateways, route tables, and network ACLs. VPC operations are part of the Amazon EC2 API.
+#### Agentic access (1)
 
-- **Human URL:** [https://aws.amazon.com/vpc/](https://aws.amazon.com/vpc/)
-- **Base URL:** `https://ec2.amazonaws.com`
+Which operations an agent can call, which act, and which need a human in the loop.
 
-#### Tags
+- [Amazon Vpc Agentic Access](https://apis.io/agentic-access/amazon-vpc/amazon-vpc-agentic-access/)
 
-- AWS
-- Networking
-- Private Cloud
-- Security
-- Subnets
-- VPC
+#### JSON Schema (14)
 
-#### Properties
+The data models the API reads and writes.
 
-- [Documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/OperationList-query-vpc.html)
-- [OpenAPI](https://raw.githubusercontent.com/api-evangelist/amazon-vpc/refs/heads/main/openapi/amazon-vpc-openapi.yml) — [OpenAPI Specification](https://spec.openapis.org/oas/latest.html)
-- [JSON Schema](json-schema/amazon-vpc-schema.json) — [JSON Schema](https://json-schema.org/specification)
-- [JSON-LD](json-ld/amazon-vpc-context.jsonld) — [JSON-LD](https://www.w3.org/TR/json-ld11/)
-- [Pricing](https://aws.amazon.com/vpc/pricing/)
-- [Getting Started](https://aws.amazon.com/vpc/getting-started/)
-- [F A Q](https://aws.amazon.com/vpc/faqs/)
-- [User  Guide](https://docs.aws.amazon.com/vpc/latest/userguide/)
-- [API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/)
-- [C L I  Reference](https://docs.aws.amazon.com/cli/latest/reference/ec2/)
-- [Security](https://docs.aws.amazon.com/vpc/latest/userguide/security.html)
-- [Postman Collection](collections/amazon-vpc.postman_collection.json) — [Postman Collection 2.1](https://schema.getpostman.com/json/collection/v2.1.0/collection.json)
-- [Open Collection](collections/amazon-vpc.opencollection.json) — [Open Collection 1.0](https://schema.opencollection.com/opencollection/v1.0.0.json)
+- [Amazon VPC](https://apis.io/schemas/amazon-vpc/amazon-vpc/)
+- [CreateInternetGatewayResponse](https://apis.io/schemas/amazon-vpc/amazon-vpc-create-internet-gateway-response/)
+- [CreateNatGatewayResponse](https://apis.io/schemas/amazon-vpc/amazon-vpc-create-nat-gateway-response/)
+- [CreateRouteTableResponse](https://apis.io/schemas/amazon-vpc/amazon-vpc-create-route-table-response/)
+- [CreateSubnetResponse](https://apis.io/schemas/amazon-vpc/amazon-vpc-create-subnet-response/)
+- [CreateVpcResponse](https://apis.io/schemas/amazon-vpc/amazon-vpc-create-vpc-response/)
+- [DescribeSubnetsResponse](https://apis.io/schemas/amazon-vpc/amazon-vpc-describe-subnets-response/)
+- [DescribeVpcsResponse](https://apis.io/schemas/amazon-vpc/amazon-vpc-describe-vpcs-response/)
+- [InternetGateway](https://apis.io/schemas/amazon-vpc/amazon-vpc-internet-gateway/)
+- [NatGateway](https://apis.io/schemas/amazon-vpc/amazon-vpc-nat-gateway/)
+- [RouteTable](https://apis.io/schemas/amazon-vpc/amazon-vpc-route-table/)
+- [Subnet](https://apis.io/schemas/amazon-vpc/amazon-vpc-subnet/)
+- [Tag](https://apis.io/schemas/amazon-vpc/amazon-vpc-tag/)
+- [Vpc](https://apis.io/schemas/amazon-vpc/amazon-vpc-vpc/)
 
-## Common Properties
+#### JSON Structure (14)
 
-- [Portal](https://aws.amazon.com/)
+Data models expressed in JSON Structure.
+
+- [Amazon Vpc Create Internet Gateway Response Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-create-internet-gateway-response-structure/)
+- [Amazon Vpc Create Nat Gateway Response Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-create-nat-gateway-response-structure/)
+- [Amazon Vpc Create Route Table Response Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-create-route-table-response-structure/)
+- [Amazon Vpc Create Subnet Response Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-create-subnet-response-structure/)
+- [Amazon Vpc Create Vpc Response Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-create-vpc-response-structure/)
+- [Amazon Vpc Describe Subnets Response Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-describe-subnets-response-structure/)
+- [Amazon Vpc Describe Vpcs Response Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-describe-vpcs-response-structure/)
+- [Amazon Vpc Internet Gateway Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-internet-gateway-structure/)
+- [Amazon Vpc Nat Gateway Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-nat-gateway-structure/)
+- [Amazon Vpc Route Table Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-route-table-structure/)
+- [Amazon Vpc Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-structure/)
+- [Amazon Vpc Subnet Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-subnet-structure/)
+- [Amazon Vpc Tag Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-tag-structure/)
+- [Amazon Vpc Vpc Structure](https://apis.io/json-structure/amazon-vpc/amazon-vpc-vpc-structure/)
+
+#### JSON-LD (1)
+
+Linked-data contexts for the provider's vocabulary.
+
+- [Amazon Vpc Context](https://apis.io/jsonld/amazon-vpc/amazon-vpc-context/)
+
+#### Vocabulary (1)
+
+The provider's domain terms, defined.
+
+- [Amazon VPC Vocabulary](https://apis.io/vocabularies/amazon-vpc/amazon-vpc-vocabulary/)
+
+#### Examples (1)
+
+Example requests and responses.
+
+- [Amazon Vpc Example](https://apis.io/examples/amazon-vpc/amazon-vpc-example/)
+
+#### Collections (13)
+
+Postman and Open Collection request collections.
+
+- [Amazon VPC API](https://apis.io/collections/amazon-vpc/open-amazon-vpc/)
+- [Amazon VPC Internet Gateways API](https://apis.io/collections/amazon-vpc/open-amazon-vpc-internet-gateways-api/)
+- [Amazon VPC Internet Gateways NAT Gateways API](https://apis.io/collections/amazon-vpc/open-amazon-vpc-nat-gateways-api/)
+- [Amazon VPC Internet Gateways Network ACLs API](https://apis.io/collections/amazon-vpc/open-amazon-vpc-network-acls-api/)
+- [Amazon VPC Internet Gateways Route Tables API](https://apis.io/collections/amazon-vpc/open-amazon-vpc-route-tables-api/)
+- [Amazon VPC Internet Gateways Subnets API](https://apis.io/collections/amazon-vpc/open-amazon-vpc-subnets-api/)
+- [Amazon VPC Internet Gateways VPCs API](https://apis.io/collections/amazon-vpc/open-amazon-vpc-vpcs-api/)
+- [Amazon VPC Internet Gateways API](https://apis.io/collections/amazon-vpc/postman-amazon-vpc-internet-gateways-api/)
+- [Amazon VPC Internet Gateways NAT Gateways API](https://apis.io/collections/amazon-vpc/postman-amazon-vpc-nat-gateways-api/)
+- [Amazon VPC Internet Gateways Network ACLs API](https://apis.io/collections/amazon-vpc/postman-amazon-vpc-network-acls-api/)
+- [Amazon VPC Internet Gateways Route Tables API](https://apis.io/collections/amazon-vpc/postman-amazon-vpc-route-tables-api/)
+- [Amazon VPC Internet Gateways Subnets API](https://apis.io/collections/amazon-vpc/postman-amazon-vpc-subnets-api/)
+- [Amazon VPC Internet Gateways VPCs API](https://apis.io/collections/amazon-vpc/postman-amazon-vpc-vpcs-api/)
+
+#### Governance rules (2)
+
+Spectral rulesets for the provider's contracts.
+
+- [Amazon VPC — jsonschema rules](https://apis.io/rules/amazon-vpc/amazon-vpc-jsonschema-spectral-rules/)
+- [Amazon VPC API Rules](https://apis.io/rules/amazon-vpc/amazon-vpc-spectral-rules/)
+
+#### Security (4)
+
+Authentication, trust centre, and vulnerability disclosure.
+
+- [Amazon Vpc Authentication](https://apis.io/security/amazon-vpc/amazon-vpc-authentication/)
+- [Amazon Vpc Domain Security](https://apis.io/security/amazon-vpc/amazon-vpc-domain-security/)
+- [Amazon Vpc Trust Center](https://apis.io/security/amazon-vpc/amazon-vpc-trust-center/)
+- [Amazon Vpc Vulnerability Disclosure](https://apis.io/security/amazon-vpc/amazon-vpc-vulnerability-disclosure/)
+
+#### Plans and pricing (1)
+
+Published plans, tiers and prices.
+
+- [Amazon Vpc Plans Pricing](https://apis.io/plans/amazon-vpc/amazon-vpc-plans-pricing/)
+
+#### Rate limits (1)
+
+Published request limits.
+
+- [Amazon Vpc Rate Limits](https://apis.io/rate-limits/amazon-vpc/amazon-vpc-rate-limits/)
+
+#### FinOps (1)
+
+What the API costs to run, by operation.
+
+- [Amazon Vpc Finops](https://apis.io/finops/amazon-vpc/amazon-vpc-finops/)
+
+## Where to find this API
+
+Links to the company's own pages. This repository publishes no copy of their specifications — the canonical document is theirs and lives at the URLs below.
+
 - [Website](https://aws.amazon.com/vpc/)
 - [Documentation](https://docs.aws.amazon.com/vpc/)
-- [Terms of Service](https://aws.amazon.com/service-terms/)
-- [Privacy Policy](https://aws.amazon.com/privacy/)
+- [Pricing](https://aws.amazon.com/vpc/pricing/)
 - [Support](https://aws.amazon.com/premiumsupport/)
 - [Blog](https://aws.amazon.com/blogs/networking-and-content-delivery/)
-- [GitHub Organization](https://github.com/aws)
-- [Console](https://console.aws.amazon.com/vpc/)
-- [Sign Up](https://signin.aws.amazon.com/signup?request_type=register)
-- [Login](https://aws.amazon.com/console/)
-- [Status Page](https://health.aws.amazon.com/health/status)
-- [Knowledge  Center](https://repost.aws/knowledge-center)
-- [YouTube](https://www.youtube.com/user/AmazonWebServices)
-- [Stack Overflow](https://stackoverflow.com/questions/tagged/amazon-vpc)
-- [Contact](https://aws.amazon.com/contact-us/)
 - [Security](https://docs.aws.amazon.com/vpc/latest/userguide/security.html)
 - [Compliance](https://aws.amazon.com/compliance/)
-- [Spectral Rules](https://raw.githubusercontent.com/api-evangelist/amazon-vpc/refs/heads/main/rules/amazon-vpc-spectral-rules.yml)
-- [Vocabulary](https://raw.githubusercontent.com/api-evangelist/amazon-vpc/refs/heads/main/vocabulary/amazon-vpc-vocabulary.yaml)
-- [Features](undefined)
-- [Use Cases](undefined)
-- [Integrations](https://aws.amazon.com/marketplace)
+- [Terms of service](https://aws.amazon.com/service-terms/)
+- [Privacy policy](https://aws.amazon.com/privacy/)
+- [GitHub](https://github.com/aws)
+- [Status](https://health.aws.amazon.com/health/status)
 
-## Maintainers
+## API Evangelist rating
 
-**FN:** Kin Lane
-**Email:** kin@apievangelist.com
-**URL:** https://apievangelist.com
+**Kin Score 63.8** — strong · rubric 0.25.0 · scored 2026-10-23
+
+| Facet | Score |
+|---|---|
+| Discoverability | 73.2 |
+| Contract quality | 60.7 |
+| Contract governance | 27.3 |
+| Operational transparency | 36.8 |
+| Developer ergonomics | 65.5 |
+| Access clarity | 85.5 |
+
+**Agent readiness 28.4** — agent-aware
+
+| Agent-readiness dimension | Result |
+|---|---|
+| Spec Presence | yes |
+| Agentic Access | derived (partial credit) |
+| Reversibility Documented | na |
+| MCP Server | — |
+| Auth Clarity | bearer (partial credit) |
+| Idempotency | na |
+| Error Semantics | — |
+| OpenAPI Examples | verified |
+| Rate Limit Signal | derived (partial credit) |
+| Event Surface Described | — |
+| Agent Skills | — |
+| Well Known Catalog | — |
+| Consent Identity | — |
+| Agent Card | — |
+| Dry Run Mode | na |
+| Delegated Identity | — |
+| Protected Resource Metadata | — |
+| Dynamic Client Registration | — |
+| Agentic Commerce | — |
+| Pagination Ratio | na |
+| Operation Distinctiveness | distinct |
+
+**Regulatory alignment 35.3** — Horizontal (data, software, accessibility, platform)
+
+The rubric is published at [github.com/api-evangelist/kin-score](https://github.com/api-evangelist/kin-score). The per-check breakdown behind these numbers — which checks were earned, partial or missed — along with score history and how this provider compares to its peers, is available at [apis.io/providers/amazon-vpc/](https://apis.io/providers/amazon-vpc/).
+
+## How this profile is made
+
+API Evangelist profiles a company's public API surface the way a developer would find it: the website, developer portal and documentation, the specifications it publishes, its public repositories, and its pricing, status and changelog pages. From that it derives the properties above — contracts split per API, workflows, schemas, collections, governance rules, plans and rate limits — and scores them against the published [Kin Score rubric](https://github.com/api-evangelist/kin-score).
+
+The artifacts are published on [APIs.io](https://apis.io), not in this repository. This repository is the public record for Amazon VPC: the place to say something is wrong, missing or out of date, and to ask for a re-score or a removal.
+
+## Open an issue
+
+- **Something about this listing** — a wrong description, a missing API, a stale artifact or a question about the rating: [open an issue on this repository](https://github.com/api-evangelist/amazon-vpc/issues/new).
+- **A new API, or one that is not in the catalog yet** — [submit it on APIs.io](https://apis.io/add/).
+- **Anything else** — [the APIs.io inbox](https://github.com/api-search/inbox/issues/new) or [info@apievangelist.com](mailto:info@apievangelist.com).
