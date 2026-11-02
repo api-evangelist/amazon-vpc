@@ -1,0 +1,202 @@
+# Pricing transcribed from the provider's own page — see provenance. Numbers are quoted, not derived.
+generated: '2026-09-20'
+method: searched
+source: https://aws.amazon.com/vpc/pricing/
+sources:
+- https://aws.amazon.com/vpc/pricing/
+provenance:
+  tool: planning/api-economics/harvest_pricing.py
+  run: 20260920T120546
+  grounding: every price_text was found verbatim in the fetched page text
+audience: developer-api
+pricing_basis: usage-other
+delivery:
+  delivery: managed
+  method: page
+  read: '2026-09-20'
+  managed_tier: IPAM Advanced Tier
+published: true
+note: AWS VPC pricing page; many rates are rendered dynamically by region selector tokens, so only prices
+  visible in examples and static tables were captured. VPC Route Server price not shown numerically.
+plan_count: 12
+currency: USD
+plans:
+- name: NAT Gateway (US East Ohio example)
+  price_text: $0.045 per hour
+  price: 0.045
+  currency: USD
+  period: per-use
+  unit: NAT Gateway-hour
+  overage: Data Processing charge will result in a charge of $0.045 per GB
+- name: IPAM Free Tier
+  price_text: you do not pay for your usage of IPAM
+  period: none
+  included_quota: IP address management in a single AWS Region and account
+- name: IPAM Advanced Tier
+  price_text: hourly rate of $0.00027 for each active IP address managed in IPAM
+  price: 0.00027
+  currency: USD
+  period: per-use
+  unit: active IP address per hour
+- name: Traffic Mirroring (US East Ohio example)
+  price_text: the hourly rate is $0.015
+  price: 0.015
+  currency: USD
+  period: per-use
+  unit: ENI per hour
+- name: Reachability Analyzer
+  price_text: the price per analysis processed is $0.10
+  price: 0.1
+  currency: USD
+  period: per-use
+  unit: analysis
+- name: Network Access Analyzer
+  price_text: $0.002 per ENI analysis
+  price: 0.002
+  currency: USD
+  period: per-use
+  unit: ENI analyzed
+- name: In-use Public IPv4 Address
+  price_text: Hourly charge for In-use Public IPv4 Address $0.005
+  price: 0.005
+  currency: USD
+  period: per-use
+  unit: address per hour
+- name: Idle Public IPv4 Address
+  price_text: Hourly charge for Idle Public IPv4 Address $0.005
+  price: 0.005
+  currency: USD
+  period: per-use
+  unit: address per hour
+- name: Amazon-provided contiguous IPv4 block
+  price_text: $0.008 per public IPv4 address per hour
+  price: 0.008
+  currency: USD
+  period: per-use
+  unit: public IPv4 address per hour
+- name: VPC Peering (cross-AZ same Region)
+  price_text: $0.01/GB
+  price: 0.01
+  currency: USD
+  period: per-use
+  unit: GB
+- name: ODB Peering
+  price_text: $0.01/GB
+  price: 0.01
+  currency: USD
+  period: per-use
+  unit: GB
+- name: VPC Encryption Controls (US East N. Virginia)
+  price_text: $0.15
+  price: 0.15
+  currency: USD
+  period: per-use
+  unit: non-empty VPC per hour
+rate_limit_statements:
+- The bill is calculated in one-second increments, with a minimum of 60 seconds.
+- Each partial NAT Gateway-hour consumed is billed as a full hour.
+x-canonical:
+  generated: '2026-11-01'
+  vocabulary: engine/economics/plans-canonical.yml
+  models:
+  - hybrid
+  - subscription
+  units:
+  - compute
+  - data
+  plans:
+  - name: NAT Gateway (US East Ohio example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: IPAM Free Tier
+    access: other
+    model: unstated
+    model_how: derived
+    units: []
+    periods:
+    - none
+  - name: IPAM Advanced Tier
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Traffic Mirroring (US East Ohio example)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Reachability Analyzer
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: Network Access Analyzer
+    access: other
+    model: subscription
+    model_how: derived
+    units:
+    - other
+    periods:
+    - other
+  - name: In-use Public IPv4 Address
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Idle Public IPv4 Address
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: Amazon-provided contiguous IPv4 block
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
+  - name: VPC Peering (cross-AZ same Region)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: ODB Peering
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - data
+    periods:
+    - other
+  - name: VPC Encryption Controls (US East N. Virginia)
+    access: other
+    model: hybrid
+    model_how: derived
+    units:
+    - compute
+    periods:
+    - other
