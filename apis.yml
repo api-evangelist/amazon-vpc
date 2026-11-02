@@ -22,13 +22,16 @@ accessModel:
   trial: false
   try_now: true
   public: false
+  gated: none
+  gated_source:
+  - onboarding
   label: Freemium · Self-serve signup
   confidence: medium
   source:
   - plans
   - authentication
   - security
-  generated: '2026-09-03'
+  generated: '2026-11-02'
   method: derived
 image: https://a0.awsstatic.com/libra-css/images/logos/aws_logo_smile_1200x630.png
 url: https://aws.amazon.com/vpc/

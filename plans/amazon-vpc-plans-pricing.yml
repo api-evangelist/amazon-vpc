@@ -96,7 +96,7 @@ rate_limit_statements:
 - The bill is calculated in one-second increments, with a minimum of 60 seconds.
 - Each partial NAT Gateway-hour consumed is billed as a full hour.
 x-canonical:
-  generated: '2026-11-01'
+  generated: '2026-11-02'
   vocabulary: engine/economics/plans-canonical.yml
   models:
   - hybrid
